@@ -1,0 +1,28 @@
+SAMPLE CASE: every person, organisation and figure below and in the attached pack is invented for practice. Treat this as my meeting invitation, its attached pack and an extract of the previous pack.
+Today is Monday 23 November 2026. I am Alex Sample, Executive General Manager Strategy at Meridian Sample Water, and a member of the Capital and Risk Committee.
+
+=== INVITATION ===
+From: Board Secretariat <secretariat@example.org>
+To: Capital and Risk Committee members
+Subject: Sample: Capital and Risk Committee, 26 November 2026, papers attached
+Date: Thu 19 Nov 2026, 4:10 pm
+
+Dear members,
+The Capital and Risk Committee meets on Thursday 26 November 2026 at 10 am in the Board Room, Level 6. The meeting pack is attached (crc-pack-2026-11-26.pdf, 60 pages).
+Attendees:
+- Harper Sample, Chair
+- Ellis Sample, Chief Financial Officer
+- Reese Sample, General Manager Operations
+- Logan Sample, General Manager Community and Environment
+- Alex Sample, Executive General Manager Strategy
+Kind regards,
+Board Secretariat
+
+=== PREVIOUS PACK EXTRACT (meeting of 27 August 2026, Paper 2: Programme dashboard, reporting period to 31 July 2026) ===
+Measure | This period | Status
+Overall programme status | On track | Green
+Spend to date against budget | $0.9M of $22.4M | Green
+Schedule float to licence deadline | 19 weeks | Green
+Design maturity | 40% | Green
+Lost-time injuries | 0 | Green
+Community complaints | 1 | Green
