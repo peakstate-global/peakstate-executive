@@ -14,7 +14,7 @@ The guide shows the setup and each skill: the real prompt, an invented practice 
 
 - **Forum prep**: the day before a board or committee meeting, reads the whole pack and prepares you, with every point pinned to a page.
 - **R&D**: before you back an idea, Researcher argues it for and against from sources, then proposes a one-month test and a pitch.
-- **Industry radar**: each Monday, scans the web for what happened in your industry and in AI in the last seven days.
+- **Industry radar**: runs on a Monday. First your week ahead from your calendar, email and tasks, then what happened in your industry and in AI in the last seven days.
 - **Inbox triage** (beta): a short list each morning of the emails that need you, each with a draft reply, the ones that can wait with a come-back date, and one line for everything safe to archive. Copilot never sends, moves or deletes. It does not use your profile.
   A more advanced version is possible: a Copilot Studio agent with actions that moves each email into a folder by its suggested action (Do, Delegate, Defer, Delete), so you can work through each folder quickly. It needs extra setup outside the scope of this repo, and you will likely need support from your IT team or a mentor.
 
