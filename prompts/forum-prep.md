@@ -1,7 +1,7 @@
 # Forum prep
 
-What it is for: Prepare you for a forum or committee meeting from its pack, invitation and your profile.
-How to use it: copy everything below the line into a new Microsoft 365 Copilot chat, and see the guide at https://peakstate-global.github.io/peakstate-executive/ for the sample case and what you need.
+What it is for: The day before a board or committee meeting: Copilot reads the whole pack and prepares you, with every point pinned to a page.
+How to use it: copy everything below the line into a new Microsoft 365 Copilot chat, and see the guide at https://peakstate-global.github.io/peakstate-executive/ for the practice case and what you need.
 
 ---
 

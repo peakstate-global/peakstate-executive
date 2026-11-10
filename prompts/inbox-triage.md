@@ -1,7 +1,7 @@
-# Inbox triage
+# Inbox triage (beta)
 
-What it is for: Triage your inbox into delete, delegate, defer and do, with draft replies.
-How to use it: copy everything below the line into a new Microsoft 365 Copilot chat, and see the guide at https://peakstate-global.github.io/peakstate-executive/ for the sample case and what you need.
+What it is for: Each morning: every email gets one of four moves (delete, delegate, defer, do) with a reason, and every reply gets a draft. Copilot never sends.
+How to use it: copy everything below the line into a new Microsoft 365 Copilot chat, and see the guide at https://peakstate-global.github.io/peakstate-executive/ for the practice case and what you need.
 
 ---
 

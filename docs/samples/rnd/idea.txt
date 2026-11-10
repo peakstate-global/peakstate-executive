@@ -1,4 +1,4 @@
-[Sample, invented for testing. The organisation and the note are invented.]
+[Practice case, invented for testing. The organisation and the note are invented.]
 
 Idea: rebuild our leadership development programme around each manager's learning style.
 

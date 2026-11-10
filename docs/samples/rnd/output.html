@@ -1,5 +1,5 @@
 <!doctype html><html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Real Copilot output: rnd</title>
+<title>Real Copilot output: R&amp;D</title>
 <style>
 a {
     text-decoration: none;
@@ -14,44 +14,192 @@ tr th {
 
 body{font-family:"Segoe UI",system-ui,-apple-system,sans-serif;color:#242424;background:#fff;max-width:980px;margin:0 auto;padding:0 1rem 3rem;line-height:1.5}
 table{border-collapse:collapse;margin:1rem 0;font-size:.92rem} th,td{padding:.35rem .5rem;vertical-align:top;text-align:left}
-.ps-note{font-family:system-ui,sans-serif;background:#F5F0E8;border:1px solid #d9cfbd;border-radius:8px;padding:.7rem 1rem;margin:1rem 0 1.5rem;font-size:.9rem;color:#1A1614}
-.ps-note a{color:#8a3215;text-decoration:underline}
+.bar{position:sticky;top:0;z-index:5;background:#fff;padding:.8rem 0;border-bottom:1px solid #e6e6e6}
+.back{display:inline-flex;align-items:center;gap:.5rem;font:700 1.1rem/1 system-ui,sans-serif;background:#A93D1A;color:#fff!important;text-decoration:none!important;border-radius:999px;padding:.85rem 1.4rem;min-height:48px}
+.back:hover{background:#8a3215}.back:focus-visible{outline:3px solid #1A1614;outline-offset:3px}
+.ps-note{font-family:system-ui,sans-serif;background:#F5F0E8;border:1px solid #d9cfbd;border-radius:8px;padding:.7rem 1rem;margin:1rem 0 1.5rem;font-size:.92rem;color:#1A1614}
+.ps-note p{margin:.3rem 0}
+.toc{font-family:system-ui,sans-serif;font-size:.9rem;margin:0 0 1.5rem}.toc ol{margin:.3rem 0;padding-left:1.4rem}
 .wrap{overflow-x:auto}
+.out p{white-space:pre-line}
 .turn{border-radius:10px;padding:.5rem .8rem;margin:.5rem 0;max-width:85%} .turn.ai{background:#f5f5f5} .turn.me{background:#ebe3f7;margin-left:auto}
 .turn b{display:block;font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;color:#555} .sugg{font-size:.8rem;color:#555}
-.doc{border:1px solid #ddd;border-radius:8px;padding:1rem 1.5rem;font-family:Calibri,Arial,sans-serif} .doc h2{font-size:1.1rem;color:#2F5496;margin:1rem 0 .3rem}
+.doc{border:1px solid #ddd;border-radius:8px;padding:1rem 1.5rem;font-family:Calibri,Arial,sans-serif} .doc h1,.doc h2{font-size:1.1rem;color:#2F5496;margin:1rem 0 .3rem}
+.summary{border:2px solid #A93D1A;border-radius:12px;padding:.4rem 1.2rem 1rem;margin:0 0 2rem}
+.appendix{border-top:3px double #d9cfbd;padding-top:.5rem;font-size:.95em}
+.ind-card{border:1px solid #d9cfbd;border-radius:12px;padding:.8rem 1.1rem;margin:1rem 0;background:#FAF7F0}
+.ind-card h3{margin:0 0 .4rem;font-size:1.05rem}.ind-card dl{display:grid;grid-template-columns:max-content 1fr;gap:.25rem .8rem;margin:0}
+.ind-card dt{font-weight:700}.ind-card dd{margin:0;overflow-wrap:anywhere}
+@media (max-width:600px){.ind-card dl{grid-template-columns:1fr}.ind-card dd{margin-bottom:.4rem}.turn{max-width:100%}}
 </style></head><body>
-<p class="ps-note"><strong>Real Copilot output, invented sample case.</strong> R&amp;D researcher-v3, run v3-t2, 8 November 2026: a sample learning-styles idea argued both ways. Source links are the public pages Researcher cited. Every person and organisation in the case is invented. Account and tenant details were removed; the content is Copilot's, unchanged. <a href="../../index.html">Back to the guide</a></p>
-<main class="wrap"><div style="font-family:'Segoe UI';font-size:14px;font-style:normal;font-weight:400;line-height:20px"><p>Research note for review.</p>
+<div class="bar"><a class="back" href="../../index.html#rnd">&#8592; Back to R&amp;D</a></div>
+<div class="ps-note" role="note"><p><strong>Real Copilot output, invented practice case.</strong> R&amp;D (Researcher v4), run v4-d01, 10 November 2026: a practice idea to rebuild a leadership programme around learning styles, argued both ways.</p><p>Read the boxed summary first (the answer, three cited points, the one-month test and the pitch). The evidence tables follow as an appendix.</p><p>Result: fail on one critical check (T1). The other 10 of 11 checks pass. T1 matters because the report must flag every figure it could not verify; this run flagged the study but dropped the 42% figure from the flag. The run used 2 Researcher queries: the report and the reply "Go ahead." to the question below.</p><p><details><summary>Researcher's question before it started</summary><span style="display:block;margin-top:.4rem">I see you want the learning-styles proposal tested exactly as written, using public web evidence and the executive profile only to tailor the pitch.<br>To make sure I cover what you need:<br>Should I treat the proposed one-month test as testing the core learning-styles matching claim, rather than the unverified $180,000 and $420,000 cost figures?<br>For the “most cited review”, “recent meta-analysis” and “largest trial”, should I use the strongest reasonable matches I can identify from accessible publisher web pages when citation counts or trial-size rankings cannot be established conclusively?<br>Or just say “go ahead” and I’ll use my best judgment.</span></details></p></div>
+<main class="wrap out"><div style="font-family:'Segoe UI';font-size:14px;font-style:normal;font-weight:400;line-height:20px"><p>Research note for review.</p>
+<section class="summary" aria-label="Summary"><h2>Executive summary</h2>
+<p>The answer: Do not rebuild the programme as described; take forward only a no-vendor-spend matched-versus-non-matched test with a pre-agreed decision gate.</p>
+<p>Point 1: The direct evidence is mixed: a 2024 meta-analysis found a small pooled benefit, but valid crossover effects were infrequent and study quality was low. <strong>Strongest evidence: only 26% of outcomes showed the required crossover.</strong> Source: <a rel="noopener noreferrer" href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1428732/full">https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1428732/full</a> <a rel="noopener noreferrer" href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1428732/full">[frontiersin.org]</a></p>
+<p>Point 2: Preference is not the same as aptitude: one reviewed experiment found only 44.6% agreement between self-classification and an objective questionnaire. <strong>Strongest evidence: weak self-identification.</strong> Source: <a rel="noopener noreferrer" href="https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2023.1147498/full">https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2023.1147498/full</a> <a rel="noopener noreferrer" href="https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2023.1147498/full">[frontiersin.org]</a></p>
+<p>Point 3: Leadership-specific evidence supports personalising practice to a manager’s work context, goals and feedback needs, not routing people by sensory category. <strong>Strongest evidence: randomised manager training with behavioural practice and feedback.</strong> Source: <a rel="noopener noreferrer" href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0320131">https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0320131</a></p>
+<p>This works if: stated preferences remain stable, matched delivery improves delayed retention and transfer beyond non-matched delivery, every style benefits, and the gain justifies four-version operating effort.</p>
+<p>It fails if: preferences change, one delivery method performs well across categories, enjoyment rises without transfer, or the test cannot distinguish treatment effects from topic or facilitator effects.</p>
+<h2>One-month test</h2>
+<p>Who takes part: 24 managers, six per self-identified VARK category; no paid profile.</p>
+<p>What they do: Each completes two parallel 45-minute leadership lessons, one matched and one deliberately non-matched. Randomise topic, order and non-matched format; keep objectives, examples, duration, facilitator and assessment constant.</p>
+<p>What we measure: Baseline, immediate and week-three knowledge; blind-rated application to a new leadership scenario; preference stability; completion and acceptability.</p>
+<p>Stop rule: Do not progress to commercial design unless matched delivery wins on both delayed knowledge and transfer, preferences remain repeatable, and no category is materially worse.</p>
+<h2>Pitch</h2>
+<p>Recommendation: Test the mechanism, not the full proposition. The available evidence does not support rebuilding twelve workshops into four tracks before we know matching improves leadership outcomes.</p>
+<p>Value: A counterbalanced internal pilot gives a clean answer without vendor spend. It separates learning-style matching from general personalisation, multimodal teaching and participant preference.</p>
+<p>Measurement: Use delayed knowledge and blind-rated application, not satisfaction alone. Record internal design hours so the test shows what additional complexity buys.</p>
+<p>Decision gate: Scale only if matched delivery produces a repeatable gain across styles that is large enough to justify four versions. Otherwise, direct investment towards contextual needs, practice, feedback and workplace application.</p>
+</section><section class="appendix" aria-label="Appendix"><h2>Appendix: evidence and adversarial review</h2>
+<p>The sections below hold the evidence, the case against and every source behind the summary.</p>
 <h2>Case for</h2>
 
-<table><thead><tr><th align="right">#</th><th>Claim</th><th>Label</th><th>URL</th><th>Quote</th></tr></thead><tbody><tr><td align="right">1</td><td>A 42-person randomised experiment found a matching benefit for comprehension among clearly visual-preferring learners. It found no recall interaction, and the auditory group did not have a clear auditory preference. Evidence quality: low because the sample was small and unbalanced, but it directly tested matching. <a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2019.02820/full" rel="noopener noreferrer">[frontiersin.org]</a></td><td>sourced</td><td><a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2019.02820/full" rel="noopener noreferrer">https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2019.02820/full</a></td><td>Specifically, learners with a preference for visual texts benefit from learning with their preferred modality, they showed higher comprehension scores...</td></tr><tr><td align="right">2</td><td>Public Harvard guidance recommends learning that is engaging, personal and multisensory. This supports the broader personalisation aim, but it is practitioner guidance rather than evidence for profiling people or creating four matched versions. <a href="https://summer.harvard.edu/blog/5-tips-to-retain-what-you-learn/" rel="noopener noreferrer">[summer.harvard.edu]</a></td><td>sourced</td><td><a href="https://summer.harvard.edu/blog/5-tips-to-retain-what-you-learn/" rel="noopener noreferrer">https://summer.harvard.edu/blog/5-tips-to-retain-what-you-learn/</a></td><td>But being a better learner requires some effort to ensure what you’re learning is engaging, personal, and multi-sensory.</td></tr><tr><td align="right">3</td><td>I could not verify the claim that a 2024 Harvard study found managers trained in their preferred learning style retained 42% more after three months.</td><td>inferred</td><td></td><td></td></tr><tr><td align="right">4</td><td>I could not verify the claim that most leaders already know their learning style and like the idea.</td><td>inferred</td><td></td><td></td></tr><tr><td align="right">5</td><td>I could not verify the claim that a vendor profile would cost about $180,000 a year.</td><td>inferred</td><td></td><td></td></tr><tr><td align="right">6</td><td>I could not verify the claim that producing four workshop versions would cost about $420,000 once.</td><td>inferred</td><td></td><td></td></tr></tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="right">#</th><th>Claim</th><th>Label</th><th>URL</th><th>Quote</th></tr></thead><tbody><tr><td align="right">1</td><td>Direct support exists: one university experiment found a significant text-modality × preference interaction for comprehension outcomes. <a rel="noopener noreferrer" href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2019.02820/full">[frontiersin.org]</a></td><td>sourced</td><td><a rel="noopener noreferrer" href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2019.02820/full">https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2019.02820/full</a></td><td>As expected, we did not find any main effects, but a significant interaction between the text modality and the learner’s preference for comprehension outcomes...</td></tr><tr><td align="right">2</td><td>Adjacent evidence: measured learning dimensions can correlate with performance, showing individual differences but not proving that matched instruction caused them. <a rel="noopener noreferrer" href="https://www.mdpi.com/2071-1050/13/6/3341">[mdpi.com]</a></td><td>sourced</td><td><a rel="noopener noreferrer" href="https://www.mdpi.com/2071-1050/13/6/3341">https://www.mdpi.com/2071-1050/13/6/3341</a></td><td>Abstract conceptualization was also associated with medium-high performance in all assessment methods and this variable predicted consistent high performance, independent of the assessment method.</td></tr><tr><td align="right">3</td><td>Leadership-specific adjacent evidence supports individualising training around behaviours, goals, work context and feedback rather than sensory modality.</td><td>sourced</td><td><a rel="noopener noreferrer" href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0320131">https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0320131</a></td><td>Leadership training should be individualized and include behaviors analysis, goal setting, and practice with behavioral feedback.</td></tr><tr><td align="right">4</td><td>A counterbalanced internal test can examine the matching mechanism while controlling content, assessment, exposure and participant differences.</td><td>inferred</td><td></td><td></td></tr><tr><td align="right">5</td><td>The note’s claimed Harvard result would be unusually direct support if a traceable study matched its year, manager population, intervention, outcome and follow-up.</td><td>inferred</td><td></td><td></td></tr><tr><td align="right">6</td><td>The learning team’s reported belief would support recruitment and acceptability if leaders’ classifications and reactions are measured rather than assumed.</td><td>inferred</td><td></td><td></td></tr><tr><td align="right">7</td><td>The proposed no-vendor-spend pilot would be economically attractive if the note’s commercial cost estimates and internal production effort prove accurate.</td><td>inferred</td><td></td><td></td></tr></tbody></table>
 <h2>Case against</h2>
 
-<table><thead><tr><th align="right">#</th><th>Claim</th><th>Label</th><th>URL</th><th>Quote</th></tr></thead><tbody><tr><td align="right">1</td><td>Most cited review — limitation: I could not independently establish that it remains the most cited, and the publisher exposes the complete abstract rather than open full text. This influential consensus review found virtually no qualifying evidence for the required style-by-method interaction. Evidence quality: strong conceptual test and broad review, but dated and constrained by the sparse experiments then available. <a href="https://www.psychologicalscience.org/journals/pspi/j.1539-6053.2009.01038.x/" rel="noopener noreferrer">[psychologi...cience.org]</a></td><td>sourced</td><td><a href="https://www.psychologicalscience.org/journals/pspi/j.1539-6053.2009.01038.x/" rel="noopener noreferrer">https://www.psychologicalscience.org/journals/pspi/j.1539-6053.2009.01038.x/</a></td><td>However, we found virtually no evidence for the interaction pattern mentioned above...</td></tr><tr><td align="right">2</td><td>Recent meta-analysis — it found a small aggregated benefit, but valid crossover results were infrequent, study quality was generally low, and all included studies were single-session. The authors judged widespread adoption unwarranted. Evidence quality: strongest available synthesis, with systematic searching and quality coding, but substantial unexplained variation and weak underlying studies. <a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1428732/full" rel="noopener noreferrer">[frontiersin.org]</a></td><td>sourced</td><td><a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1428732/full" rel="noopener noreferrer">https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1428732/full</a></td><td>Given the time and financial expenses of implementation coupled with low study quality... too small and too infrequent to warrant widespread adoption.</td></tr><tr><td align="right">3</td><td>Largest trial — exact all-literature superlative could not be satisfied within the permitted opened sources because a larger trial’s publisher full text was restricted. The fully verifiable publisher-hosted randomised trial enrolled 125 pupils and found no matching benefit. Evidence quality: randomised and used common assessments, but only visual and auditory modes were tested and its school setting has low directness to managers. <a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2020.00164/full" rel="noopener noreferrer">[frontiersin.org]</a></td><td>sourced</td><td><a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2020.00164/full" rel="noopener noreferrer">https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2020.00164/full</a></td><td>Overall, matching instruction to meet a student’s auditory or visual learning style had no effect on student achievement.</td></tr></tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="right">#</th><th>Claim</th><th>Label</th><th>URL</th><th>Quote</th></tr></thead><tbody><tr><td align="right">1</td><td>Most cited review (strongest reasonable match; citation ranking could not be established conclusively from accessible evidence): the influential 2008 review found that three of its four eligible studies lacked the required crossover interaction. <a rel="noopener noreferrer" href="https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2023.1147498/full">[frontiersin.org]</a></td><td>sourced</td><td><a rel="noopener noreferrer" href="https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2023.1147498/full">https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2023.1147498/full</a></td><td>Concretely, 75% of the reviewed studies did not yield a crossover interaction, and thus failed to provide support for the meshing hypothesis.</td></tr><tr><td align="right">2</td><td>Recent meta-analysis (latest direct meta-analysis identified): it detected a small pooled effect, but low quality, implementation cost and infrequent crossover effects led the authors to reject widespread adoption. <a rel="noopener noreferrer" href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1428732/full">[frontiersin.org]</a></td><td>sourced</td><td><a rel="noopener noreferrer" href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1428732/full">https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1428732/full</a></td><td>Given...low study quality, the benefits...are interpreted as too small and too infrequent to warrant widespread adoption.</td></tr><tr><td align="right">3</td><td>Largest trial (strongest fully accessible publisher-hosted randomised/counterbalanced study inspected; a conclusive size ranking was not possible): auditory/visual matching did not improve achievement, and its population was fifth-graders rather than managers. <a rel="noopener noreferrer" href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2020.00164/full">[frontiersin.org]</a></td><td>sourced</td><td><a rel="noopener noreferrer" href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2020.00164/full">https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2020.00164/full</a></td><td>Overall, matching instruction to meet a student’s auditory or visual learning style had no effect on student achievement.</td></tr><tr><td align="right">4</td><td>Adults may not reliably identify the same category as a questionnaire: a reviewed university experiment reported 44.6% agreement between self-report and objective classification. <a rel="noopener noreferrer" href="https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2023.1147498/full">[frontiersin.org]</a></td><td>sourced</td><td><a rel="noopener noreferrer" href="https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2023.1147498/full">https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2023.1147498/full</a></td><td>...a correspondence was successfully established in only 44.6% of all participants.</td></tr><tr><td align="right">5</td><td>Creating four exclusive versions is not the same as multimodal instruction; a Harvard educational article says fixed VARK categorisation is unsupported and recommends a multi-sensory approach instead. <a rel="noopener noreferrer" href="https://summer.harvard.edu/blog/5-tips-to-retain-what-you-learn/">[summer.harvard.edu]</a></td><td>sourced</td><td><a rel="noopener noreferrer" href="https://summer.harvard.edu/blog/5-tips-to-retain-what-you-learn/">https://summer.harvard.edu/blog/5-tips-to-retain-what-you-learn/</a></td><td>However, the idea that everyone has one specific learning style that’s best for them...is no longer supported by today’s educational community.</td></tr><tr><td align="right">6</td><td>I could not verify the claim that a 2024 Harvard study found managers trained in their preferred learning style retained more after three months.</td><td>inferred</td><td></td><td></td></tr><tr><td align="right">7</td><td>I could not verify the $180,000 annual profile-cost claim or the $420,000 one-off four-version development claim without a named scope, quotation or vendor.</td><td>inferred</td><td></td><td></td></tr><tr><td align="right">8</td><td>I could not verify the internal claim that most leaders know a stable learning style and like the proposal; that requires organisation-specific measurement.</td><td>inferred</td><td></td><td></td></tr></tbody></table>
 <h2>Integration</h2>
 <ul>
-<li>Claim 1: Conditional: The supportive result holds when a clear visual preference is matched to visual text in a small immediate-comprehension study; the adverse judgement holds when repeatable crossover effects across styles, delayed retention and transfer are required.</li>
-<li>Claim 2: Reframe: Shared assumption: personalisation requires fixed VARK categories and four separate versions. Dropping it allows personal relevance, choice and multiple modes without classifying each leader.</li>
-<li>Claim 3: Reframe: Shared assumption: the claimed Harvard result is a dependable basis for investment. Dropping it means the decision must rest on the verifiable literature and a controlled internal test.</li>
-<li>Claim 4: Reframe: Shared assumption: knowing or liking a preferred format predicts better learning. Dropping it means preference and satisfaction must be measured separately from retention and transfer.</li>
-</ul>
-<h2>One-month test</h2>
-<p>Reading: “Preferred learning style” is read as a leader’s self-reported primary preference among visual, auditory, reading/writing and kinaesthetic. A “matched version” means identical learning objectives, facts, examples, duration and assessment, with only the principal delivery mode changed. This is the most reasonable reading because the note proposes profiling each leader and matching one of four versions.</p>
-<p>Purpose: Test the narrow causal proposition before testing a programme redesign: does matched delivery improve delayed retention or leadership-scenario transfer compared with non-matched delivery? The test would not assess a vendor profile, annual programme economics or the value of personalisation generally.</p>
-<p>Participants: Use 24–32 volunteer people leaders from the organisation, drawn from more than one business area. Aim for at least six in each self-selected category. If one category has too few volunteers, report that as a feasibility finding rather than reclassifying people. Use only internal learning staff and facilitators.</p>
-<p>Profile: Give participants neutral, plain-language descriptions of the four categories and require one primary selection for test purposes. Do not buy, copy or imitate a proprietary questionnaire. Record confidence in the selection, because an uncertain category weakens any claim about matching.</p>
-<p>Content: Select two short, comparable segments from existing leadership material. Keep the learning objectives, factual content, examples, practice time and assessment unchanged. Produce only the minimum experimental variants: a diagram-led visual format; a spoken audio format; a text-and-written-reflection format; and a hands-on scenario or card-sort format.</p>
-<p>Procedure: Each participant completes both segments. One is delivered in the participant’s selected format and the other in a randomly selected non-matched format. Counterbalance topic, order and matched condition so that each topic appears equally often as matched and non-matched. Facilitators should not tell participants which condition is being treated as matched.</p>
-<p>Measures: Before each segment, use a short prior-knowledge check. Immediately afterwards, measure common-content recall and confidence. On day 21, use the same delayed-retention test and a new leadership scenario requiring application of the material. Also record completion time, satisfaction, perceived fit, facilitator time and internal development hours.</p>
-<p>Analysis: Make delayed retention the primary outcome and scenario transfer the second outcome. Compare each participant’s matched and non-matched results, adjusted for prior knowledge. Separately inspect whether the best delivery format differs by stated category; that crossover is the critical test. Keep satisfaction separate so that a format cannot be judged effective merely because it was liked.</p>
-<p>Stop rule: Stop the four-version rebuilding idea if matched delivery produces no positive matched-minus-unmatched difference on delayed retention and no style-by-format crossover on scenario transfer. Do not proceed to vendor procurement or a full programme rebuild on satisfaction alone.</p>
-<p>Limits: This is a falsification pilot, not a definitive effectiveness or return-on-investment study. A positive signal would justify considering a larger preregistered internal trial. A null result would answer the immediate question without vendor spend.</p>
-<h2>Pitch</h2>
-<p>Evidence: The direct evidence for rebuilding leadership development around fixed VARK preferences is weak. One small experiment found a context-specific comprehension benefit, but the leading review, recent meta-analysis and accessible randomised trial do not support broad implementation. The strongest claimed result in the note could not be verified.</p>
-<p>Budget: The programme would require four maintained versions of every workshop plus a profiling process. The cost figures in the note are unverified, so they should not anchor an investment decision. The maintenance, assurance and facilitator burden would still increase because each workshop would have four controlled variants.</p>
-<p>Question: The useful decision question is narrower than “should we personalise leadership development?” It is whether matching the delivery mode to a stated VARK preference improves delayed retention or transfer enough to justify further work.</p>
-<p>Proposal: Run a one-month internal experiment with 24–32 people leaders, two short pieces of existing content and no vendor. Change only the delivery mode required to create matched and non-matched conditions. Use common assessments and counterbalanced allocation.</p>
-<p>Value: The test would produce four practical outputs: delayed-retention results, leadership-scenario transfer results, learner reaction data and the internal effort required to create and maintain variants. That separates learning value from preference and gives the learning team evidence about what the model would buy.</p>
-<p>Guardrails: Use our own people, facilitators and content. Do not procure a profile, commission workshop versions or make claims about permanent learner types. Do not treat enjoyment as proof of learning.</p>
-<p>Decision gate: If matching does not improve delayed retention and does not produce the required crossover in transfer, stop the rebuilding idea. If a clear directional signal appears, the next choice would be whether to run a properly powered trial before developing an investment case. The one-month test informs that choice; it does not make it.</p></div></main></body></html>
+<li>Claim 1: Conditional: Matching improves comprehension holds when a genuine crossover replicates under constant content and assessment; the broader negative evidence holds when one format dominates or the interaction disappears.</li>
+<li>Claim 2: Reframe: Shared assumption: A measured learning dimension is a stable causal aptitude. Association with performance does not justify routing instruction by that dimension.</li>
+<li>Claim 3: Reframe: Shared assumption: All forms of personalisation use the same mechanism. Personalisation by behavioural need, work context, goals and feedback can be retained without VARK categorisation.</li>
+<li>Claim 4: Conditional: The proposed pilot discriminates matching effects holds when topic, order, exposure, facilitator and assessment are controlled; the adverse interpretation holds when it measures only enjoyment, immediate recall or unmatched topics of unequal difficulty.</li>
+<li>Claim 5: Reframe: Shared assumption: The claimed Harvard study exists and matches the note. Exclude the claim from the executive case unless a traceable, accessible full-text study is produced.</li>
+<li>Claim 6: Reframe: Shared assumption: Leaders can classify themselves consistently and will accept being routed by that classification. Measure classification stability and acceptability before treating either as an implementation condition.</li>
+<li>Claim 7: Reframe: Shared assumption: The quoted commercial costs and internal four-version effort are known. Collect comparable written scopes and record internal design, facilitation, governance and maintenance hours before making an economic case.</li>
+</ul></section></div></main>
+<p style="margin-top:2rem"><a class="back" href="../../index.html#rnd">&#8592; Back to R&amp;D</a></p>
+<script>
+(function(){var a=document.querySelector('.back');try{var r=JSON.parse(sessionStorage.getItem('ps-return')||'null');
+if(r&&r.tab){a.href='../../index.html#'+r.tab;}}catch(e){}})();
+</script>
+</body></html>

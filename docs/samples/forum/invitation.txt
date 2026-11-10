@@ -1,28 +1,40 @@
-SAMPLE CASE: every person, organisation and figure below and in the attached pack is invented for practice. Treat this as my meeting invitation, its attached pack and an extract of the previous pack.
-Today is Monday 23 November 2026. I am Alex Sample, Executive General Manager Strategy at Meridian Sample Water, and a member of the Capital and Risk Committee.
+Treat this as my meeting invitation, its attached pack and an extract of the previous pack.
+Today is Friday 11 December 2026. I am Leanne Fairbairn, Executive General Manager Network Operations at Coralline Coast Water, and a member of the Executive Leadership Team.
 
 === INVITATION ===
-From: Board Secretariat <secretariat@example.org>
-To: Capital and Risk Committee members
-Subject: Sample: Capital and Risk Committee, 26 November 2026, papers attached
-Date: Thu 19 Nov 2026, 4:10 pm
+From: Office of the Managing Director <elt.secretariat@example.org>
+To: Executive Leadership Team members
+Subject: ELT meeting 15 December 2026: papers attached
+Date: Thu 10 Dec 2026, 4:12 pm
 
-Dear members,
-The Capital and Risk Committee meets on Thursday 26 November 2026 at 10 am in the Board Room, Level 6. The meeting pack is attached (crc-pack-2026-11-26.pdf, 60 pages).
+Dear ELT members,
+The Executive Leadership Team meets on Tuesday 15 December 2026 at 9 am in the Boardroom, Level 4, 22 Mangrove Street, Port Calloway, and on Teams. The meeting pack is attached (elt-pack-2026-12-15.pdf, 48 pages). Item 7.1 is a late paper.
 Attendees:
-- Harper Sample, Chair
-- Ellis Sample, Chief Financial Officer
-- Reese Sample, General Manager Operations
-- Logan Sample, General Manager Community and Environment
-- Alex Sample, Executive General Manager Strategy
+- Catherine Lowrie, Managing Director (Chair)
+- Daniel Okafor, Chief Financial Officer
+- Priya Ramanathan, Executive General Manager Infrastructure Delivery
+- Graham Ellery, Executive General Manager People and Safety
+- Sophie Brennan, Executive General Manager Customer and Regulation
+- Rhys Atherton, General Counsel and Company Secretary
+- Leanne Fairbairn, Executive General Manager Network Operations
+In attendance: Mei Lin Tan, Manager Strategy and Performance (item 5.1); Josh Kirkland, Program Manager Depots (item 6.1).
 Kind regards,
-Board Secretariat
+ELT Secretariat
 
-=== PREVIOUS PACK EXTRACT (meeting of 27 August 2026, Paper 2: Programme dashboard, reporting period to 31 July 2026) ===
-Measure | This period | Status
-Overall programme status | On track | Green
-Spend to date against budget | $0.9M of $22.4M | Green
-Schedule float to licence deadline | 19 weeks | Green
-Design maturity | 40% | Green
-Lost-time injuries | 0 | Green
-Community complaints | 1 | Green
+=== PREVIOUS PACK EXTRACT (meeting of 15 September 2026, item 5.1: Quarterly operational performance report, Q4 FY2026, quarter to 30 June 2026) ===
+Scorecard measures
+Measure | This quarter | Target | Status
+Drinking water samples compliant | 99.96% | 99.9% | Green
+Sewage overflows to the environment | 3 | 4 | Green
+Field jobs attended within target time | 88% | 90% | Amber
+Planned maintenance completed on time | 82% | 85% | Amber
+Lost-time injury frequency rate | 2.6 | 2.0 | Red
+
+Divisional ranking (combined index)
+Division | Index | Rank
+Laboratory services | 91.4 | 1 of 6
+Water treatment | 91.0 | 2 of 6
+Capital works | 86.0 | 3 of 6
+Customer operations | 85.2 | 4 of 6
+Wastewater networks | 79.0 | 5 of 6
+Field services | 69.0 | 6 of 6

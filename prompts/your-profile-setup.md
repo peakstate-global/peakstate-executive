@@ -1,7 +1,7 @@
-# Your profile
+# Setup: Your profile
 
-What it is for: Interview you once to build the executive profile every other skill reads.
-How to use it: copy everything below the line into a new Microsoft 365 Copilot chat, and see the guide at https://peakstate-global.github.io/peakstate-executive/ for the sample case and what you need.
+What it is for: The setup, done once in about ten minutes. Copilot interviews you and writes profile.docx, which Forum prep, R&D and Industry radar attach so they run better.
+How to use it: copy everything below the line into a new Microsoft 365 Copilot chat, and see the guide at https://peakstate-global.github.io/peakstate-executive/ for the practice case and what you need.
 
 ---
 

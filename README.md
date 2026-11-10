@@ -1,30 +1,33 @@
 # Peak State Executive skills
 
-Five copy-and-paste prompts that let Microsoft 365 Copilot do an executive's reading and first drafts. You keep every decision and every send.
+Four copy-and-paste skills that let Microsoft 365 Copilot do an executive's reading and first drafts, plus a ten-minute setup that makes them run better. You keep every decision and every send.
 
 ## [Open the guide](https://peakstate-global.github.io/peakstate-executive/)
 
-The guide shows each prompt, a sample case to try it on, and a real output to compare with. Start there.
+The guide shows the setup and each skill: the real prompt, an invented practice case to try it on, and the real answer Copilot gave on that case. Start there.
 
-## The five skills
+## Setup, done once
 
-- **Your profile**: Copilot interviews you once and writes the profile the other four skills read.
-- **Forum prep**: reads a meeting pack and prepares you for the forum or committee.
-- **R&D**: tests an idea against the evidence for and against it.
-- **Industry radar**: scans the web for what happened in your industry in the last seven days.
-- **Inbox triage**: sorts your inbox into delete, delegate, defer and do, with draft replies.
+- **Your profile**: about ten minutes, done once. Copilot interviews you and writes profile.docx. Forum prep, R&D and Industry radar attach it, so their output names your own portfolio areas and leadership team.
 
-The prompt text is also in the [prompts](prompts/) folder, one file per skill.
+## The four skills
+
+- **Forum prep**: the day before a board or committee meeting, reads the whole pack and prepares you, with every point pinned to a page.
+- **R&D**: before you back an idea, Researcher argues it for and against from sources, then proposes a one-month test and a pitch.
+- **Industry radar**: each Monday, scans the web for what happened in your industry and in AI in the last seven days.
+- **Inbox triage** (beta): sorts your inbox into delete, delegate, defer and do, with draft replies. It does not use your profile.
+
+The prompt text is also in the [prompts](prompts/) folder, one file for the setup and one for each skill.
 
 ## What you need
 
-- A Microsoft 365 Copilot licence.
-- Access to Copilot Researcher, for R&D.
-- Web search turned on in Copilot, for Industry radar.
+- A Microsoft 365 Copilot licence, and OneDrive.
+- Access to the Copilot Researcher agent, for R&D.
+- Web search turned on in Copilot, for Industry radar and R&D.
 
 ## Status
 
-Pilot release (v0.1), tested on invented sample cases. A new version of the guide will replace this one.
+Pilot release (v0.2), tested on invented practice cases. Every person and organisation in the practice cases is invented.
 
 ## Feedback
 
