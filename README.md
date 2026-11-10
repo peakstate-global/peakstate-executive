@@ -16,6 +16,7 @@ The guide shows the setup and each skill: the real prompt, an invented practice 
 - **R&D**: before you back an idea, Researcher argues it for and against from sources, then proposes a one-month test and a pitch.
 - **Industry radar**: each Monday, scans the web for what happened in your industry and in AI in the last seven days.
 - **Inbox triage** (beta): sorts your inbox into delete, delegate, defer and do, with draft replies. It does not use your profile.
+  A more advanced version is possible: a Copilot Studio agent with actions that moves each email into a folder by its suggested action (Do, Delegate, Defer, Delete), so you can work through each folder quickly. It needs extra setup outside the scope of this repo, and you will likely need support from your IT team or a mentor.
 
 The prompt text is also in the [prompts](prompts/) folder, one file for the setup and one for each skill.
 
