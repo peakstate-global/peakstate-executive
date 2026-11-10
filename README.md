@@ -8,13 +8,13 @@ The guide shows the setup and each skill: the real prompt, an invented practice 
 
 ## Setup, done once
 
-- **Your profile**: about ten minutes, done once. Copilot interviews you and writes profile.docx. Forum prep, R&D and Industry radar attach it, so their output names your own portfolio areas and leadership team.
+- **Your profile**: about ten minutes, done once. Copilot interviews you and writes profile.docx. Forum prep, R&D and Weekly radar attach it, so their output names your own portfolio areas and leadership team.
 
 ## The four skills
 
 - **Forum prep**: the day before a board or committee meeting, reads the whole pack and prepares you, with every point pinned to a page.
 - **R&D**: before you back an idea, Researcher argues it for and against from sources, then proposes a one-month test and a pitch.
-- **Industry radar**: runs on a Monday. First your week ahead from your calendar, email and tasks, then what happened in your industry and in AI in the last seven days.
+- **Weekly radar**: runs on a Monday. First your week ahead from your calendar, email and tasks, then what happened in your industry and in AI in the last seven days.
 - **Inbox triage** (beta): a short list each morning of the emails that need you, each with a draft reply, the ones that can wait with a come-back date, and one line for everything safe to archive. Copilot never sends, moves or deletes. It does not use your profile.
   A more advanced version is possible: a Copilot Studio agent with actions that moves each email into a folder by its suggested action (Do, Delegate, Defer, Delete), so you can work through each folder quickly. It needs extra setup outside the scope of this repo, and you will likely need support from your IT team or a mentor.
 
@@ -24,7 +24,7 @@ The prompt text is also in the [prompts](prompts/) folder, one file for the setu
 
 - A Microsoft 365 Copilot licence, and OneDrive.
 - Access to the Copilot Researcher agent, for R&D.
-- Web search turned on in Copilot, for Industry radar and R&D.
+- Web search turned on in Copilot, for Weekly radar and R&D.
 
 ## Status
 

@@ -1,6 +1,6 @@
 # Setup: Your profile
 
-What it is for: The setup, done once in about ten minutes. Copilot interviews you and writes profile.docx, which Forum prep, R&D and Industry radar attach so they run better.
+What it is for: The setup, done once in about ten minutes. Copilot interviews you and writes profile.docx, which Forum prep, R&D and Weekly radar attach so they run better.
 How to use it: copy everything below the line into a new Microsoft 365 Copilot chat, and see the guide at https://peakstate-global.github.io/peakstate-executive/ for the practice case and what you need.
 
 ---

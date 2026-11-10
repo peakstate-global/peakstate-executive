@@ -1,4 +1,4 @@
-# Industry radar
+# Weekly radar
 
 What it is for: it runs on a Monday. First your week ahead from your own calendar, email and tasks (three priorities, meetings to prepare for, meetings you could decline or delegate, and overdue items), then the last seven days' industry and AI news you should raise this week.
 How to use it: copy everything below the line into a new Microsoft 365 Copilot chat with Work IQ on and web search on, and attach your profile.docx. See the guide at https://peakstate-global.github.io/peakstate-executive/ for the practice files and what you need. Before you paste, replace {TODAY} with today's date (for example Monday 16 November 2026), {WEEK} with this Monday to Friday in full (for example Monday 16 November 2026 to Friday 20 November 2026), and {WINDOW} with "the last seven days ending today."
