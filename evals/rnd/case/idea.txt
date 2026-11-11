@@ -1,0 +1,9 @@
+[Sample, invented for testing. The organisation and the note are invented.]
+
+Idea: reshape our graduate programme so graduates learn on AI-assisted work from day one.
+
+Today our 40 graduates a year spend most of their first 18 months on manual analysis, first drafts and reconciliations, work that AI tools now do in minutes. Under the idea, each graduate works on real work with an AI assistant from day one, has a named senior reviewer who checks every piece before it leaves the team, and rotates teams every six months. The programme budget stays the same.
+
+The case I have heard for it: a 2025 Stanford study found that graduates who learned on AI-assisted work were promoted 30% faster.
+
+About us: a large Australian services organisation with about 9,000 staff.

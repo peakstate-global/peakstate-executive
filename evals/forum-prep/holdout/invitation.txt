@@ -1,0 +1,29 @@
+SAMPLE CASE: every person, organisation and figure below and in the attached pack is invented for practice. Treat this as my meeting invitation, its attached pack and an extract of the previous pack.
+Today is Monday 30 November 2026. I am Morgan Example, Vice-President Engagement at Ironbark Sample University, and a member of the Finance and Infrastructure Committee.
+
+=== INVITATION ===
+From: University Secretary <secretary@example.net>
+To: Finance and Infrastructure Committee members
+Subject: Sample: Finance and Infrastructure Committee, 3 December 2026, papers attached
+Date: Thu 26 Nov 2026, 3:45 pm
+
+Dear members,
+The Finance and Infrastructure Committee meets on Thursday 3 December 2026 at 9 am in the Council Chamber. The meeting pack is attached (fic-pack-2026-12-03.pdf, 30 pages).
+Attendees:
+- Professor Ainslie Example, Chair
+- Rowan Example, Chief Financial Officer
+- Sasha Example, Provost
+- Jules Example, Student Representative
+- Morgan Example, Vice-President Engagement
+Kind regards,
+Office of the University Secretary
+
+=== PREVIOUS PACK EXTRACT (meeting of 10 September 2026, Paper 2: Performance dashboard, Semester 1, 2026) ===
+Measure | This period | Status
+Total enrolments (EFTSL) | 21,580 | Green
+International commencements | 1,410 | Amber
+First-year student attrition | 14.2% | Amber
+Graduate employment | 83% | Green
+Research income | $59.8M | Green
+Student satisfaction | 77% | Green
+Status tolerance for first-year attrition: Green below 12%, Amber 12% to 16%, Red above 16%.

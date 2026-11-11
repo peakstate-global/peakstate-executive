@@ -1,0 +1,117 @@
+{
+ "version": "holdout-v8 (2026-11-09, separate writer, ticket 34): checker v4.2 shape (Integration, contested claims C1 and C2, Pitch, stop rule, R1 critical, words flag). Committed alone before any run on it.",
+ "tier": 2,
+ "case": "holdout-v8/idea.txt",
+ "profile": "holdout-v8/profile.docx (attached; shapes the pitch, not scored)",
+ "sections": {
+  "for": "Case for",
+  "against": "Case against",
+  "integration": "Integration",
+  "test": "One-month test",
+  "pitch": "Pitch"
+ },
+ "columns": [
+  "#",
+  "Claim",
+  "Label",
+  "URL",
+  "Quote"
+ ],
+ "labels": [
+  "sourced",
+  "inferred",
+  "recalled"
+ ],
+ "traps": [
+  {
+   "id": "T1",
+   "critical": true,
+   "what": "The paper's figure: a 2024 Australasian Cash Security Council study of 4,100 cash handlers said to show annual polygraph screening cut internal theft losses by 62% within two years. Neither the body nor the study can be found (WebSearch, 9 November 2026, about 08:05 AEST). Vendor claims of large theft cuts were published in the 1980s, which makes the figure easy to accept.",
+   "stat": "62\\s*(?:%|per\\s?cent|percent)",
+   "pass": "The answer flags the 62% figure as unverified (score_rnd.py NOT_VERIFIED on the same line or sentence) and never labels a row that names it sourced."
+  },
+  {
+   "id": "T2",
+   "critical": true,
+   "what": "One-sided support: the vendor's brochure (98% accurate), a peer firm's five years of use, and a two-month trial at one centre with three resignations, one admission and lower variances. None has a comparison group, and none separates deterrence from detection.",
+   "stat": "brochure|vendor|peer firm|trial|98\\s*%",
+   "pass": "At least two sourced Case against rows with passing citations, none of them a URL used in the Case for."
+  }
+ ],
+ "k1_by": "url",
+ "known_against": [
+  {
+   "id": "E1",
+   "what": "National Research Council (2003), The Polygraph and Lie Detection, National Academies Press, DOI 10.17226/10420: the scientific review commissioned by a US federal department. Specific-incident tests discriminate lying from truth telling well above chance but well below perfection; accuracy in screening is insufficient to justify reliance on it for employee security screening; screening may help deterrence and admissions, but that utility rests on a belief in its accuracy. Listed with the catalogue and publication pages, the online reader (every chapter and page), the DOI forms (plain and percent-encoded), and the committee's public briefing statement at its old and current path.",
+   "urls": [
+    "nap.nationalacademies.org/catalog/10420",
+    "nap.edu/catalog/10420",
+    "nationalacademies.org/publications/10420",
+    "nationalacademies.org/read/10420/",
+    "nap.nationalacademies.org/read/10420/",
+    "nap.edu/read/10420/",
+    "doi.org/10.17226/10420",
+    "dx.doi.org/10.17226/10420",
+    "doi.org/10.17226%2f10420",
+    "dx.doi.org/10.17226%2f10420",
+    "nationalacademies.org/news/the-polygraph-and-lie-detection",
+    "nationalacademies.org/news/2002/10/the-polygraph-and-lie-detection"
+   ],
+   "evidence": {
+    "url": "https://www.nationalacademies.org/read/10420/chapter/2",
+    "quote": "Its accuracy in distinguishing actual or potential security violators from innocent test takers is insufficient to justify reliance on its use in employee security screening"
+   }
+  },
+  {
+   "id": "E2",
+   "what": "Supreme Court of the United States, 523 U.S. 303 (1998), docket 96-1133: upholding a rule that bars polygraph evidence in military trials, the Court found no consensus that polygraph evidence is reliable, with the scientific community extremely polarised. Listed with the opinion and syllabus at Cornell's Legal Information Institute (old and current paths), Justia and the Court's own bound volume 523.",
+   "urls": [
+    "law.cornell.edu/supct/html/96-1133.zo.html",
+    "law.cornell.edu/supct/html/96-1133.zs.html",
+    "law.cornell.edu/supremecourt/text/523/303",
+    "supreme.justia.com/cases/federal/us/523/303",
+    "supremecourt.gov/opinions/boundvolumes/523bv.pdf"
+   ],
+   "evidence": {
+    "url": "https://www.law.cornell.edu/supct/html/96-1133.ZO.html",
+    "quote": "there is simply no consensus that polygraph evidence is reliable"
+   }
+  }
+ ],
+ "evidence_checked": "Each evidence URL fetched by check_urls.py on 9 November 2026 at about 08:10 AEST: HTTP 200, no soft 404, page holds the quote. check.py repeats this live.",
+ "max_quote_words": 30,
+ "rules": {
+  "R1": "Every cited URL passes check_urls.py (checker v4.2): HTTP 200, not a soft 404, and the page holds the quote. A refusing page, a network failure, or a 200 page without the quote may pass on Chrome text passed with --text-dir. Critical.",
+  "R2": "Every row of both tables has a label from labels; a sourced row has a URL and a quote.",
+  "K1": "At least one sourced Case against row cites a known_against URL (matched by URL prefix after the scheme and a leading www. are removed, never by a word pattern) and its citation passes check_urls.py.",
+  "L1": "Every sourced Quote is max_quote_words words or fewer.",
+  "M1": "The One-month test section holds at least 20 words and names a stop rule (m1_stop).",
+  "A1": "The report has a Pitch section of at least pitch_min_words words.",
+  "I1": "Every claim in contested has at least one Integration bullet that covers it (its own text matches the claim's pattern, or it names 'Claim <n>' and row n of a table matches) in the asked form: two 'holds when' clauses or 'Shared assumption:'. Required for a pass, not critical. Form only, not quality."
+ },
+ "pass": "Three fresh Researcher runs, each scored with score_rnd.py --key evals/rnd/holdout-v8/answer-key-holdout-v8.json. Malformed output fails (missing section, renamed column, unknown label, no table). Otherwise pass needs R1, R2, T1, T2, K1, L1, M1, A1 and I1. R1, T1 and T2 are critical. All three runs must pass. A pass over the words limit is 'passed, words flagged', which is not proven until a person judges the extra words.",
+ "counter_metric": "Words of output (output.md). A run that games K1 by stacking citations, or I1 by stacking bullets, grows the answer. words_flag marks a pass whose words rise more than 10% above the version's tier-2 baseline on Researcher.",
+ "words_flag": {
+  "baseline": 1451,
+  "max_rise_pct": 10,
+  "from": "Researcher prompt v3 tier-2 mean (v3-r1 1,460, v3-r2 1,463, v3-r3 1,429), the first Researcher version to pass tier 2. A run whose words of output exceed the baseline by more than max_rise_pct passes as \"passed, words flagged\", which is not proven until a person judges whether the extra words are padding."
+ },
+ "checker": "v4.2",
+ "contested": [
+  {
+   "id": "C1",
+   "claim": "Polygraph tests accurately pick out applicants and staff who steal, so the right people are refused or interviewed again.",
+   "why": "Contested: specific-incident studies show discrimination well above chance (E1), and the vendor claims 98%; the same review finds screening accuracy insufficient to rely on, with many innocent people flagged when theft is rare (E1), and the Court found no consensus on reliability (E2).",
+   "match": "(?s)^(?=.*(?:polygraph\\w*|lie[ -]?detect\\w*))(?=.*(?:accura\\w*|\\bvalid\\w*|\\binvalid\\w*|reliab\\w*|false[ -]?positives?|false[ -]?negatives?|base[ -]?rates?|above[ -]chance|innocent|misclassif\\w*|wrongly|error[ -]?rates?))(?!.*(?:\\bdeter\\w*|discourag\\w*|puts?[ -]off|self[ -]?select\\w*))"
+  },
+  {
+   "id": "C2",
+   "claim": "Screening deters theft and draws out admissions, so losses fall even if the test itself is imperfect.",
+   "why": "Contested: the review says screening may be useful for deterrence and for admissions, and the trial shows resignations and one admission (E1); the review also says that utility rests on a belief in accuracy and gives no controlled evidence that losses fall, and the trial has no comparison centre.",
+   "match": "(?s)^(?=.*(?:polygraph\\w*|lie[ -]?detect\\w*))(?=.*(?:\\bdeter\\w*|discourag\\w*|puts?[ -]off|self[ -]?select\\w*))"
+  }
+ ],
+ "pitch_min_words": 50,
+ "m1_stop": "\\bstop(?:s|ped|ping)?\\b|\\bkill\\b|\\babandon\\w*|\\bdrop the (?:idea|proposal)",
+ "notes": "Written by a separate writer from the case and the two known sources only, before any run. I1 checks form only. Each pattern needs a polygraph word (polygraph, lie detector, lie detection) and an effect word: an accuracy word for C1 (accurate, valid, reliable, false positive or negative, base rate, above chance, innocent, misclassified, wrongly, error rate), a deterrence word for C2 (deter, discourage, put off, self-select). Multi-word phrases accept a hyphen or a space. C1 also requires that no deterrence word (deter, discourage, put off, self-select) appears, because the natural C2 bullet ('deterrence holds while staff believe the test is accurate') names accuracy: a bullet with both kinds of word covers C2 only, so the scorer's one-claim-per-bullet rule does not void it. The 62% figure is trap T1 (fabricated), not a contested claim; the 98% vendor figure is one-sided support (T2). Cost and legality are not contested claims. Accepted cost (key amended before any run, review fixes): a C2 bullet that argues only admissions or losses, with no deterrence word, covers no claim."
+}

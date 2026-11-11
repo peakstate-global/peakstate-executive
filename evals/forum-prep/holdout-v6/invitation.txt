@@ -1,0 +1,36 @@
+SAMPLE CASE: every person, organisation and figure below and in the attached pack is invented for practice. Treat this as my meeting invitation, its attached pack and an extract of the previous pack.
+Today is Friday 15 January 2027. I am Taylor Sample, Executive Director Campus Delivery at Kestrel Sample Institute, and a member of the Executive Leadership Committee.
+
+=== INVITATION ===
+From: Governance Office <governance@example.org>
+To: Executive Leadership Committee members
+Subject: Sample: Executive Leadership Committee, 19 January 2027, papers attached
+Date: Tue 12 Jan 2027, 3:40 pm
+
+Dear members,
+The Executive Leadership Committee meets on Tuesday 19 January 2027 at 9 am in the Boardroom, Building C. The meeting pack is attached (elc-pack-2027-01-19.pdf, 34 pages).
+Attendees:
+- Harper Sample, Chief Executive (chair)
+- Kai Sample, Chief Information Officer
+- Ellis Sample, Chief Financial Officer
+- Rowan Sample, Director Facilities
+- Taylor Sample, Executive Director Campus Delivery
+Kind regards,
+Governance Office
+
+=== PREVIOUS PACK EXTRACT (meeting of 10 November 2026, reporting period to 30 September 2026) ===
+Paper 3: Performance dashboard
+Measure | This period | Status
+Student enrolments | 17,960 | Green
+Apprentice withdrawals | 9 | Green
+Staff turnover | 9% | Green
+Complaints resolved in 20 days | 94% | Green
+
+Paper 5: Delivery unit rankings, course completion rate
+Unit | Completion | Target | Rank
+Harbourside campus | 78% | 70% | 1 of 6
+Online learning | 74% | 70% | 2 of 6
+Westvale campus | 72% | 70% | 3 of 6
+Workplace training | 71% | 70% | 4 of 6
+Ridgeway campus | 67% | 70% | 5 of 6
+Northgate campus | 61% | 70% | 6 of 6

@@ -1,0 +1,24 @@
+{
+  "case": "case-week (ticket 92). Planted items by category. Never put this file's contents into a prompt.",
+  "run_date": "2026-11-11",
+  "schema": "score_week.py: each entry is an object with an id and the week.json item ids that count for it; citing any one of them finds it. T01 and T02 are flagged emails (kind mail), M ids are inbox emails, E events, T tasks.",
+  "priorities": [
+    {"id": "P1", "items": ["E03", "T06", "M39"], "note": "Bayside Larder rate hold; Tender clarification for the 2027 freight contract"},
+    {"id": "P2", "items": ["E11", "M28"], "note": "Coastline Pantry Foods; Three late deliveries this month"},
+    {"id": "P3", "items": ["T07", "M34"], "note": "Q3 capex reforecast needs your sign-off"}
+  ],
+  "prepare": [
+    {"id": "R1", "items": ["E04", "T05"], "prepare": "Northgate fit-out progress report v4"},
+    {"id": "R2", "items": ["E09", "M33"], "prepare": "three numbers: on-time dispatch October, overtime against budget, lost-time injuries"}
+  ],
+  "delegate": [
+    {"id": "D1", "items": ["E06"], "role": "Head of Safety and Compliance"},
+    {"id": "D2", "items": ["E12"], "role": "Operations Manager"}
+  ],
+  "clash": [{"id": "C1", "items": ["E10", "E11"], "note": "ELT 13:30 to 15:30 and Coastline call 14:00, Thursday 19 November"}],
+  "overdue_tasks": [
+    {"id": "T01", "items": ["T01"], "note": "flagged email, flag due 2026-11-06"},
+    {"id": "T02", "items": ["T02"], "note": "flagged email, flag due 2026-11-09"}
+  ],
+  "overdue_email": [{"id": "O1", "items": ["M01"], "asked_by": "2026-11-06"}]
+}

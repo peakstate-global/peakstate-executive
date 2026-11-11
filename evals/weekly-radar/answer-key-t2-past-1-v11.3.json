@@ -1,0 +1,279 @@
+{
+ "version": "t2-past-1 v11.3, 9 November 2026, ruler fix by a separate key writer (ticket 56, the owner's state-of-play Q14 a): W2's match no longer accepts a cost forecast; every other story, stale item and area unchanged from t2-past-1 v11.1",
+ "window": {
+  "from": "2026-10-26",
+  "to": "2026-11-01"
+ },
+ "notes": "Scanned 8 November 2026 (Master Builders and HIA newsrooms, ABS releases, web search). Out of window and not stories: Cotality October Home Value Index (page metadata 2 November), ABS September building approvals (2 November), the trust tax Senate hearing (early November), the RBA decision (3 November).",
+ "ai_notes": "AI scan 8 November 2026 for 26 October to 1 November 2026, after the profile was fixed. Searched: Australian AI regulation and guidance (AI standards legislation, Joint Select Committee on AI, OAIC, Safe Work Australia), HIA and Master Builders AI items, peer builders (volume home builders, Lendlease, Stockland, Mirvac, FBR), construction AI vendors (Procore press page, Buildxact, Autodesk), Microsoft 365 Copilot updates, council and state AI planning tools, a November 2026 construction AI roundup. Found in window: DAISY council AI planning assistant (A1, not must: it serves residents and small builders through councils, not this builder's own tools or rules). In window but not material: Oracle NetSuite construction AI agents (26 October, not a profile tool), Bedrock Robotics funding (26 October, US earthmoving), Online Safety (Digital Duty of Care) bill passing the House (28 October, chatbots and children, not this industry). Out of window (stale SA1 to SA5): Procore AI Go (21 October), Safe Work Australia AI guidance (July), FBR Hadrian H04 demonstration (5 October), Togal.AI takeoff benchmark (6 October), Copilot Credits billing (by 1 October). No AI regulation, guidance or peer builder AI move dated in the window was found. Microsoft's October 2026 Copilot roundup (A2, 30 October) was a must story in v11 and is not must from v11.1: it is a monthly roundup whose items were developed before the window (Autopilot announced 25 September 2026, the legal plugin post 15 October, the SharePoint knowledge base post 14 October, other items marked as rolled out in October with no date in the window). So week P1 has no fair must AI story, and neither does week P2 (its A1 was demoted in v11).",
+ "key_writer": "Separate key writer for ticket 29; saw no Copilot answer, no prompt and no run; profile (case-t2/profile.md) written at 23:29 AEST on 8 November 2026, before the AI scan.",
+ "stories": [
+  {
+   "id": "W1",
+   "must": true,
+   "what": "ABS Consumer Price Index for September 2026, released 28 October 2026: CPI up 4.3% over the year; new dwelling prices up 4.7% over the year (5.4% to August), flat in the month, with builders using discounts as demand slows. Echoed by Master Builders and many outlets: one story.",
+   "urls": [
+    "abs.gov.au/statistics/economy/price-indexes-and-inflation/consumer-price-index-australia",
+    "abs.gov.au/media-centre/media-releases/cpi-rose-43",
+    "masterbuilders.com.au/inflation-surges-to-six-month-high",
+    "thegoodbuilder.com.au/new-dwelling-inflation-september",
+    "westpaciq.com.au/economics/2026/10/cpi-september-2026",
+    "admiralmarkets.com/analytics/traders-blog/australia-cpi-september-2026",
+    "indexbox.io/blog/australian-inflation-accelerates-to-43"
+   ],
+   "match": "^(?!.*(?:producer price|\\bPPI\\b|input (?:costs?|prices?)|Reserve Bank|\\bRBA\\b|cash rate)).*?(?:\\bCPI\\b|consumer price|new (?:dwelling|home|house) prices?|new dwelling costs?|(?<!cost )(?<!costs )(?<!price )(?<!input )(?<!building )(?<!construction )\\binflation\\b)",
+   "evidence": {
+    "url": "https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/consumer-price-index-australia/sep-2026",
+    "quote": "New dwelling prices rose 4.7% in the 12 months to September 2026, down from a 5.4% rise to August 2026.",
+    "date": "2026-10-28",
+    "page_date_source": "page metadata"
+   },
+   "type": "industry",
+   "areas": [
+    "Estimating and contract pricing",
+    "Sales and customer experience"
+   ]
+  },
+  {
+   "id": "W2",
+   "must": true,
+   "what": "ABS Producer Price Indexes for the September quarter 2026, released 30 October 2026: input costs for house construction up 1.0% in the quarter and 3.9% over the year, the fastest annual rise in three years. Echoed by Master Builders and outlets: one story.",
+   "urls": [
+    "masterbuilders.com.au/building-costs-rise-at-fastest-pace",
+    "abs.gov.au/statistics/economy/price-indexes-and-inflation/producer-price-indexes-australia",
+    "thegoodbuilder.com.au/copper-pipe-prices-rose",
+    "thegoodbuilder.com.au/victorian-build-prices-have-fallen-behind-materials",
+    "indexbox.io/blog/australia-producer-price-indexes-rise",
+    "finimize.com/content/australias-producer-prices-kept-climbing"
+   ],
+   "match": "producer price|\\bPPI\\b|input (?:costs?|prices?)\\b(?!(?: \\w+){0,3}? (?:would|could|will|may|might|should|can|(?:expected|set|likely|going|forecast\\w*) to)\\b)|(?:building|construction|materials?) (?:input )?costs? (?:(?!(?:would|could|will|may|might|should|can|(?:expected|set|likely|going|forecast\\w*) to)\\b)\\w+ ){0,3}(?:rose|rise|rising|increas\\w*|climb\\w*|jump\\w*|grew|up)|fastest (?:pace|rise|annual rise|increase)[^.]{0,40}three years",
+   "evidence": {
+    "url": "https://masterbuilders.com.au/building-costs-rise-at-fastest-pace-in-three-years/",
+    "quote": "In the 12 months to September, input costs for house construction increased by 3.9 per cent.",
+    "date": "2026-10-30",
+    "page_date_source": "page metadata"
+   },
+   "type": "industry",
+   "areas": [
+    "Procurement and trade contracts",
+    "Estimating and contract pricing"
+   ]
+  },
+  {
+   "id": "W3",
+   "must": false,
+   "what": "HIA Affordability Report for the September quarter 2026, released 28 October 2026: the index improved 3.6% as dwelling prices fell, but affordability is still 5.4% worse than a year earlier.",
+   "urls": [
+    "hia.com.au/our-industry/newsroom/economic-research-and-forecasting/2026/10/brief-window-of-improving-housing-affordability"
+   ],
+   "match": "affordability (?:index|report|measure)|affordability (?:\\w+ ){0,3}(?:improv\\w*|better|eased|recover\\w*)|(?:improv\\w*|better) (?:\\w+ ){0,2}affordability|window of (?:improving )?(?:housing )?affordability",
+   "evidence": {
+    "url": "https://hia.com.au/our-industry/newsroom/economic-research-and-forecasting/2026/10/brief-window-of-improving-housing-affordability-opens",
+    "quote": "The HIA Affordability Index increased by 3.6 per cent in the September quarter 2026, reflecting improved affordability across most markets.",
+    "date": "2026-10-28",
+    "page_date_source": "page text (Wednesday 28 October 2026); the page metadata says 2026-10-27, also in the window"
+   },
+   "type": "industry",
+   "areas": [
+    "Sales and customer experience"
+   ]
+  },
+  {
+   "id": "A1",
+   "type": "AI",
+   "must": false,
+   "what": "Enterprise AI's DAISY, an AI planning assistant on NSW council websites that guides residents and home builders through development application rules, went live at City of Newcastle and Muswellbrook, with 16,533 conversations from January to September 2026; reported 29 October 2026. Echoes are one story.",
+   "urls": [
+    "techbusinessnews.com.au/news/daisy-expands-across-nsw-councils",
+    "idm.net.au/article/0015850-hunter-councils-add-ai-planning-enquiries"
+   ],
+   "match": "\\bDAISY\\b|(?:\\bAI\\b|artificial intelligence) (?:planning )?(?:assistant|tool|chatbot)[^.]{0,80}(?:councils?|development applications?)|councils?[^.]{0,60}(?:\\bAI\\b|artificial intelligence) (?:planning )?(?:assistant|tool|chatbot)",
+   "areas": [
+    "Land and planning approvals"
+   ],
+   "evidence": {
+    "url": "https://www.techbusinessnews.com.au/news/daisy-expands-across-nsw-councils-as-ai-planning-assistant-records-more-than-16500-conversations",
+    "quote": "Between January and September 2026, DAISY recorded 16,533 conversations across live council deployments.",
+    "date": "2026-10-29",
+    "page_date_source": "page metadata"
+   }
+  },
+  {
+   "id": "A2",
+   "type": "AI",
+   "must": false,
+   "what": "Microsoft published its October 2026 update for Microsoft 365 Copilot on 30 October 2026: Home brings Chat and Cowork together with scheduled automations, role-based Cowork plugins (sales, legal and finance, including contract review against a playbook), accounting and clean data skills in Excel, and Autopilot, an always-on personal agent, rolling out to Frontier in November. Echoes are one story. Not must (v11.1): a monthly roundup of items developed before the window, so the seven-day rule leaves it out of the must list; a row on it is not a fault.",
+   "urls": [
+    "techcommunity.microsoft.com/blog/microsoft-copilot-blog/what%e2%80%99s-new-in-microsoft-copilot--october-2026",
+    "techcommunity.microsoft.com/blog/microsoft-copilot-blog/what’s-new-in-microsoft-copilot--october-2026",
+    "techcommunity.microsoft.com/blog/microsoft-copilot-blog/whats-new-in-microsoft-copilot--october-2026",
+    "elevenforum.com/t/what-is-new-in-microsoft-copilot-for-october-2026"
+   ],
+   "match": "\\bAutopilot\\b|\\bCowork\\b|what'?s new in (?:microsoft )?(?:365 )?copilot|Copilot[^.]{0,80}(?:October 2026 (?:update|edition|roundup|release)|monthly (?:update|roundup))",
+   "areas": [
+    "Sales and customer experience",
+    "Procurement and trade contracts",
+    "Estimating and contract pricing"
+   ],
+   "evidence": {
+    "url": "https://techcommunity.microsoft.com/blog/microsoft-copilot-blog/what%E2%80%99s-new-in-microsoft-copilot--october-2026/4568528",
+    "quote": "Autopilot is an always-on, cloud-based personal agent that takes work off users’ plates and keeps it moving without them having to direct every step.",
+    "date": "2026-10-30",
+    "page_date_source": "page metadata",
+    "page_date_note": "JSON-LD datePublished '10/30/2026, 3:30:00 PM' read as 30 October 2026 (ruler v10.1 US n/n/yyyy rule); quote and date checked live 9 November 2026"
+   }
+  }
+ ],
+ "stale": [
+  {
+   "id": "L1",
+   "in_last_week": true,
+   "what": "Queensland Infrastructure Activation Fund ($2.4 billion) opens to applications (19 October 2026).",
+   "urls": [
+    "hia.com.au/our-industry/newsroom/building-and-renovation/2026/10/hia-welcomes-2-4-billion"
+   ],
+   "topic": "Infrastructure Activation Fund|\\$2\\.4 ?b(?:illion|n)?\\b",
+   "period": "19 October|applications? (?:open|opened|launch)"
+  },
+  {
+   "id": "L2",
+   "in_last_week": true,
+   "what": "HIA Housing 100 report for 2025/26 (21 October 2026): largest builders completed 70,553 homes, 35% of the market.",
+   "urls": [
+    "hia.com.au/our-industry/housing/in-focus/2026/10/year-on-a-high-note"
+   ],
+   "topic": "Housing 100|largest (?:home )?builders",
+   "period": "2025[/-]26|21 October|70,?553"
+  },
+  {
+   "id": "L3",
+   "in_last_week": true,
+   "what": "Master Builders opposes the Secure Australian Jobs Framework and Supplier Code changes (22 October 2026).",
+   "urls": [
+    "masterbuilders.com.au/builders-oppose-proposed-jobs-framework"
+   ],
+   "topic": "Secure Australian Jobs|Supplier Code|jobs framework",
+   "period": "22 October|procurement|propos"
+  },
+  {
+   "id": "S1",
+   "in_last_week": false,
+   "what": "HIA new home sales slump and 2025/26 commencements (16 October 2026).",
+   "urls": [
+    "hia.com.au/our-industry/newsroom/economic-research-and-forecasting/2026/10/new-home-sales-slump"
+   ],
+   "topic": "new home sales",
+   "period": "16 October|204,?500|commencements"
+  },
+  {
+   "id": "S2",
+   "in_last_week": false,
+   "what": "Master Builders construction forecasts marked down (1 October 2026).",
+   "urls": [
+    "masterbuilders.com.au/construction-forecasts-slashed"
+   ],
+   "topic": "forecasts? (?:slashed|downgraded|cut|marked down)|marked down (?:its |the )?forecasts?",
+   "period": "1 October|March forecasts?"
+  },
+  {
+   "id": "S3",
+   "in_last_week": false,
+   "what": "Trust tax legislation introduced; Master Builders says it fails the sector's concerns (14 October 2026).",
+   "urls": [
+    "masterbuilders.com.au/trust-legislation-more-lead-in-the-saddle"
+   ],
+   "topic": "\\btrusts?\\b|minimum tax",
+   "period": "14 October|introduc"
+  },
+  {
+   "id": "S4",
+   "in_last_week": false,
+   "what": "ABS Labour Force for September 2026 (15 October): unemployment rate up to 4.7%; construction workforce shortfall projection.",
+   "urls": [
+    "masterbuilders.com.au/unemployment-up-but-building-workforce"
+   ],
+   "topic": "unemployment|labour force|workforce (?:shortfall|shortage)",
+   "period": "15 October|unemployment rate (?:rose |rises |up )?to 4\\.7|935,?600"
+  },
+  {
+   "id": "S5",
+   "in_last_week": false,
+   "what": "Joint ministerial meeting on housing supply and affordability communique (16 October 2026): record 248,733 homes under construction.",
+   "urls": [
+    "treasury.gov.au/media-release/meeting-communique-building-ministers-october-2026"
+   ],
+   "topic": "ministerial meeting|(?:building|housing) ministers|248,?733",
+   "period": "16 October|communiqu|October meeting"
+  },
+  {
+   "id": "S6",
+   "in_last_week": false,
+   "what": "ABS building approvals for August 2026 (dwelling approvals up 10.3% over the year), re-reported by a trade outlet on 30 October 2026.",
+   "urls": [
+    "abs.gov.au/statistics/industry/building-and-construction/building-approvals-australia/aug-2026",
+    "sustainableconstruction-now.com/article/558833"
+   ],
+   "topic": "approv",
+   "period": "August|10\\.3 ?(?:%|per ?cent)"
+  },
+  {
+   "id": "SA1",
+   "what": "Procore launches Procore AI Go, a voice-first AI mobile app for jobsite crews, at Groundbreak (21 October 2026).",
+   "urls": [
+    "procore.com/press/procore-launches-voice-first-ai-mobile-app"
+   ],
+   "topic": "Procore AI Go|voice[- ]first",
+   "period": "21 October|Groundbreak|launch"
+  },
+  {
+   "id": "SA2",
+   "what": "Safe Work Australia guidance on managing work health and safety risks from AI and digital technologies (July 2026).",
+   "urls": [
+    "mba.org.au/ai-and-whs-what-builders-need-to-know",
+    "thegoodbuilder.com.au/safe-work-australia-publishes-ai-and-digital-technology-safety-guidance",
+    "safeworkaustralia.gov.au"
+   ],
+   "topic": "Safe Work Australia|\\bWHS\\b[^.]{0,60}(?:\\bAI\\b|artificial intelligence)|(?:\\bAI\\b|artificial intelligence)[^.]{0,60}\\bWHS\\b",
+   "period": "July|guidance|digital technolog"
+  },
+  {
+   "id": "SA3",
+   "what": "FBR's Hadrian H04 bricklaying robot completes its first Australian residential demonstration build (5 October 2026).",
+   "urls": [
+    "kalkine.com.au/news/technology/fbr-asxfbr-hadrian-h04",
+    "fbr.com.au"
+   ],
+   "topic": "Hadrian|\\bFBR\\b|bricklaying robot",
+   "period": "5 October|demonstration|Lesmurdie|H04"
+  },
+  {
+   "id": "SA4",
+   "what": "Togal.AI 'Construction's Last Exam' benchmark: general AI models score 2% to 34% on construction takeoff tasks (6 October 2026).",
+   "urls": [
+    "constructionbriefing.com/news/ai-models-score-as-low-as-2-on-construction-takeoff-test",
+    "natlawreview.com/press-releases/togalai-launches-constructions-last-exam"
+   ],
+   "topic": "Togal|Construction.?s Last Exam|takeoff (?:test|benchmark)",
+   "period": "6 October|benchmark|scor"
+  },
+  {
+   "id": "SA5",
+   "what": "Microsoft 365 Copilot pricing moves to a per-user licence plus usage-based Copilot Credits, rolling out from Q4 2026 (Message Center notice, by 1 October 2026).",
+   "urls": [
+    "changepilot.cloud/blog/october-2026-microsoft-365-updates-copilot-billing"
+   ],
+   "topic": "Copilot Credits?|usage[- ]based billing",
+   "period": "October|Q4|roll(?:s|ing|ed)? ?out|spending polic|December"
+  }
+ ],
+ "match_review": "W1: old '\\\\bCPI\\\\b|consumer price|new dwelling (?:price|cost)s?|4\\\\.3 ?(?:%|per ?cent)'; new '^(?!.*(?:producer price|\\\\bPPI\\\\b|input (?:costs?|prices?)|Reserve Bank|\\\\bRBA\\\\b|cash rate)).*?(?:\\\\bCPI\\\\b|consumer price|new (?:dwelling|home|house) prices?|new dwelling costs?|(?<!cost )(?<!costs )(?<!price )(?<!input )(?<!building )(?<!construction )\\\\binflation\\\\b)'; why: bare 4.3% dropped; guard so a row naming producer prices, input costs or the RBA (3 Nov, out of window) cannot map here; 'inflation' kept except after cost/price/input/building/construction\nW2: old 'producer price|\\\\bPPI\\\\b|input (?:costs?|prices?)|building costs?|construction costs?|3\\\\.9 ?(?:%|per ?cent)'; new 'producer price|\\\\bPPI\\\\b|input (?:costs?|prices?)|(?:building|construction|materials?) (?:input )?costs? (?:\\\\w+ ){0,3}(?:rose|rise|rising|increas\\\\w*|climb\\\\w*|jump\\\\w*|grew|up)|fastest (?:pace|rise|annual rise|increase)[^.]{0,40}three years'; why: bare 'building costs'/'construction costs' and bare 3.9% matched any cost mention (e.g. an affordability or approvals row); now needs PPI, input costs, or costs plus a rise verb\nW3: old 'affordab'; new 'affordability (?:index|report|measure)|affordability (?:\\\\w+ ){0,3}(?:improv\\\\w*|better|eased|recover\\\\w*)|(?:improv\\\\w*|better) (?:\\\\w+ ){0,2}affordability|window of (?:improving )?(?:housing )?affordability'; why: 'affordab' matched the Housing Australia Future Fund 'social and affordable homes' story; now needs the affordability index/report or affordability improving\nW2 (v11.3): old \"producer price|\\\\bPPI\\\\b|input (?:costs?|prices?)|(?:building|construction|materials?) (?:input )?costs? (?:\\\\w+ ){0,3}(?:rose|rise|rising|increas\\\\w*|climb\\\\w*|jump\\\\w*|grew|up)|fastest (?:pace|rise|annual rise|increase)[^.]{0,40}three years\"; new \"producer price|\\\\bPPI\\\\b|input (?:costs?|prices?)|(?:building|construction|materials?) (?:input )?costs? (?:(?!(?:would|could|will|may|might|should|can|to)\\\\b)\\\\w+ ){0,3}(?:rose|rise|rising|increas\\\\w*|climb\\\\w*|jump\\\\w*|grew|up)|fastest (?:pace|rise|annual rise|increase)[^.]{0,40}three years\"; why: 'construction costs would increase' (a trust-tax forecast) matched; a modal or 'to' before the rise verb now blocks the costs-plus-verb branch",
+ "previous_version": "t2-past-1 v10, 8 November 2026, AI addendum by a separate key writer: every story typed (industry, AI or both) and given portfolio areas from case-t2/profile.md, AI stories and stale AI items added; industry stories otherwise unchanged from t2-past-1 v8",
+ "key_writer_v11": "Separate key writer for ticket 38 review fixes (driver run 20261109T074734-exec-skills-r3-fe61); has not opened industry/prompts/, any rounds folder, any results, scores or run outputs; saw no Copilot answer.",
+ "key_change_v11": "2026-11-09 09:18 AEST: A2 added as a must AI story. It is fair under SPEC-redesign section 6: a tool the teams use (the profile lists Microsoft 365 Copilot), dated in the window (the Microsoft Copilot Blog post has page metadata 30 October 2026), live, with the quote on the page. Week P2's Procore A1 was demoted (an earnings release dated in P2 that recaps a Q3 event), and no fair AI story dated 2 to 8 November 2026 was found (searched Procore, Microsoft Copilot Blog listing, take-off tools, Bluebeam, Buildxact, Autodesk, Australian regulators, peer builders; Microsoft Ignite is 17 to 20 November), so the story went to P1. The v10 scan of P1 searched Copilot updates but did not list this post. Areas: role plugins touch sales and contract review, Excel skills touch estimating. Recorded limit, unchanged: W1, W2 and A2 all accept Estimating and contract pricing, so a pasted answer naming only that area still passes PA1 on P1. Not checked against stale items by topic: SA5 (Copilot Credits billing) needs 'Copilot Credits' or usage-based billing, which A2's text does not hold.",
+ "key_writer_v11_1": "Separate key writer for the ticket 39 review fix (finding P1); has not opened industry/prompts/, any rounds folder, any results, scores or run outputs; saw no Copilot answer.",
+ "key_change_v11_1": "2026-11-09 09:35 AEST: A2 demoted to not must. Under SPEC-redesign section 6 a fair must AI story is developed in the week, and the seven-day rule leaves out older news that a page in the week reports again. The 30 October post is a monthly roundup. Each item was checked for a first announcement inside 26 October to 1 November 2026 on a live page with a page date the scorer reads: none was found. Autopilot was first announced on 25 September 2026 (thenextweb.com/news/microsoft-copilot-super-app-code-autopilot, page metadata 2026-09-25); the linked legal plugin post is dated 15 October and the SharePoint knowledge base post 14 October (JSON-LD datePublished); role-based Cowork plugins, the task catalog and the Excel accounting and clean data skills are only marked 'rolled out in October' in the roundup itself, with no own page dated in the window. So A2 is not narrowed; its match pattern is kept so a row on it still maps to a story. Neither practice week (P1 or P2) has a fair must AI story. ai_notes corrected to match. Not comparable with v11 for P1 K1; practice re-score only; holdouts untouched.",
+ "previous_version_v11": "t2-past-1 v11, 9 November 2026, practice AI addendum by a separate key writer (ticket 38 review fixes): A2 (Microsoft's October 2026 Copilot update, published 30 October 2026) is added as a must AI story; every other story, stale item and area unchanged from t2-past-1 v10",
+ "previous_version_v11_1": "t2-past-1 v11.1, 9 November 2026, practice AI correction by a separate key writer (ticket 39 review, finding P1): A2 (Microsoft's October 2026 Copilot roundup, published 30 October 2026) is demoted to not must under the seven-day rule; every other story, stale item and area unchanged from t2-past-1 v11",
+ "key_writer_v11_3": "Separate key writer for ticket 56 (driver run 20261109T220303-exec-skills-r5-7daa); has not opened industry/prompts/, any holdout-past folder, results-t2.md, any score or notes file; read rows 4 and 5 only of rounds-t2/t2-v7r-p1-2/output.md, as the ticket allows, for the false-match probe.",
+ "key_change_v11_3": "2026-11-09 22:07:36 AEST: W2's branch for building, construction or materials costs plus a rise verb now refuses a modal or 'to' (would, could, will, may, might, should, can, to) among the up to three words before the verb. Why: run t2-v7r-p1-2 row 4, a builders' submission on a trust tax, says 'construction costs would increase'; that is a forecast, not the ABS producer price release, but v11.1 tagged it W2, so rows 4 and 5 both counted as W2 and T2 failed. Probes (score_industry.py v113_check): row 4's text maps to no story; other cost forecasts stay off W2; row 5's text and four other reports of W2 still map to W2 on both v11.1 and v11.3. Not comparable with v11.1 on P1 T2 and K1 for a run with a cost-forecast row. Nothing re-scored."
+}

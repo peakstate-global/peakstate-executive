@@ -1,0 +1,13 @@
+SAMPLE CASE, INVENTED FOR TESTING.
+
+About me: I am an executive at a mid-sized Australian home builder. We build detached houses and some townhouses on the east coast, mostly for owner-occupiers, on fixed-price contracts.
+
+Today is Sunday 1 November 2026.
+
+Last week's list (week to Sunday 25 October 2026):
+
+| # | Date | Development | Why it matters to us | Source URL |
+|---|---|---|---|---|
+| 1 | 19 October 2026 | Queensland opened applications for its $2.4 billion Infrastructure Activation Fund, which pays for the roads, water and sewer that new housing needs. | Faster enabling infrastructure could open more Queensland land for the houses we build. | https://hia.com.au/our-industry/newsroom/building-and-renovation/2026/10/hia-welcomes-2-4-billion-infrastructure-fund-to-unlock-new-queensland-housing |
+| 2 | 21 October 2026 | The HIA Housing 100 report found the largest builders completed 70,553 homes in 2025/26, about 35% of the market, down from 36% the year before. | Smaller builders are taking a larger share, so the competition for our buyers is changing. | https://hia.com.au/our-industry/housing/in-focus/2026/10/year-on-a-high-note |
+| 3 | 22 October 2026 | Master Builders Australia opposed the proposed Secure Australian Jobs Framework and changes to the Commonwealth Supplier Code of Conduct. | Overlapping procurement rules could add cost and paperwork to any government-linked work we take on. | https://masterbuilders.com.au/builders-oppose-proposed-jobs-framework-and-supplier-code/ |

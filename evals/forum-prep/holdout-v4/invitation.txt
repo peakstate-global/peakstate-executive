@@ -1,0 +1,28 @@
+SAMPLE CASE: every person, organisation and figure below and in the attached pack is invented for practice. Treat this as my meeting invitation, its attached pack and an extract of the previous pack.
+Today is Monday 7 December 2026. I am Riley Sample, Executive General Manager Assets and Compliance at Northgate Sample Housing, and a member of the Investment and Delivery Committee.
+
+=== INVITATION ===
+From: Company Secretary <secretary@example.org>
+To: Investment and Delivery Committee members
+Subject: Sample: Investment and Delivery Committee, 10 December 2026, papers attached
+Date: Thu 3 Dec 2026, 3:40 pm
+
+Dear members,
+The Investment and Delivery Committee meets on Thursday 10 December 2026 at 2 pm in the Board Room, Level 3. The meeting pack is attached (idc-pack-2026-12-10.pdf, 32 pages).
+Attendees:
+- Parker Sample, Chair
+- Blake Sample, Chief Financial Officer
+- Emerson Sample, General Manager Development
+- Finley Sample, General Manager Tenancy and Community
+- Riley Sample, Executive General Manager Assets and Compliance
+Kind regards,
+Company Secretary
+
+=== PREVIOUS PACK EXTRACT (meeting of 10 September 2026, Paper 2: Programme dashboard, reporting period to 31 July 2026) ===
+Measure | This period | Status
+Overall programme status | On track | Green
+Spend to date | $0.8M of $46.0M | Green
+Construction cost per home | $341,000 | Green
+Design maturity | 55% | Green
+Neighbour enquiries | 6 | Green
+Lost time injuries | 0 | Green

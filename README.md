@@ -20,6 +20,8 @@ The guide shows the setup and each skill: the real prompt, an invented practice 
 
 The prompt text is also in the [prompts](prompts/) folder, one file for the setup and one for each skill.
 
+[How we test the prompts](evals/): the practice cases, answer keys and scorers, so you can rerun and score any prompt yourself.
+
 ## What you need
 
 - A Microsoft 365 Copilot licence, and OneDrive.

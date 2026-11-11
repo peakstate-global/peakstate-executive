@@ -1,0 +1,26 @@
+SAMPLE CASE: every person, organisation and figure below and in the attached pack is invented for practice. Treat this as my meeting invitation, its attached pack and an extract of the previous pack.
+Today is Monday 18 January 2027. I am Jordan Sample, Executive General Manager Marine Operations at Calder Sample Ports, and a member of the Capital and Operations Committee.
+
+=== INVITATION ===
+From: Board Secretary <board.secretary@example.net>
+To: Capital and Operations Committee members
+Subject: Sample: Capital and Operations Committee, 21 January 2027, papers attached
+Date: Thu 14 Jan 2027, 4:10 pm
+
+Dear members,
+The Capital and Operations Committee meets on Thursday 21 January 2027 at 10 am in the Harbour Room, Level 2. The meeting pack is attached (coc-pack-2027-01-21.pdf, 36 pages).
+Attendees:
+- Morgan Sample, Chair
+- Casey Sample, Chief Financial Officer
+- Drew Sample, General Manager Commercial
+- Quinn Sample, General Manager People and Safety
+- Jordan Sample, Executive General Manager Marine Operations
+Kind regards,
+Board Secretary
+
+=== PREVIOUS PACK EXTRACT (meeting of 15 October 2026, Paper 6: Marine operations report, reporting period to 30 September 2026) ===
+Measure | This period | Status
+Vessel movements | 1,198 | Green
+Pilot transfers delayed over 30 minutes | 4 | Green
+Towage availability | 99% | Green
+Marine incidents | 1 | Green

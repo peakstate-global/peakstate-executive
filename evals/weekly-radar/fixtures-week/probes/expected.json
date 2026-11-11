@@ -1,0 +1,69 @@
+{
+  "p1-paraphrased-good.md": {
+    "valid": true,
+    "parts_ok": 4,
+    "claims": 0,
+    "lines_unmatched": 0,
+    "planted_found": 11,
+    "planted_total": 11
+  },
+  "p2-claims.md": {
+    "valid": true,
+    "parts_ok": 4,
+    "claims": 6,
+    "lines": 6,
+    "lines_unmatched": 0
+  },
+  "p3-missing-section.md": {
+    "valid": true,
+    "parts_ok": 3,
+    "claims": 0,
+    "lines_unmatched": 0,
+    "planted_found": 3
+  },
+  "p4-bad-citation.md": {
+    "valid": true,
+    "parts_ok": 4,
+    "claims": 0,
+    "lines": 3,
+    "lines_matched": 0,
+    "lines_unmatched": 3
+  },
+  "p5-split-none.md": {
+    "valid": false
+  },
+  "p5-split-hash-number.md": {
+    "valid": true,
+    "parts_ok": 4,
+    "claims": 0,
+    "lines": 9,
+    "lines_unmatched": 0
+  },
+  "p5-split-bold.md": {
+    "valid": true,
+    "parts_ok": 4,
+    "claims": 0,
+    "lines": 9,
+    "lines_unmatched": 0
+  },
+  "p5-split-section-prefix.md": {
+    "valid": true,
+    "parts_ok": 4,
+    "claims": 0,
+    "lines": 9,
+    "lines_unmatched": 0
+  },
+  "p5-split-h3.md": {
+    "valid": true,
+    "parts_ok": 4,
+    "claims": 0,
+    "lines": 9,
+    "lines_unmatched": 0
+  },
+  "p6-negation.md": {
+    "valid": true,
+    "parts_ok": 4,
+    "claims": 0,
+    "lines": 3
+  }
+}

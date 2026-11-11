@@ -1,0 +1,15 @@
+SAMPLE CASE. The organisation, the people and the note are invented. All addresses use the reserved .example domain.
+
+To: Executive team, Larkfield Mutual Insurance (sample)
+From: Head of Customer Contact Operations, contact-ops@larkfield-mutual.example
+Subject: Proposal: blue-light filtering glasses for every contact centre consultant from 1 March
+
+Our 1,350 claims and service consultants spend about seven hours a day on two screens, often on late and night shifts. Eye strain, headaches and poor sleep come up in every staff survey, and unplanned leave in the contact centre is the highest in the business. I propose we give every consultant a pair of blue-light filtering glasses (plain or prescription), fitted by Clearsight Workplace Optics (sample), and make them part of the standard desk kit from 1 March.
+
+The cost is about $230,000 in the first year: $140 a pair, a fitting session on each site, and a spare pair for each team. After that, replacements cost about $60,000 a year.
+
+The evidence looks strong. A 2023 study by the Southern Vision Health Institute followed 3,200 office workers and found that blue-light filtering glasses cut eye strain complaints by 47% within six weeks (summary at https://clearsight-optics.example/research). The vendor's brochure says the glasses also help people fall asleep faster after an evening shift, which should bring down sick days.
+
+We ran a two-week pilot with 22 consultants on the night shift team. Nineteen of them said on the feedback form that their eyes felt less tired, and several said they slept better. The team leaders are keen, and two of them have already bought their own pairs.
+
+I would like approval to sign with Clearsight Workplace Optics this month so fittings can start in February.

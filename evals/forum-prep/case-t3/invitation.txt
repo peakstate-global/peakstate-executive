@@ -1,0 +1,35 @@
+SAMPLE CASE: every person, organisation and figure below and in the attached pack is invented for practice. Treat this as my meeting invitation, its attached pack and an extract of the previous pack.
+Today is Monday 7 December 2026. I am Jordan Sample, Executive Director Regional Operations at Southward Sample Health, and a member of the Executive Performance Committee.
+
+=== INVITATION ===
+From: Executive Office <executive.office@example.org>
+To: Executive Performance Committee members
+Subject: Sample: Executive Performance Committee, 10 December 2026, papers attached
+Date: Thu 3 Dec 2026, 2:25 pm
+
+Dear members,
+The Executive Performance Committee meets on Thursday 10 December 2026 at 9 am in Committee Room 2, Bay Point Hospital. The meeting pack is attached (epc-pack-2026-12-10.pdf, 44 pages).
+Attendees:
+- Morgan Sample, Chief Executive (Chair)
+- Riley Sample, Chief Financial Officer
+- Casey Sample, Executive Director Clinical Governance
+- Quinn Sample, Executive Director People and Culture
+- Avery Sample, Chief Digital Officer
+- Jordan Sample, Executive Director Regional Operations
+Kind regards,
+Executive Office
+
+=== PREVIOUS PACK EXTRACT (meeting of 10 September 2026, Paper 3: Performance scorecard by region, quarter to 30 June 2026) ===
+Scorecard measures
+Measure | This quarter | Target | Status
+Elective surgery on time | 90% | 90% | Green
+Patient transport on-time arrivals | 94% | 85% | Green
+Unplanned readmissions | 7.0% | 7.0% | Green
+
+Emergency patients treated within the recommended time, by region
+Region | This quarter | Target | Rank
+Metro North | 85% | 80% | 1 of 5
+Inland region | 83% | 80% | 2 of 5
+Highlands | 80% | 80% | 3 of 5
+Metro South | 78% | 80% | 4 of 5
+Coastal region | 73% | 80% | 5 of 5

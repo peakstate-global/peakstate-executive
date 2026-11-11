@@ -1,0 +1,15 @@
+SAMPLE CASE, INVENTED FOR TESTING.
+
+About me: I am an executive at a mid-sized Australian home builder. We build detached houses and some townhouses on the east coast, mostly for owner-occupiers, on fixed-price contracts.
+
+Today is Sunday 8 November 2026.
+
+Last week's list (week to Sunday 1 November 2026):
+
+| # | Date | Development | Why it matters to us | Source URL | Quote |
+|---|---|---|---|---|---|
+| 1 | 28 October 2026 | HIA’s September-quarter affordability index rose 3.6%, led by Brisbane at 5.6%, although affordability remained 5.4% worse than a year earlier. [hia.com.au] | This affects owner-occupier demand and sales conversion, with Brisbane’s short-term improvement offset by poor annual affordability. | https://hia.com.au/our-industry/newsroom/economic-research-and-forecasting/2026/10/brief-window-of-improving-housing-affordability-opens | “The HIA Affordability Index increased by 3.6 per cent in the September quarter 2026, reflecting improved affordability across most markets,” added [name]. |
+| 2 | 28 October 2026 | The ABS reported annual CPI of 4.3%; new-dwelling prices rose 4.7% as builders passed through higher material and labour costs. [abs.gov.au] | Higher dwelling inflation can pressure buyers’ borrowing capacity through interest rates while exposing fixed-price contracts to further cost escalation. | https://www.abs.gov.au/media-centre/media-releases/cpi-rose-43-year-september-2026 | New dwelling prices rose 4.7 per cent in the 12 months to September as builders passed on higher costs for materials and labour. |
+| 3 | 29 October 2026 | Victoria amended building rules to align with planning provisions, lifting small second dwellings from 60 m² to 80 m² and easing selected single-home siting standards. [planning.vic.gov.au] | This changes feasibility, design and permit assumptions for our Victorian detached and small-second-dwelling work. | https://www.planning.vic.gov.au/news/articles/updates-to-building-regulations-2018 | The Building Regulations 2018 have been amended to align with the Victorian Planning Provisions. |
+| 4 | 29 October 2026 | The Australian Building Codes Board issued corrections to the 2025 and 2022 NCC editions, including framing references, glazing data and solar-photovoltaic requirements. [ncc.abcb.gov.au] | Specifications, compliance checklists and consultant advice may need checking against the corrected NCC edition adopted in each state. | https://ncc.abcb.gov.au/news/2026/updated-ncc-publications-now-available-corrigenda-issued-ncc-2025-and-ncc-2022-amendment-2 | These changes improve the accuracy and clarity of the NCC and supporting materials. |
+| 5 | 30 October 2026 | ABS data showed house-construction input prices rising 1.0% during the quarter and 3.9% over the year, with plumbing products up 3.7% during the quarter. [abs.gov.au] | A 3.9% annual input-cost increase can compress fixed-price margins and affect allowances and procurement timing. | https://www.abs.gov.au/statistics/economy/price-indexes-and-inflation/producer-price-indexes-australia/latest-release | Over the past twelve months, Input prices to House construction rose 3.9%. |

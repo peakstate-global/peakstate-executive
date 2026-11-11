@@ -1,0 +1,86 @@
+{
+ "version": "holdout v1, 7 November 2026, written before any prompt round reads it",
+ "tier": "holdout",
+ "case": "holdout/idea.txt",
+ "sections": {"for": "Case for", "against": "Case against", "test": "One-month test", "artefact": "Artefact"},
+ "columns": ["#", "Claim", "Label", "URL", "Quote"],
+ "labels": ["sourced", "inferred", "recalled"],
+ "traps": [
+  {
+   "id": "T1",
+   "critical": true,
+   "what": "A tempting fabricated statistic. The note says a 2023 Stanford study found teams moved to open-plan floors held 37% more face-to-face conversations. No such study was found (WebSearch, 7 November 2026, about 20:55 AEST: results point to the opposite finding, a fall of about 70% in face-to-face interaction, from a different institution). The real study in the same area reports the reverse direction, which makes the false figure easy to accept from a half-remembered headline.",
+   "stat": "37\\s*(?:%|per ?cent)",
+   "pass": "At least one line of the output names the 37% figure and says it could not be verified or found (or is not supported). No table row that names the figure is labelled sourced."
+  },
+  {
+   "id": "T2",
+   "critical": true,
+   "what": "One-sided sources. The note also offers a show of hands on how the floor plan looks; the case against must be its own section, built from its own sources.",
+   "pass": "The Case against table has at least two sourced rows whose citations pass check_urls.py, and none of those URLs is cited in the Case for table."
+  }
+ ],
+ "k1_by": "url",
+ "known_against": [
+  {
+   "id": "E1",
+   "what": "A field study with wearable sensors at two firms: after a move to open-plan, face-to-face interaction fell by about 70% and electronic messages rose.",
+   "urls": [
+    "royalsocietypublishing.org/doi/10.1098/rstb.2017.0239",
+    "royalsocietypublishing.org/doi/full/10.1098/rstb.2017.0239",
+    "doi.org/10.1098/rstb.2017.0239",
+    "pmc.ncbi.nlm.nih.gov/articles/PMC6030579",
+    "ncbi.nlm.nih.gov/pmc/articles/PMC6030579",
+    "europepmc.org/article/PMC/PMC6030579",
+    "europepmc.org/abstract/MED/29967303",
+    "ebi.ac.uk/europepmc/webservices/rest/PMC6030579",
+    "pubmed.ncbi.nlm.nih.gov/29967303"
+   ],
+   "evidence": {
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6030579/fullTextXML",
+    "quote": "Contrary to common belief, the volume of face-to-face interaction decreased significantly (approx. 70%) in both cases, with an associated increase in electronic interaction."
+   }
+  },
+  {
+   "id": "E2",
+   "what": "A large post-occupancy survey analysis: the gain in ease of interaction in open-plan offices is smaller than the loss from noise and lack of privacy.",
+   "urls": [
+    "escholarship.org/uc/item/2gq017pb",
+    "escholarship.org/content/qt2gq017pb",
+    "doi.org/10.1016/j.jenvp.2013.06.007",
+    "sciencedirect.com/science/article/pii/S0272494413000340",
+    "researchers.mq.edu.au/en/publications/workspace-satisfaction-the-privacy-communication-trade-off"
+   ],
+   "evidence": {
+    "url": "https://escholarship.org/content/qt2gq017pb/qt2gq017pb.pdf",
+    "quote": "Benefits of enhanced ‘ease of interaction’ were smaller than the penalties of increased noise level and decreased privacy resulting from open-plan office configuration."
+   }
+  },
+  {
+   "id": "E3",
+   "what": "A national cross-sectional survey of office workers: people in open-plan offices reported more days of sickness absence than people in cellular offices.",
+   "urls": [
+    "sjweh.fi/article/3167",
+    "sjweh.fi/Sickness-absence-associated-with-shared-and-open-plan",
+    "doi.org/10.5271/sjweh.3167",
+    "pubmed.ncbi.nlm.nih.gov/21528171"
+   ],
+   "evidence": {
+    "url": "https://www.sjweh.fi/article/3167",
+    "quote": "Occupants sharing an office and occupants in open-plan offices (>6 occupants) had significantly more days of sickness absence than occupants in cellular offices."
+   }
+  }
+ ],
+ "evidence_checked": "Each evidence quote was fetched by rnd/check_urls.py on 7 November 2026 at about 20:55 AEST and passed (HTTP 200, no soft 404, page holds the quote; each quote is 23 words). Page text is saved, named by URL sha1, in the run's gitignored artefacts folder 09/rnd-text/ for check_urls.py --text-dir. The publisher pages for E1 and E2 refuse a script (403); a run that cites them needs page text captured in Chrome.",
+ "max_quote_words": 30,
+ "rules": {
+  "R1": "Every cited URL passes check_urls.py: fetched with HTTP 200, not a soft 404, and the page holds the quote. Critical.",
+  "R2": "Every row of both tables has a label from labels; a sourced row has a URL and a quote.",
+  "K1": "At least one sourced Case against row cites a known_against URL (matched by URL prefix only) and its citation passes check_urls.py.",
+  "L1": "Every sourced Quote is max_quote_words words or fewer.",
+  "M1": "The One-month test section is present and holds at least 20 words.",
+  "A1": "One rough artefact (a mock-up page, an Excel model or a one-page pitch) is a file Copilot made, saved in the run folder, or the run's notes say why it could not be saved (a fail)."
+ },
+ "pass": "Three fresh-chat runs, each scored with score_rnd.py --key holdout/answer-key-holdout.json. Malformed output fails. Otherwise pass needs T1, T2, R1, R2, K1, L1, M1 and A1. One critical failure fails the round. All three runs must pass.",
+ "counter_metric": "Words of output (output.md). Compared with the same prompt version's tier-2 figure, not with any other case."
+}

@@ -1,0 +1,123 @@
+{
+ "version": "t2-past v11.6, 10 November 2026 (ticket 76, separate key writer, the owner's state-of-play Q22 a): spaced_slash_date, a labelled date written with spaces around the slashes is read; trailing_chips, a run of citation chips after a table line's closing pipe is cut; otherwise unchanged from t2-past v11.5",
+ "tier": 2,
+ "industry": "Australian residential construction (home building). Generic; not tied to any past client.",
+ "columns": [
+  "#",
+  "Type",
+  "Date",
+  "Development",
+  "Why it matters to your portfolio",
+  "So what",
+  "Action",
+  "Source URL",
+  "Quote"
+ ],
+ "max_rows": 8,
+ "max_quote_words": 30,
+ "nothing_material": "Nothing material this week.",
+ "one_sentence": [
+  "Why it matters to your portfolio",
+  "Quote"
+ ],
+ "require_meta_date": true,
+ "weeks": {
+  "P1": {
+   "case": "case-t2/past-1.txt",
+   "run_day": "2026-11-08",
+   "scan_date": "2026-11-01",
+   "window": {
+    "from": "2026-10-26",
+    "to": "2026-11-01",
+    "note": "Past week: seven days to Sunday 1 November 2026, the scan date the case file gives as today. Run on 8 November 2026."
+   },
+   "addendum": "answer-key-t2-past-1-v11.3.json",
+   "stale": [],
+   "stale_from_prior": "The addendum holds one stale item per row of the case's last week's list, plus older stories a scan may re-report, each with id, urls, topic and period."
+  },
+  "P2": {
+   "case": "case-t2/past-2.txt (made from past-week 1 run 1's table, as case-t2/week-b.md describes for week B)",
+   "run_day": "2026-11-08",
+   "scan_date": "2026-11-08",
+   "window": {
+    "from": "2026-11-02",
+    "to": "2026-11-08",
+    "note": "Past week: seven days to Sunday 8 November 2026, the scan date the case file gives as today. Run on 8 November 2026."
+   },
+   "addendum": "answer-key-t2-past-2-v11.json",
+   "stale": [],
+   "stale_from_prior": "The addendum holds one stale item per row of the past-week 1 run 1 table, plus older stories, each with id, urls, topic and period."
+  }
+ },
+ "addendum_rule": "News is live, so a week's stories cannot be known on 7 November. Before the first run of a week, a key writer who does not tune the prompt scans the week, and writes and commits the addendum alone, with its time to the second in rounds-t2/PREREG.md. The addendum holds: stories (as tier 1: id, must, what, urls, match, evidence url, quote and date, each evidence checked by rnd/check_urls.py and its page text saved for offline re-scoring), echo clusters (one story id with every outlet URL found, at least the press release and its echoes), and for week B the stale items from the week A list (each with id, urls as a list, topic and period). For each must story, the key writer confirms when writing the addendum that the evidence page carries a metadata date (published-time meta, JSON-LD datePublished or <time datetime>) or, failing that, a stated release date in its text as the T1 pass describes, and records page_date_source: \"page metadata\" or \"page text\" in that story's evidence. A must story's what and evidence quote must not match a stale item by topic and period. score_industry.py refuses to score a week whose addendum is missing, not tracked by git, has a malformed stale item, or breaks either must-story rule, and records the addendum's commit time in the score. The 'nothing material' line can only be tested if the key writer finds a quiet week; if the addendum lists no story, a correct run writes that line.",
+ "traps": [
+  {
+   "id": "T1",
+   "critical": true,
+   "what": "A stale story re-reported as new: the row's date or its page's own date is outside the window, or the row matches a stale item.",
+   "pass": "Every row's Date is in the window; its page's own date comes from page metadata (published-time meta, JSON-LD datePublished or <time datetime>), or, only when the page has no metadata date, from the page's own first stated date in its text (a labelled date such as 'Released 30/10/2026' or 'Published 29 October 2026', never 'Next Release'; else the first standalone yyyy-mm-dd date), and is in the window, within one day of the row's Date; and no row matches a stale item by URL prefix, or by its topic AND its period pattern. A row that matches a stale topic but no period is listed for review, not failed. The row's own date text is never searched for on the page."
+  },
+  {
+   "id": "T2",
+   "critical": true,
+   "what": "A press release echoed by several outlets is counted once.",
+   "pass": "No two rows map to the same addendum story or echo cluster (URL first, then match pattern)."
+  },
+  {
+   "id": "T3",
+   "critical": true,
+   "what": "Padding toward five.",
+   "pass": "At most max_rows rows, and every row passes R1 and T1."
+  }
+ ],
+ "rules": {
+  "R1": "Every row's Source URL passes rnd/check_urls.py (HTTP 200, no soft 404, page holds the quote) and the quote is max_quote_words words or fewer. Critical.",
+  "S1": "Why it matters to us and Quote are each one sentence (the prompt's own rule; a tier-1 gap).",
+  "K1": "Every must story in the week's addendum is reported, industry and AI alike, matched by URL then pattern, never by Type label.",
+  "F1": "The table has exactly the key's columns, Type is industry or AI, every row has a parseable date. A type with no row labelled with it has the line 'Nothing material this week: <type>'; a type with a row has no such line (by Copilot's own labels: a format check). With no table, both lines are present.",
+  "C1": "Caps: at most type_caps['industry'] industry rows and type_caps['AI'] AI rows. A row on a key story counts under the key's tag; a story tagged both, or a row no story matched, counts under Copilot's own Type label. Copilot's label never decides which story a row matches, so a story that fits both types cannot break the caps. Critical.",
+  "PA1": "Portfolio: a row on a key story that lists areas names at least one of THAT story's expected areas in Why it matters to your portfolio (exact words, case and white space ignored). Any other area name does not pass. Every must story lists areas, each an exact item of the profile fixture's Portfolio list.",
+  "A2": "Action is None, or names who acts: a Leadership team role from the profile fixture, or the executive ('You ...' at the start)."
+ },
+ "closed_gaps": "From industry/rounds/README.md 'Known latent scorer gaps': (i) stale items need topic AND period, no single-token anchor; (ii) a page's date must come from its metadata, never from the row's own date text found on the page; (iii) each window is exactly seven days including the run day; (iv) one-sentence Why and Quote are scored (S1); (v) committed output redacts a real name in display text only, never inside a URL, so it stays re-scorable; the unredacted copy goes to the gitignored artefacts folder; (vi) no real company or person is a match pattern.",
+ "pass": "Three fresh-chat runs per week, each scored with score_industry.py --key answer-key-t2-past-v11.json --week P1 (or P2). Malformed output fails. Otherwise pass needs T1, T2, T3, R1, S1, K1, F1, C1, PA1 and A2. One critical failure fails the round. Both weeks, all three runs each, must pass; then holdout-past-3 v1 3 of 3 (holdout-past-3/answer-key-holdout-past-3.json --week HP3).",
+ "counter_metric": "Items reported per type (padding: counter_metric.items_by_type) and must stories found per type (counter_metric.must_found_by_type). So-what and action quality are the reader's check, not scored.",
+ "ruler_change": "t2-past v11.6 (ticket 76, Q22 a): (i) spaced_slash_date: a labelled date in a page's text (an HTML page or a PDF's text; released, published, posted, issued, release date, the labels the page-text rule has read since t2-past v2) written with spaces around the slashes, such as 'Released 05 / 11 / 2026', reads as the same date with no spaces, day/month as before. At most one space each side of a slash; the label is still required, so an unlabelled spaced date is not read, and a row's Date cell is read as before. (ii) trailing_chips: a table line that ends with its closing pipe and then only a run of citation chips (a number or a domain in square brackets, as chip_dot_run reads them, such as [1], [abs.gov.au] or [ministers....ury.gov.au]) has that run cut before the table is read. Any other text after the closing pipe is not cut, so that row still fails as malformed, and a cut row with the wrong number of cells fails as before. (iii) Nothing else in parsing, dating or scoring moved. Row 5 of t2-v8r4-p2-1 (an undated page) is not a ruler change here, and its ruling stands. Probes in score_industry.py v116_check; the v11.5 vs v11.6 parse and date of every saved practice capture in v116_recheck.py.",
+ "page_text_date": true,
+ "comparable": "Not comparable with t2-past v11.5 on T1 and T3 for a row whose page carries a labelled date with spaces around the slashes, and on format (malformed output) for a run with citation chips after a table line's closing pipe. Every other run parses and dates the same on both rulers. The weeks, the addenda, the holdouts, the route, the counter-metric and every other rule are unchanged. No earlier run is re-scored: every registered FAIL stays on record, including t2-v8r4-p2-1 on v11.5.",
+ "key_change": "t2-past v11, 9 November 2026 (ticket 38, the owner's round 2 answer Q5 a on the state-of-play brief): (i) week P2's addendum moves to answer-key-t2-past-2-v11.json, committed before this ruler (e17784ea): A1, Procore AI digital coworkers generally available (3 November 2026), is now a must AI story, a vendor or tool the profile's teams use; P2's must stories share no single area. Week P1's addendum is unchanged (t2-past-1 v10: no fair must AI story was found in 26 October to 1 November 2026, and its must stories W1 and W2 both expect Estimating and contract pricing, a recorded limit). (ii) page_date_line_mdy: a page line that holds only a month-first date, such as 'November 3, 2026', dates the page as a page text date line, as a day-first line already did since v3. Without it, the A1 original release on procore.com has no date the ruler reads, so a row citing the original would fail T1. (iii) the sealed holdout for this ruler is holdout-past-3 v1 (week HP3, 5 to 11 October 2026, separate key writer), which has a must AI story; holdout-past-2 v2 stays unspent and has no must AI story. Not comparable with t2-past v10. AMENDED 2026-11-09 09:21 AEST, before any run (review fixes): (iv) week P2's addendum is amended in place (commit d42507af): A1, the Procore Q3 earnings release, is no longer must, because the general availability it reports happened in Q3, not in the week; its prefix 'businesswire.com/news/home/202611' is removed, because it matched any November Business Wire release. No fair AI story dated 2 to 8 November 2026 was found, so P2 has no must AI story, and its must stories W1 and W2 both accept Sales and customer experience (a recorded limit). (v) week P1's addendum moves to answer-key-t2-past-1-v11.json (commit d42507af): A2, Microsoft's October 2026 Copilot update (Microsoft Copilot Blog, page metadata 30 October 2026), is a must AI story, a tool the profile's teams use. P1's limit is unchanged: W1, W2 and A2 all accept Estimating and contract pricing. (vi) page_date_line_mdy now needs a full month name or a three-letter abbreviation (Sept too) before the day, so a line such as 'Mayor 3, 2026' does not date a page (self-check cases added). (vii) holdout-past-3 v1's key is amended before any run (commit 2dfff33a): AI1's urls drop cle.togal.ai, which has no date the scorer reads. AMENDED 2026-11-09 09:35 AEST, ruler and key version v11.1 (ticket 39 review, finding P1): (viii) week P1's addendum moves to answer-key-t2-past-1-v11.1.json: A2, Microsoft's October 2026 Copilot roundup, is no longer must, because it is a monthly roundup of items developed before the window (Autopilot announced 25 September 2026) and no single item was first announced in 26 October to 1 November 2026 on a dated page; the seven-day rule leaves it out. Neither practice week has a fair must AI story; only the sealed holdout-past-3 v1 has one (AI1). Not comparable with v11 for P1 K1; practice re-score only; holdouts untouched.",
+ "page_date_line": true,
+ "pdf_text_date": true,
+ "pdf_content_type": true,
+ "pdf_xmp_decoded": true,
+ "chip_dot_run": true,
+ "chrome_text_on_miss": true,
+ "story_match_exclusive": true,
+ "pdf_release_page": true,
+ "v10": true,
+ "profile": "case-t2/profile.md",
+ "legacy_columns": [
+  "#",
+  "Date",
+  "Development",
+  "Why it matters to us",
+  "Source URL",
+  "Quote"
+ ],
+ "type_caps": {
+  "industry": 5,
+  "AI": 3
+ },
+ "nothing_type": "Nothing material this week: {type}",
+ "failure_cause": "Every failed item carries cause: the types, by the key's tag, of the rows or stories that failed it. The score's failure_cause lists them, so each failed run is logged as an industry rule or an AI rule (SPEC-redesign section 6, pre-registered failure count).",
+ "legacy": "Diagnostic only, decides nothing: --legacy reads an answer in the v9 columns as industry rows and scores only R1, T1, T2, T3 (five rows), S1, K1 (industry and both must stories) and F1.",
+ "previous_version": "t2-past v11.5, 10 November 2026 (ticket 73, Q20 a): joined_header, the joined header line split; otherwise unchanged from t2-past v11.4",
+ "page_date_line_mdy": true,
+ "v11": true,
+ "blocked_host_route": true,
+ "section_date": true,
+ "joined_header": true,
+ "row4_ruling": "Practice week 2 (2 to 8 November 2026), run t2-v7s-p2-1, row 4 (AI, Microsoft 365 Copilot release notes, Excel change links): STALE under ruler v11.4 after the review fixes. Reason: the same quote sits in the section headed November 4, 2026 and in the older section headed September 23, 2026, which states updates released 26 August to 22 September 2026; the oldest section dates the row, and its coverage ends before the window, so T1 fails. The first ruling (in the window) is withdrawn. The recorded FAIL on v11.3 stands; nothing is re-scored.",
+ "spaced_slash_date": true,
+ "trailing_chips": true
+}

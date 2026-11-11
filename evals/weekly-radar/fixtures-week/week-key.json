@@ -1,0 +1,8 @@
+{
+  "priorities": ["e1", {"id": "pm1", "items": ["m1", "t3"]}, "e3"],
+  "prepare": ["e2", "e3"],
+  "delegate": ["e4", "e5"],
+  "clash": [{"id": "c1", "items": ["e3", "e6"]}],
+  "overdue_tasks": ["t1", "t2"],
+  "overdue_email": ["m2"]
+}

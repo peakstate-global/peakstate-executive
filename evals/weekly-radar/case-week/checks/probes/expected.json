@@ -1,0 +1,52 @@
+{
+  "../answer-compliant.md": {
+    "valid": true,
+    "planted_found": 11,
+    "planted_total": 11,
+    "claims": 0,
+    "lines_unmatched": 0
+  },
+  "../answer-empty.md": {
+    "planted_found": 0,
+    "planted_total": 11
+  },
+  "p1-steering-group-as-priority.md": {
+    "missed": [
+      "P3"
+    ]
+  },
+  "p2-clash-one-side-only.md": {
+    "missed": [
+      "C1"
+    ]
+  },
+  "p3-clash-wrong-reason.md": {
+    "missed": [
+      "C1"
+    ]
+  },
+  "p4-clash-wrong-pair.md": {
+    "missed": [
+      "C1"
+    ]
+  },
+  "../answer-compliant-v14.md": {
+    "valid": true,
+    "planted_found": 11,
+    "planted_total": 11,
+    "claims": 0,
+    "lines_unmatched": 0
+  },
+  "p5-nested-bracket-v13.md": {
+    "found": [
+      "P2"
+    ],
+    "lines_unmatched": 0
+  },
+  "p6-table-body-words-v14.md": {
+    "missed": [
+      "R1"
+    ],
+    "lines_unmatched": 1
+  }
+}

@@ -1,0 +1,31 @@
+From: Board Secretariat <secretariat@harbourline.example>
+To: Alex Sample, Independent Member, Fleet and Assets Committee
+Date: 26 November 2026
+Subject: Fleet and Assets Committee, 3 December 2026: meeting pack
+
+Dear Alex,
+
+The pack for the Fleet and Assets Committee meeting on Wednesday 3 December 2026 is attached
+(harbourline-fac-pack-2026-12-03.pdf, 30 pages). The meeting starts at 9:30 am in the Committee
+Room, Level 4, Ferry Quay terminal. Paper 1 is for decision.
+
+SAMPLE: every person, organisation and figure here is invented for testing.
+
+Attendees (other than you):
+- Morgan Sample, Chair, Fleet and Assets Committee
+- Quinn Sample, Chief Financial Officer
+- Jordan Sample, General Manager Fleet Operations
+- Casey Sample, General Manager Customer and Community
+
+Previous pack extract (meeting of 3 September 2026, programme dashboard, reporting period to 31 July 2026):
+| Measure | This period | Status |
+| Overall programme status | On track | Green |
+| Spend to date | $1.3M of $36.8M | Green |
+| Fleet availability at peak | 96% | Green |
+| Design maturity | 60% | Green |
+| Customer complaints | 14 | Green |
+| Lost time injuries | 0 | Green |
+
+Regards,
+Board Secretariat
+Harbourline Sample Ferries

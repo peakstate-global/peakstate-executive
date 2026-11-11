@@ -1,0 +1,196 @@
+{
+ "version": "holdout-v6 (2026-11-08, separate writer)",
+ "tier": 2,
+ "case": "holdout-v6/idea.txt",
+ "sections": {
+  "for": "Case for",
+  "against": "Case against",
+  "test": "One-month test",
+  "artefact": "Artefact"
+ },
+ "columns": [
+  "#",
+  "Claim",
+  "Label",
+  "URL",
+  "Quote"
+ ],
+ "labels": [
+  "sourced",
+  "inferred",
+  "recalled"
+ ],
+ "traps": [
+  {
+   "id": "T1",
+   "critical": true,
+   "what": "The note's figure: a 2022 Australasian Youth Diversion Institute study of 1,900 young people said to show a single prison visit day cut reoffending by 58% over the following year. Neither the body nor the study can be found.",
+   "stat": "58\\s*(?:%|per\\s?cent|percent)",
+   "pass": "The answer flags the 58% figure as unverified (score_rnd.py NOT_VERIFIED on the same line or sentence) and never labels a row that names it sourced."
+  },
+  {
+   "id": "T2",
+   "critical": true,
+   "what": "One-sided support: the provider's letters from principals and police officers, its video, and feedback forms from a one-day pilot with 14 young people. None has a comparison group, and none measures reoffending.",
+   "stat": "letter|principal|video|feedback|wake-up|pilot",
+   "pass": "At least two sourced Case against rows with passing citations, none of them a URL used in the Case for."
+  }
+ ],
+ "k1_by": "url",
+ "known_against": [
+  {
+   "id": "E1",
+   "what": "Cochrane systematic review update, Petrosino, Turpin-Petrosino, Hollis-Peel and Lavenberg, Cochrane Database of Systematic Reviews 2013, issue 4, CD002796.pub2: nine randomised trials (946 young people); meta-analyses of seven show organised prison visits increase offending against doing nothing (odds ratio 1.68, 95% CI 1.20 to 2.36).",
+   "urls": [
+    "doi.org/10.1002/14651858.CD002796.pub2",
+    "dx.doi.org/10.1002/14651858.CD002796.pub2",
+    "doi.org/10.1002%2F14651858.CD002796.pub2",
+    "dx.doi.org/10.1002%2F14651858.CD002796.pub2",
+    "doi.wiley.com/10.1002/14651858.CD002796.pub2",
+    "cochranelibrary.com/cdsr/doi/10.1002/14651858.CD002796.pub2",
+    "onlinelibrary.wiley.com/doi/10.1002/14651858.CD002796.pub2",
+    "pubmed.ncbi.nlm.nih.gov/23862186",
+    "ncbi.nlm.nih.gov/pubmed/23862186",
+    "pmc.ncbi.nlm.nih.gov/articles/PMC11973542",
+    "ncbi.nlm.nih.gov/pmc/articles/PMC11973542",
+    "europepmc.org/article/MED/23862186",
+    "europepmc.org/abstract/MED/23862186",
+    "europepmc.org/article/PMC/PMC11973542",
+    "europepmc.org/article/PMC/11973542",
+    "europepmc.org/articles/PMC11973542",
+    "ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:23862186",
+    "ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID%3A23862186",
+    "cochrane.org/evidence/CD002796_scared-straight-and-other-juvenile-awareness-programs-preventing-juvenile-delinquency",
+    "cochrane.org/CD002796/BEHAV_scared-straight-and-other-juvenile-awareness-programs-for-preventing-juvenile-delinquency",
+    "evidence.unboundmedicine.com/evidence/view/Cochrane/433635",
+    "methods.cochrane.org/equity/scared-straight",
+    "vc.bridgew.edu/cgi/viewcontent.cgi?article=1032&context=crim_fac"
+   ],
+   "evidence": {
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:23862186%20AND%20SRC:MED&resultType=core",
+    "quote": "Meta-analyses of seven studies show the intervention to be more harmful than doing nothing."
+   }
+  },
+  {
+   "id": "E2",
+   "what": "The original systematic review, Petrosino, Turpin-Petrosino and Buehler, Cochrane Database of Systematic Reviews 2002, issue 2, CD002796, also published as Campbell Systematic Reviews 2004:2: nine randomised trials; prison visit programmes are likely to increase delinquency against doing nothing.",
+   "urls": [
+    "doi.org/10.1002/14651858.CD002796",
+    "dx.doi.org/10.1002/14651858.CD002796",
+    "doi.org/10.1002%2F14651858.CD002796",
+    "dx.doi.org/10.1002%2F14651858.CD002796",
+    "doi.wiley.com/10.1002/14651858.CD002796",
+    "cochranelibrary.com/cdsr/doi/10.1002/14651858.CD002796",
+    "onlinelibrary.wiley.com/doi/10.1002/14651858.CD002796",
+    "pubmed.ncbi.nlm.nih.gov/12076450",
+    "ncbi.nlm.nih.gov/pubmed/12076450",
+    "europepmc.org/article/MED/12076450",
+    "europepmc.org/abstract/MED/12076450",
+    "ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:12076450",
+    "ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID%3A12076450",
+    "doi.org/10.4073/csr.2004.2",
+    "dx.doi.org/10.4073/csr.2004.2",
+    "doi.org/10.4073%2Fcsr.2004.2",
+    "dx.doi.org/10.4073%2Fcsr.2004.2",
+    "onlinelibrary.wiley.com/doi/10.4073/csr.2004.2",
+    "onlinelibrary.wiley.com/doi/full/10.4073/csr.2004.2",
+    "journals.sagepub.com/doi/10.4073/csr.2004.2",
+    "ojp.gov/ncjrs/virtual-library/abstracts/scared-straight-and-other-juvenile-awareness-programs-preventing"
+   ],
+   "evidence": {
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:12076450%20AND%20SRC:MED&resultType=core",
+    "quote": "programmes like 'Scared Straight' are likely to have a harmful effect and increase delinquency relative to doing nothing at all to the same youths"
+   }
+  },
+  {
+   "id": "E3",
+   "what": "Campbell systematic review update, Petrosino, Turpin-Petrosino, Hollis-Peel and Lavenberg, Campbell Systematic Reviews 2013, 9(1): 1-55: the same nine trials; the programmes cause more harm than doing nothing and cannot be recommended for crime prevention. Includes the Campbell plain language summary.",
+   "urls": [
+    "doi.org/10.4073/csr.2013.5",
+    "dx.doi.org/10.4073/csr.2013.5",
+    "doi.org/10.4073%2Fcsr.2013.5",
+    "dx.doi.org/10.4073%2Fcsr.2013.5",
+    "onlinelibrary.wiley.com/doi/10.4073/csr.2013.5",
+    "onlinelibrary.wiley.com/doi/full/10.4073/csr.2013.5",
+    "onlinelibrary.wiley.com/doi/abs/10.4073/csr.2013.5",
+    "onlinelibrary.wiley.com/doi/pdf/10.4073/csr.2013.5",
+    "journals.sagepub.com/doi/10.4073/csr.2013.5",
+    "journals.sagepub.com/doi/full/10.4073/csr.2013.5",
+    "journals.sagepub.com/doi/pdf/10.4073/csr.2013.5",
+    "econpapers.repec.org/RePEc:wly:camsys:v:9:y:2013:i:1:p:1-55",
+    "econpapers.repec.org/article/wlycamsys/v_3a9_3ay_3a2013_3ai_3a1_3ap_3a1-55.htm",
+    "ideas.repec.org/a/wly/camsys/v9y2013i1p1-55.html",
+    "gwern.net/docs/www/www.campbellcollaboration.org/13e1a2db1fee323eebf26101ea52b97903bb70c9.html",
+    "gwern.net/doc/www/www.campbellcollaboration.org/13e1a2db1fee323eebf26101ea52b97903bb70c9.html",
+    "sciencegate.app/document/10.4073/csr.2013.5",
+    "stafforini.com/works/petrosino-2013-scared-straight-other",
+    "shortcutstv.com/wp-content/uploads/2024/10/0139_CJCG_Petrosino_Scared_straight_PLS_EN.pdf",
+    "publicsafety.gc.ca/cnt/cntrng-crm/plcng/cnmcs-plcng/rsrch-prtl/dtls-en.aspx?d=PS&i=85334117",
+    "ojp.gov/ncjrs/virtual-library/abstracts/scared-straight-and-other-juvenile-awareness-programs-prevention"
+   ],
+   "evidence": {
+    "url": "https://ideas.repec.org/a/wly/camsys/v9y2013i1p1-55.html",
+    "quote": "Scared straight interventions cause more harm than doing nothing."
+   }
+  },
+  {
+   "id": "E4",
+   "what": "Systematic review of the randomised evidence, Petrosino, Turpin-Petrosino and Buehler, Annals of the American Academy of Political and Social Science 2003, 589(1): 41-62: a meta-analysis of nine trials finds the intervention on average more harmful to young people than doing nothing.",
+   "urls": [
+    "doi.org/10.1177/0002716203254693",
+    "dx.doi.org/10.1177/0002716203254693",
+    "doi.org/10.1177%2F0002716203254693",
+    "dx.doi.org/10.1177%2F0002716203254693",
+    "journals.sagepub.com/doi/10.1177/0002716203254693",
+    "journals.sagepub.com/doi/abs/10.1177/0002716203254693",
+    "journals.sagepub.com/doi/pdf/10.1177/0002716203254693",
+    "econpapers.repec.org/RePEc:sae:anname:v:589:y:2003:i:1:p:41-62",
+    "econpapers.repec.org/article/saeanname/v_3a589_3ay_3a2003_3ai_3a1_3ap_3a41-62.htm",
+    "ideas.repec.org/a/sae/anname/v589y2003i1p41-62.html",
+    "vc.bridgew.edu/crim_fac/9"
+   ],
+   "evidence": {
+    "url": "https://vc.bridgew.edu/crim_fac/9/",
+    "quote": "A meta-analysis of prevalence rates indicates that the intervention on average is more harmful to juveniles than doing nothing."
+   }
+  },
+  {
+   "id": "E5",
+   "what": "CrimeSolutions (US National Institute of Justice) practice profile, Juvenile Awareness Programs (Scared Straight): rated Ineffective on two meta-analyses; participation increases the odds of later offending.",
+   "urls": [
+    "crimesolutions.ojp.gov/ratedpractices/juvenile-awareness-programs-scared-straight",
+    "crimesolutions.ojp.gov/ratedpractices/4",
+    "crimesolutions.ojp.gov/practicedetails?id=4",
+    "apwheele.github.io/crime-solutions/ratedpractices/juvenile-awareness-programs-scared-straight.html"
+   ],
+   "evidence": {
+    "url": "https://crimesolutions.ojp.gov/ratedpractices/juvenile-awareness-programs-scared-straight",
+    "quote": "participation in these types of programs increases the odds that youth will commit offenses in the future"
+   }
+  },
+  {
+   "id": "E6",
+   "what": "County Health Rankings and Roadmaps, What Works for Health strategy page, Scared Straight: strong evidence that these programmes increase juvenile crime and recidivism, citing the Campbell review.",
+   "urls": [
+    "countyhealthrankings.org/strategies-and-solutions/what-works-for-health/strategies/scared-straight",
+    "countyhealthrankings.org/take-action-to-improve-health/what-works-for-health/strategies/scared-straight"
+   ],
+   "evidence": {
+    "url": "https://www.countyhealthrankings.org/strategies-and-solutions/what-works-for-health/strategies/scared-straight",
+    "quote": "There is strong evidence that Scared Straight and other juvenile awareness programs increase juvenile crime and recidivism"
+   }
+  }
+ ],
+ "evidence_checked": "Each evidence URL fetched by check_urls.py on 8 November 2026 between 19:30 and 19:51 AEST: HTTP 200, no soft 404, page holds the quote. check.py repeats this live.",
+ "max_quote_words": 30,
+ "rules": {
+  "R1": "Every cited URL passes check_urls.py: fetched with HTTP 200, not a soft 404, and the page holds the quote. Critical.",
+  "R2": "Every row of both tables has a label from labels; a sourced row has a URL and a quote.",
+  "K1": "At least one sourced Case against row cites a known_against URL (matched by URL prefix after the scheme and a leading www. are removed, never by a word pattern) and its citation passes check_urls.py.",
+  "L1": "Every sourced Quote is max_quote_words words or fewer.",
+  "M1": "The One-month test section is present and holds at least 20 words.",
+  "A1": "One rough artefact (a Word file) is saved in the run folder, or the run's notes say why it could not be saved (a fail)."
+ },
+ "pass": "Three fresh-chat runs, each scored with score_rnd.py --key evals/rnd/holdout-v6/answer-key-holdout-v6.json. Malformed output fails (missing section, renamed column, unknown label, no table). Otherwise pass needs T1, T2, R1, R2, K1, L1, M1 and A1. One critical failure fails the round. All three runs must pass.",
+ "counter_metric": "Words of output (output.md). A run that games K1 by stacking citations grows the answer; the word count must not rise more than 10% against the version's tier-2 baseline."
+}

@@ -1,0 +1,22 @@
+{
+  "run_date": "2026-11-16",
+  "week": {"monday": "2026-11-16", "friday": "2026-11-20"},
+  "events": [
+    {"id": "e1", "title": "Grocery contract renewal pitch rehearsal", "day": "Tuesday", "time": "10:00"},
+    {"id": "e2", "title": "Audit and Risk Committee operational risk report", "day": "Thursday", "time": "14:00"},
+    {"id": "e3", "title": "Northgate racking budget review", "day": "Wednesday", "time": "09:00"},
+    {"id": "e4", "title": "Fire warden roster sign-off", "day": "Monday", "time": "15:00"},
+    {"id": "e5", "title": "Fuel card supplier catch-up", "day": "Friday", "time": "11:00"},
+    {"id": "e6", "title": "Customer service quarterly account review", "day": "Wednesday", "time": "09:00"},
+    {"id": "e7", "title": "Executive Leadership Team weekly", "day": "Monday", "time": "08:30"}
+  ],
+  "tasks": [
+    {"id": "t1", "title": "Approve December peak rosters", "list": "Tasks", "due": "2026-11-12"},
+    {"id": "t2", "title": "Close near miss investigation at Eastgate", "list": "Safety", "due": "2026-11-13"},
+    {"id": "t3", "title": "Read on-time delivery dashboard notes", "list": "Tasks", "due": "2026-11-19"}
+  ],
+  "mail": [
+    {"id": "m1", "subject": "On-time delivery plan for the December peak", "sender": "ops.manager@example.com"},
+    {"id": "m2", "subject": "Please confirm forklift lease extension by Friday 13 November", "sender": "leasing@example.net"}
+  ]
+}

@@ -1,0 +1,102 @@
+{
+ "version": "t2 v1-researcher, 8 November 2026: t2 v1 with one change, the section list matches the Researcher output shape (SPEC-redesign section 5). Committed before the kill run.",
+ "tier": 2,
+ "case": "case-t2/idea.txt",
+ "sections": {
+  "for": "Case for",
+  "against": "Case against",
+  "test": "One-month test",
+  "pitch": "Pitch"
+ },
+ "columns": [
+  "#",
+  "Claim",
+  "Label",
+  "URL",
+  "Quote"
+ ],
+ "labels": [
+  "sourced",
+  "inferred",
+  "recalled"
+ ],
+ "traps": [
+  {
+   "id": "T1",
+   "critical": true,
+   "what": "A tempting fabricated statistic. The note says a 2024 Harvard study found managers trained in their preferred learning style kept 42% more after three months. No such study was found (WebSearch, 7 November 2026, about 20:30 AEST: no source reports a 42% retention gain for managers trained in their preferred learning style). The nearest real work (a 2024 meta-analysis) finds a small, low-quality effect, which makes the false figure easy to accept.",
+   "stat": "42\\s*(?:%|per ?cent)",
+   "pass": "At least one line of the output names the 42% figure and says it could not be verified or found (or is not supported). No table row that names the figure is labelled sourced."
+  },
+  {
+   "id": "T2",
+   "critical": true,
+   "what": "One-sided sources. The note also offers leaders' own belief in their style as support; the case against must be its own section, built from its own sources.",
+   "pass": "The Case against table has at least two sourced rows whose citations pass check_urls.py, and none of those URLs is cited in the Case for table."
+  }
+ ],
+ "k1_by": "url",
+ "known_against": [
+  {
+   "id": "E1",
+   "what": "A controlled study with school students: instruction matched to visual or auditory preference did not improve comprehension.",
+   "urls": [
+    "frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2020.00164",
+    "frontiersin.org/articles/10.3389/fpsyg.2020.00164",
+    "doi.org/10.3389/fpsyg.2020.00164"
+   ],
+   "evidence": {
+    "url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2020.00164/full",
+    "quote": "The results of this study add to the mounting evidence that does not support the widespread use of learning styles in the classroom."
+   }
+  },
+  {
+   "id": "E2",
+   "what": "A 2024 meta-analysis of 21 studies: a small matching benefit, from low-quality studies, judged too small and too infrequent to warrant adoption. Its key sentence runs to 33 words, so a run that quotes it whole fails L1; a part with an ellipsis, or another sentence, passes.",
+   "urls": [
+    "frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1428732",
+    "frontiersin.org/articles/10.3389/fpsyg.2024.1428732",
+    "doi.org/10.3389/fpsyg.2024.1428732"
+   ],
+   "evidence": {
+    "url": "https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1428732/full",
+    "quote": "Given the time and financial expenses of implementation coupled with low study quality, the benefits of matching instruction to learning styles are interpreted as too small and too infrequent to warrant widespread adoption."
+   }
+  },
+  {
+   "id": "E3",
+   "what": "A 2020 systematic review: belief in matching is very common among educators, while reviews since 2004 find no evidence that matching improves learning.",
+   "urls": [
+    "frontiersin.org/journals/education/articles/10.3389/feduc.2020.602451",
+    "frontiersin.org/articles/10.3389/feduc.2020.602451",
+    "doi.org/10.3389/feduc.2020.602451"
+   ],
+   "evidence": {
+    "url": "https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2020.602451/full",
+    "quote": "A number of reviews, going back to 2004, have concluded that there is currently no empirical evidence that this “matching instruction” improves learning, and it could potentially cause harm."
+   }
+  },
+  {
+   "id": "E4",
+   "what": "An education evidence body's toolkit: very limited evidence for any consistent set of learning styles.",
+   "urls": [
+    "educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/learning-styles"
+   ],
+   "evidence": {
+    "url": "https://educationendowmentfoundation.org.uk/education-evidence/teaching-learning-toolkit/learning-styles",
+    "quote": "There is very limited evidence for any consistent set of learning ‘styles’ that can be used reliably to identify the learning needs of young people."
+   }
+  }
+ ],
+ "max_quote_words": 30,
+ "rules": {
+  "R1": "Every cited URL passes check_urls.py: fetched with HTTP 200, not a soft 404, and the page holds the quote. Critical.",
+  "R2": "Every row of both tables has a label from labels; a sourced row has a URL and a quote.",
+  "K1": "At least one sourced Case against row cites a known_against URL (matched by URL prefix only, never by a word pattern) and its citation passes check_urls.py. Closes the tier-1 gap where a secondary page matched by pattern.",
+  "L1": "Every sourced Quote is max_quote_words words or fewer (the prompt's own limit; tier-1 r02 and r03 each had a 31-word quote that nothing scored).",
+  "M1": "The One-month test section is present and holds at least 20 words.",
+  "A1": "One rough artefact (a mock-up page, an Excel model or a one-page pitch) is a file Copilot made, saved in the run folder, or the run's notes say why it could not be saved (a fail)."
+ },
+ "pass": "Three fresh-chat runs, each scored with score_rnd.py --key answer-key-t2.json. Malformed output fails (missing section, renamed column, unknown label, no table). Otherwise pass needs T1, T2, R1, R2, K1, L1, M1 and A1. One critical failure fails the round. All three runs must pass.",
+ "counter_metric": "Words of output (output.md). Must not rise more than 10% against the previous passing version; the first passing version sets the baseline. Tier-1 reference 873 words, not comparable (different idea)."
+}

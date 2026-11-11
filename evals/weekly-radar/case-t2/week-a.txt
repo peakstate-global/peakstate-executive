@@ -1,0 +1,12 @@
+SAMPLE CASE, INVENTED FOR TESTING.
+
+About me: I am an executive at a mid-sized Australian home builder. We build detached houses and some townhouses on the east coast, mostly for owner-occupiers, on fixed-price contracts.
+
+Last week's list (week to Monday 9 November 2026):
+
+| # | Date | Development | Why it matters to us | Source URL |
+|---|---|---|---|---|
+| 1 | 3 November 2026 | The Reserve Bank raised the cash rate by 25 basis points to 4.85%, its fifth rise this year. | Dearer loans cut the number of buyers who can afford a new home. | https://www.rba.gov.au/media-releases/2026/mr-26-30.html |
+| 2 | 2 November 2026 | Total dwelling approvals rose 5.1% in September, but approvals for private houses fell 5.3%. | Fewer house approvals means a thinner pipeline of new house work. | https://www.abs.gov.au/statistics/industry/building-and-construction/building-approvals-australia/latest-release |
+| 3 | 2 November 2026 | National home values fell 1.2% in October, a seventh monthly fall. | Falling values make buyers wait, which slows new contracts. | https://www.cotality.com/au/insights/articles/housing-downturn-broadens-as-brisbane-and-perth-lead-the-decline |
+| 4 | 3 November 2026 | Industry bodies warned that the tax reform bill before a Senate committee would raise building costs. | A change to trust tax could raise the cost of the work we do. | https://masterbuilders.com.au/trusts-tax-will-hit-small-business-and-home-buyers/ |

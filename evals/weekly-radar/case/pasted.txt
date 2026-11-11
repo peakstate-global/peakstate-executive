@@ -1,0 +1,11 @@
+SAMPLE CASE, INVENTED FOR TESTING.
+
+About me: I am an executive at a mid-sized Australian home builder. We build detached houses and some townhouses on the east coast, mostly for owner-occupiers, on fixed-price contracts.
+
+Last week's list (week to Friday 30 October 2026):
+
+| # | Date | Development | Why it matters to us | Source URL |
+|---|---|---|---|---|
+| 1 | 28 October 2026 | Consumer prices rose 4.3% in the year to September; new dwelling prices rose 4.7% as builders passed on higher material and labour costs. | Our price rises are part of the inflation story the Reserve Bank is watching. | https://www.abs.gov.au/media-centre/media-releases/cpi-rose-43-year-september-2026 |
+| 2 | 30 October 2026 | Input costs for house construction rose 3.9% in the 12 months to September, the fastest pace in three years. | Our fixed-price contracts carry this cost risk. | https://masterbuilders.com.au/building-costs-rise-at-fastest-pace-in-three-years/ |
+| 3 | 27 October 2026 | The industry's housing affordability index improved 3.6% in the September quarter. | A short window in which more buyers can afford a new home. | https://hia.com.au/our-industry/newsroom/economic-research-and-forecasting/2026/10/brief-window-of-improving-housing-affordability-opens |

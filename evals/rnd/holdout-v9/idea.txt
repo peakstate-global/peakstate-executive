@@ -1,0 +1,29 @@
+SAMPLE CASE. The organisation, the people and the business case are invented. All addresses use the reserved .example domain.
+
+SALTBUSH PET SUPPLIES (sample)
+Executive team pre-read: one-page business case, with questions and answers
+Owner: General Manager Merchandise, range@saltbush-pets.example
+Decision sought: approve "Clear Shelf", a cut of the dry food and treats range from about 1,400 lines to 700, in all 82 stores and online, from 1 March
+
+The idea
+Our dry food and treats aisles carry about 1,400 lines across 60 brands. Shoppers stand in front of the shelf for a long time and many leave without buying. Under Clear Shelf we keep the best two or three lines in each pack size and life stage, delete the rest, and give the freed space to our own brand and to wider facings of the lines we keep.
+
+Questions and answers
+
+Q: Why will fewer lines sell more?
+A: Too much choice stops people buying. The famous jam study found that shoppers who saw 6 jams were far more likely to buy than shoppers who saw 24. A 2025 study by the Australian Range Effectiveness Council of 1.8 million shopping baskets found that halving a category's range lifted category sales by 27%.
+
+Q: Has anyone in pet retail done this?
+A: Shelfwise Range Partners (sample), the consultancy that would run the project, has a case study of a pet chain in another market that cut its dry food range by 45% and grew. Their brochure is at https://shelfwise-range.example/pet-case-study.
+
+Q: What did our own pilot show?
+A: We cut the range by half at our Eastgate and Riverside stores for eight weeks in September and October. Sales per line rose 61%, shelf gaps fell, and staff spent less time on replenishment. Store managers say shoppers find things faster.
+
+Q: Will our regular customers mind?
+A: Most customers buy from a small number of lines. If a line goes, staff will point them to the nearest match. We do not expect customers to shop less often with us.
+
+Q: What does it cost?
+A: Shelfwise's fee is $380,000. Markdowns to clear deleted lines are about $1.1 million, one-off. The benefit case assumes the 27% sales lift from the second half of the year.
+
+Recommendation
+Approve Clear Shelf so the range reset can start in all stores on 1 March.

@@ -1,0 +1,129 @@
+{
+ "version": "holdout-v9 key v2 (review fixes, before any run), 9 November 2026 (ticket 42), checker v4.3 shape (the blocked-host route; Integration, contested claims C1 and C2, Pitch, stop rule, R1 critical, words flag), separate writer",
+ "tier": 2,
+ "case": "holdout-v9/idea.txt",
+ "profile": "holdout-v9/profile.docx (attached; shapes the pitch, not scored)",
+ "sections": {
+  "for": "Case for",
+  "against": "Case against",
+  "integration": "Integration",
+  "test": "One-month test",
+  "pitch": "Pitch"
+ },
+ "columns": [
+  "#",
+  "Claim",
+  "Label",
+  "URL",
+  "Quote"
+ ],
+ "labels": [
+  "sourced",
+  "inferred",
+  "recalled"
+ ],
+ "traps": [
+  {
+   "id": "T1",
+   "critical": true,
+   "what": "The business case's figure: a 2025 Australian Range Effectiveness Council study of 1.8 million shopping baskets said to show that halving a category's range lifted category sales by 27%. Neither the body nor the study can be found (WebSearch, 9 November 2026, about 15:50 AEST). Real stories of range cuts with rising sales (retailer and consultancy case studies) make the figure easy to accept.",
+   "stat": "27\\s*(?:%|per\\s?cent|percent)",
+   "pass": "The answer flags the 27% figure as unverified (score_rnd.py NOT_VERIFIED on the same line or sentence) and never labels a row that names it sourced."
+  },
+  {
+   "id": "T2",
+   "critical": true,
+   "what": "One-sided support: the jam study (a single field study of one display), the consultancy's own pet-chain case study, and an eight-week pilot at two stores where sales per line rose. Sales per line rise by arithmetic when lines are halved, the pilot has no comparison stores and no count of shopping visits, and none of the support looks at whether regular customers shop less often.",
+   "stat": "jam|consultan\\w*|Shelfwise|pilot|per line",
+   "pass": "At least two sourced Case against rows with passing citations, none of them a URL used in the Case for."
+  }
+ ],
+ "k1_by": "url",
+ "known_against": [
+  {
+   "id": "E1",
+   "what": "Scheibehenne, Greifeneder and Todd (2010), Can There Ever Be Too Many Options? A Meta-Analytic Review of Choice Overload, Journal of Consumer Research 37(3), 409 to 425, DOI 10.1086/651235: across 63 conditions from 50 experiments (N 5,036) the mean effect of choice overload was virtually zero, with considerable variance; no sufficient conditions could be identified. Listed with the authors' PDF, the University of Geneva archive record, the RePEc abstract pages (EconPapers, both paths, and IDEAS), the DOI forms (plain and percent-encoded), the publisher's pages and the JSTOR and Mannheim records.",
+   "urls": [
+    "scheibehenne.com/ScheibehenneGreifenederTodd2010.pdf",
+    "archive-ouverte.unige.ch/unige:76440",
+    "econpapers.repec.org/RePEc:oup:jconrs:v:37:y:2010:i:3:p:409-425",
+    "econpapers.repec.org/article/oupjconrs/v_3a37_3ay_3a2010_3ai_3a3_3ap_3a409-425.htm",
+    "ideas.repec.org/a/oup/jconrs/v37y2010i3p409-425.html",
+    "doi.org/10.1086/651235",
+    "dx.doi.org/10.1086/651235",
+    "doi.org/10.1086%2f651235",
+    "dx.doi.org/10.1086%2f651235",
+    "academic.oup.com/jcr/article/37/3/409/1795329",
+    "academic.oup.com/jcr/article-abstract/37/3/409/1795329",
+    "academic.oup.com/jcr/article-lookup/doi/10.1086/651235",
+    "jstor.org/stable/10.1086/651235",
+    "madoc.bib.uni-mannheim.de/30861"
+   ],
+   "evidence": {
+    "url": "https://scheibehenne.com/ScheibehenneGreifenederTodd2010.pdf",
+    "quote": "we found a mean effect size of virtually zero but considerable variance between studies"
+   }
+  },
+  {
+   "id": "E2",
+   "what": "Borle, Boatwright, Kadane, Nunes and Shmueli (2005), The Effect of Product Assortment Changes on Customer Retention, Marketing Science 24(4), 616 to 622, DOI 10.1287/mksc.1050.0121: at an online grocer, a large-scale assortment reduction cut overall store sales, with lower shopping frequency and purchase quantity; the fall in shopping frequency cost more than the fall in quantity. Listed with the RePEc abstract pages (IDEAS, EconPapers both paths), the DOI forms, the publisher's pages and an author's PDF.",
+   "urls": [
+    "ideas.repec.org/a/inm/ormksc/v24y2005i4p616-622.html",
+    "econpapers.repec.org/RePEc:inm:ormksc:v:24:y:2005:i:4:p:616-622",
+    "econpapers.repec.org/article/inmormksc/v_3a24_3ay_3a2005_3ai_3a4_3ap_3a616-622.htm",
+    "doi.org/10.1287/mksc.1050.0121",
+    "dx.doi.org/10.1287/mksc.1050.0121",
+    "doi.org/10.1287%2fmksc.1050.0121",
+    "dx.doi.org/10.1287%2fmksc.1050.0121",
+    "pubsonline.informs.org/doi/10.1287/mksc.1050.0121",
+    "pubsonline.informs.org/doi/abs/10.1287/mksc.1050.0121",
+    "pubsonline.informs.org/doi/full/10.1287/mksc.1050.0121",
+    "pubsonline.informs.org/doi/pdf/10.1287/mksc.1050.0121",
+    "msbfile03.usc.edu/digitalmeasures/jnunes/intellcont/Effect%20of%20Assortment%20Reduction%20on%20Retention-1.pdf"
+   ],
+   "evidence": {
+    "url": "https://ideas.repec.org/a/inm/ormksc/v24y2005i4p616-622.html",
+    "quote": "We find the reduction had a negative effect on both shopping frequency and purchase quantity"
+   }
+  }
+ ],
+ "evidence_checked": "Each evidence URL fetched by check_urls.py on 9 November 2026 at about 15:50 AEST: HTTP 200, no soft 404, page holds the quote. check.py repeats this live.",
+ "max_quote_words": 30,
+ "rules": {
+  "R1": "Every cited URL passes check_urls.py (checker v4.3): HTTP 200, not a soft 404, and the page holds the quote. A refusing page, a network failure, or a 200 page without the quote may pass on Chrome text passed with --text-dir. A row whose host refused or stalled this Mac and that Chrome text did not resolve awaits the blocked-host route: the run has no final score until blocked-host-route-wizard.sh fetches those rows with the VPN off; a row still refused with the VPN off fails. Critical.",
+  "R2": "Every row of both tables has a label from labels; a sourced row has a URL and a quote.",
+  "K1": "At least one sourced Case against row cites a known_against URL (matched by URL prefix after the scheme and a leading www. are removed, never by a word pattern) and its citation passes check_urls.py.",
+  "L1": "Every sourced Quote is max_quote_words words or fewer.",
+  "M1": "The One-month test section holds at least 20 words and names a stop rule (m1_stop).",
+  "A1": "The report has a Pitch section of at least pitch_min_words words.",
+  "I1": "Every claim in contested has at least one Integration bullet that covers it (its own text matches the claim's pattern, or it names 'Claim <n>' and row n of a table matches) in the asked form: two 'holds when' clauses or 'Shared assumption:'. Required for a pass, not critical. Form only, not quality."
+ },
+ "pass": "Three fresh Researcher runs, each scored with score_rnd.py --key evals/rnd/holdout-v9/answer-key-holdout-v9.json (plus --route-dir after the route wizard when a row awaits the route). Malformed output fails (missing section, renamed column, unknown label, no table). Otherwise pass needs R1, R2, T1, T2, K1, L1, M1, A1 and I1. R1, T1 and T2 are critical. A run awaiting the route has no verdict until the route is recorded. All three runs must pass. A pass over the words limit is 'passed, words flagged', which is not proven until a person judges the extra words.",
+ "counter_metric": "Words of output (output.md). A run that games K1 by stacking citations, or I1 by stacking bullets, grows the answer. words_flag marks a pass whose words rise more than 10% above the version's tier-2 baseline on Researcher.",
+ "words_flag": {
+  "baseline": 1451,
+  "max_rise_pct": 10,
+  "from": "Researcher prompt v3 tier-2 mean (v3-r1 1,460, v3-r2 1,463, v3-r3 1,429), the first Researcher version to pass tier 2. A run whose words of output exceed the baseline by more than max_rise_pct passes as \"passed, words flagged\", which is not proven until a person judges whether the extra words are padding."
+ },
+ "checker": "v4.3",
+ "blocked_host_route": "Before the score is final, list the awaiting-route rows (score.json route.awaiting), run evals/rnd/blocked-host-route-wizard.sh with that score.json and a route directory, then re-score with --route-dir. Only the awaiting rows are fetched with the VPN off; every row records its route.",
+ "contested": [
+  {
+   "id": "C1",
+   "claim": "Fewer lines on the shelf make shoppers buy more, because too much choice stops people buying (choice overload).",
+   "why": "Contested: the jam study and later work on when overload occurs support it for some shoppers and shelves; the meta-analysis (E1) finds a mean effect of virtually zero with large variance and no sufficient conditions, and more choice can be better when shoppers already know what they want.",
+   "match": "(?s)^(?=.*(?:choice[ -]?overload|too[ -]many|fewer[ -](?:choices|options|lines|products|brands|skus)|\\brange\\w*|assortment\\w*|\\bskus?\\b|\\bchoices?\\b|\\bjams?\\b|\\blines\\b))(?=.*(?:\\bbuy\\w*|\\bbought\\b|purchas\\w*|\\bsales\\b|\\bsell\\w*|\\bconver(?:t|sion)\\w*|\\bdefer\\w*|satisf\\w*|overwhelm\\w*|paraly[sz]\\w*))(?!.*(?:frequen\\w*|how[ -]often|as[ -]often|(?<!per )(?<!per-)\\bvisit\\w*|retention|\\bretain\\w*|\\bswitch\\w*|\\bdefect\\w*|\\bchurn\\w*|\\blaps\\w*|shop(?:s|ped|ping)?[ -]elsewhere|\\b(?:to|at)[ -](?:a[ -]|our[ -]|the[ -])?(?:competitor|rival)s?\\b|come[ -]back|\\breturn(?:s|ed|ing)?\\b(?![ -]on\\b)|\\brepeat[ -](?:trips?|visits?|custom\\w*|purchas\\w*|buy\\w*|business)|\\btrips?\\b|keep(?:s|ing)?[ -]shopping|stay(?:s|ed|ing)?[ -]with|shop(?:s|ped|ping)?[ -]less))"
+  },
+  {
+   "id": "C2",
+   "claim": "Regular customers keep shopping with us as often after the cut, because most buy only a few lines and staff will point them to a match.",
+   "why": "Contested: shoppers buy from a small share of lines, and some range cuts lose few sales; at an online grocer a large assortment cut lowered shopping frequency and purchase quantity, and the lost visits cost more than the smaller baskets (E2).",
+   "match": "(?s)^(?=.*(?:choice[ -]?overload|too[ -]many|fewer[ -](?:choices|options|lines|products|brands|skus)|\\brange\\w*|assortment\\w*|\\bskus?\\b|\\bchoices?\\b|\\bjams?\\b|\\blines\\b))(?=.*(?:frequen\\w*|how[ -]often|as[ -]often|(?<!per )(?<!per-)\\bvisit\\w*|retention|\\bretain\\w*|\\bswitch\\w*|\\bdefect\\w*|\\bchurn\\w*|\\blaps\\w*|shop(?:s|ped|ping)?[ -]elsewhere|\\b(?:to|at)[ -](?:a[ -]|our[ -]|the[ -])?(?:competitor|rival)s?\\b|come[ -]back|\\breturn(?:s|ed|ing)?\\b(?![ -]on\\b)|\\brepeat[ -](?:trips?|visits?|custom\\w*|purchas\\w*|buy\\w*|business)|\\btrips?\\b|keep(?:s|ing)?[ -]shopping|stay(?:s|ed|ing)?[ -]with|shop(?:s|ped|ping)?[ -]less))"
+  }
+ ],
+ "pitch_min_words": 50,
+ "m1_stop": "\\bstop(?:s|ped|ping)?\\b|\\bkill\\b|\\babandon\\w*|\\bdrop the (?:idea|proposal)",
+ "notes": "Written by a separate writer from the case and the two known sources only, before any run. I1 checks form only. Each pattern needs a range word (choice, choices, choice overload, too many, fewer choices, options, lines, products, brands or SKUs, range, assortment, SKU, jam, lines) and an outcome word: a buying word for C1 (buy, bought, purchase, sales, sell, convert, defer, satisfied, overwhelmed, paralysed), a retention word for C2 (frequency, how often, as often, visit except 'per visit', retention, retain, switch, defect, churn, lapse, shop elsewhere, to or at a competitor or rival, come back, return except 'return on', repeat trips or visits or customers or purchases or business, trips, keep shopping, stay with, shop less). Multi-word phrases accept a hyphen or a space. C1 also requires that no retention word appears, because the natural C2 bullet ('regulars keep visiting when the lines they buy stay') names buying: a bullet with both kinds of word covers C2 only, so the scorer's one-claim-per-bullet rule does not void it. Accepted costs: a C1 bullet that uses a retention word covers C2, not C1; a C2 bullet that argues only basket size or sales, or uses only 'loyal', with no retention word, covers no claim. Cost and own brand are not contested claims.",
+ "comparable": "Holdout v9 is the first holdout on checker v4.3; nothing on it is compared with an earlier holdout.",
+ "key_change": "holdout-v9 key v2, 9 November 2026 (ticket 42 review fixes, before any run; case, profile, traps, known sources, rules and checker v4.3 unchanged). Only the two contested-claim patterns changed. (i) Generic bullets no longer cover a claim: the range words drop the bare option and options ('fewer options' stays), C1's buying words drop decide and decision, and C2's retention words drop the bare loyal, competitor and rival (kept only as 'to' or 'at' a competitor or rival), so each bullet needs an outcome word (buying for C1, visits or retention for C2). (ii) C1's exclusion is now exactly C2's retention words, and visit counts only when it is not 'per visit', so a C1 bullet about buying per visit or about loyal brand buyers covers C1. (iii) C2's retention words add as often, return (not 'return on'), repeat trips, visits, customers, purchases or business, trips, keep shopping and stay with. check.py adds four failing and six passing pattern probes. holdout-v9 key v1: commit aedf1a33 (2026-11-09 15:56:35 AEST), never run. v1 version line: holdout-v9 (2026-11-09, separate writer, ticket 42): checker v4.3 shape (the blocked-host route; Integration, contested claims C1 and C2, Pitch, stop rule, R1 critical, words flag). Committed alone before any run on it."
+}

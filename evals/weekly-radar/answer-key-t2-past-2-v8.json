@@ -1,0 +1,219 @@
+{
+ "version": "t2-past-2 v8, 8 November 2026, match patterns reviewed by a key writer; otherwise t2-past-2 v1",
+ "window": {
+  "from": "2026-11-02",
+  "to": "2026-11-08"
+ },
+ "notes": "Scanned 8 November 2026: RBA media releases (2026 list and RSS), Master Builders Australia media-release feed (items 13 October to 3 November), ABS building approvals and lending indicators, HIA newsroom via web search (no HIA release dated 2 to 8 November found), state building reform news (NSW, Victoria, Queensland), Cotality coverage. Stories in the window: the RBA rate rise (3 November), ABS September building approvals (2 November), the Cotality October Home Value Index (2 November), Master Builders on the trusts tax bill (3 November AEST). Ruled out: ABS Lending Indicators for September (not yet released on 8 November), ABS Building Activity for the September quarter (not yet released), the Master Builders new chief executive announcement (1 November, before the window, and not a market development), the Victorian election and lapsing bills (no builder-specific change in the window), an industry-body briefing on NSW reforms (6 November, an event, not a change). The ABC report of the Cotality index carries page metadata of 1 November (UTC), outside the window, so a row citing it fails its date; the Cotality primary release is a PDF with no page date, so W3 is not a must story and its evidence is a dated Trading Economics item. Page text was not saved for offline re-scoring by this key writer.",
+ "stories": [
+  {
+   "id": "W1",
+   "must": true,
+   "what": "RBA Monetary Policy Board decision, 3 November 2026: cash rate target up 25 basis points to 4.85 per cent, the highest since 2008, with the inflation outlook revised higher and dwelling investment expected to weaken. Echoed by Master Builders and many outlets: one story.",
+   "urls": [
+    "rba.gov.au/media-releases/2026/mr-26-30",
+    "rba.gov.au/monetary-policy/int-rate-decisions/2026",
+    "rba.gov.au/publications/smp/2026/nov",
+    "masterbuilders.com.au/builders-and-tradies-hit-again-as-interest-rates-climb-higher",
+    "theadviser.com.au/borrower/49167-rba-tightens-the-reins-on-cash-rate",
+    "savings.com.au/news/rba-lifts-cash-rate-to-4-85",
+    "blog.orbitremit.com/rba-hikes-to-4-85",
+    "babypips.com/news/headline-rba-interest-rate-decision-november-2026"
+   ],
+   "match": "^(?!.*(?:approv|home values?|Home Value Index|\\btrusts?\\b)).*?(?:cash rate|\\bRBA\\b|Reserve Bank|Monetary Policy Board|(?:raised|raises|lifted|lifts|hiked|hikes|increased|increases) (?:the |its )?(?:official |cash |interest )?rates?|(?:interest )?rate (?:rise|hike|increase|decision)|4\\.85)",
+   "evidence": {
+    "url": "https://www.rba.gov.au/media-releases/2026/mr-26-30.html",
+    "quote": "At its meeting today, the Board decided to increase the cash rate target by 25 basis points to 4.85 per cent.",
+    "date": "2026-11-03",
+    "page_date_source": "page metadata"
+   }
+  },
+  {
+   "id": "W2",
+   "must": true,
+   "what": "ABS Building Approvals for September 2026, released 2 November 2026: total dwelling approvals up 5.1%, but private sector house approvals down 5.3% to 10,432, falling in every state, while units rose 16.6%. Echoed by Master Builders and trade outlets: one story.",
+   "urls": [
+    "abs.gov.au/statistics/industry/building-and-construction/building-approvals-australia/sep-2026",
+    "abs.gov.au/statistics/industry/building-and-construction/building-approvals-australia/latest-release",
+    "abs.gov.au/media-centre/media-releases/total-dwelling-approvals-rise-51-september",
+    "masterbuilders.com.au/september-approvals-rise-but-australia-still-faces-shortfall",
+    "brokernews.com.au/news/breaking-news/australian-house-approvals-record-largest-fall-since-august-2025",
+    "theurbandeveloper.com/articles/home-approvals-abs-september-2026",
+    "thegoodbuilder.com.au/house-approvals-slip-in-every-state",
+    "tradingeconomics.com/australia/building-permits-mom/news/597038",
+    "tradingeconomics.com/australia/private-house-approvals/news/597042",
+    "yourinvestmentpropertymag.com.au/news/apartment-approvals-surge-in-september-abs"
+   ],
+   "match": "(?:building|dwelling|house|unit|apartment) approvals?|approvals? (?:for|in) September|approvals? (?:\\w+ ){0,3}(?:rose|rise|fell|fall|up|down|jump\\w*|slip\\w*|drop\\w*|lift\\w*|declin\\w*)",
+   "evidence": {
+    "url": "https://www.abs.gov.au/statistics/industry/building-and-construction/building-approvals-australia/sep-2026",
+    "quote": "Private sector houses fell 5.3% to 10,432 while private sector dwellings excluding houses rose 16.6%, to 6,579.",
+    "date": "2026-11-02",
+    "page_date_source": "page metadata"
+   }
+  },
+  {
+   "id": "W3",
+   "must": false,
+   "what": "Cotality Home Value Index for October 2026, released 2 November 2026: national home values down 1.2% in the month, a seventh straight monthly fall, 6.7% below the March 2026 peak.",
+   "urls": [
+    "tradingeconomics.com/australia/corelogic-dwelling-prices-mom/news/597255",
+    "discover.cotality.com/hubfs/COTALITY%20HVI%20NOV%202026",
+    "abc.net.au/news/2026-11-02/house-prices-fall-in-october",
+    "macrobusiness.com.au/2026/11/australian-home-values-downgraded-again",
+    "australianpropertyupdate.com.au/apu/home-values-to-see-the-largest-fall-in-40-years"
+   ],
+   "match": "Home Value Index|Cotality|(?:house|home|dwelling|property) (?:prices?|values?) (?:\\w+ ){0,3}(?:fell|fall|falling|drop\\w*|declin\\w*|slip\\w*|down|eased|lower)|seventh (?:straight|consecutive) (?:monthly )?(?:fall|decline|month)",
+   "evidence": {
+    "url": "https://tradingeconomics.com/australia/corelogic-dwelling-prices-mom/news/597255",
+    "quote": "Australia’s Cotality Home Value Index declined 1.2% month-on-month in October 2026, extending the downturn and leaving home values 6.7% below their March 2026 record high.",
+    "date": "2026-11-02",
+    "page_date_source": "page metadata"
+   }
+  },
+  {
+   "id": "W4",
+   "must": false,
+   "what": "Master Builders Australia submission on the trusts tax bill, 3 November 2026: the changes would raise costs for over 90,000 construction businesses; it seeks grandfathering or a small business carve-out.",
+   "urls": [
+    "masterbuilders.com.au/trusts-tax-will-hit-small-business-and-home-buyers"
+   ],
+   "match": "trusts? (?:tax|bill|legislation|changes|reforms?)|trusts? (?:are |would be )?taxed|tax\\w* (?:on |of )?(?:family |discretionary )?trusts?|minimum (?:trust )?tax|trust tax|grandfather",
+   "evidence": {
+    "url": "https://masterbuilders.com.au/trusts-tax-will-hit-small-business-and-home-buyers/",
+    "quote": "Master Builders Australia has made no secret of its opposition to the changes and believes the reforms should be abandoned.",
+    "date": "2026-11-03",
+    "page_date_source": "page metadata"
+   }
+  }
+ ],
+ "stale": [
+  {
+   "id": "L1",
+   "in_last_week": true,
+   "what": "HIA Affordability Index for the September quarter 2026 up 3.6% (28 October 2026).",
+   "urls": [
+    "hia.com.au/our-industry/newsroom/economic-research-and-forecasting/2026/10/brief-window-of-improving-housing-affordability"
+   ],
+   "topic": "affordab",
+   "period": "September quarter|28 October|3\\.6 ?(?:%|per ?cent)"
+  },
+  {
+   "id": "L2",
+   "in_last_week": true,
+   "what": "ABS CPI for September 2026: annual CPI 4.3%, new dwelling prices up 4.7% (28 October 2026).",
+   "urls": [
+    "abs.gov.au/media-centre/media-releases/cpi-rose-43",
+    "abs.gov.au/statistics/economy/price-indexes-and-inflation/consumer-price-index-australia",
+    "masterbuilders.com.au/inflation-surges-to-six-month-high"
+   ],
+   "topic": "\\bCPI\\b|consumer price|new dwelling (?:price|cost)s?",
+   "period": "28 October|4\\.3 ?(?:%|per ?cent)|4\\.7 ?(?:%|per ?cent)|12 months to September"
+  },
+  {
+   "id": "L3",
+   "in_last_week": true,
+   "what": "Victoria amends the Building Regulations 2018 to align with planning provisions; small second dwellings from 60 to 80 square metres (29 October 2026).",
+   "urls": [
+    "planning.vic.gov.au/news/articles/updates-to-building-regulations-2018"
+   ],
+   "topic": "Building Regulations|second dwellings?",
+   "period": "29 October|60 ?(?:m|sq)|80 ?(?:m|sq)|amend|align"
+  },
+  {
+   "id": "L4",
+   "in_last_week": true,
+   "what": "ABCB corrigenda to NCC 2025 and NCC 2022 (29 October 2026).",
+   "urls": [
+    "ncc.abcb.gov.au/news/2026/updated-ncc-publications"
+   ],
+   "topic": "\\bNCC\\b|National Construction Code|\\bABCB\\b",
+   "period": "corrigend|correction|29 October"
+  },
+  {
+   "id": "L5",
+   "in_last_week": true,
+   "what": "ABS Producer Price Indexes, September quarter 2026: house construction input prices up 1.0% in the quarter, 3.9% over the year (30 October 2026).",
+   "urls": [
+    "abs.gov.au/statistics/economy/price-indexes-and-inflation/producer-price-indexes-australia",
+    "masterbuilders.com.au/building-costs-rise-at-fastest-pace"
+   ],
+   "topic": "producer price|\\bPPI\\b|input (?:costs?|prices?)",
+   "period": "30 October|3\\.9 ?(?:%|per ?cent)|September quarter|1\\.0 ?(?:%|per ?cent)"
+  },
+  {
+   "id": "S1",
+   "in_last_week": false,
+   "what": "Master Builders Australia announces a new chief executive (1 November 2026, before the window).",
+   "urls": [
+    "masterbuilders.com.au/master-builders-australia-announces-new-ceo"
+   ],
+   "topic": "new (?:CEO|chief executive)|appoint",
+   "period": "1 November|Master Builders"
+  },
+  {
+   "id": "S2",
+   "in_last_week": false,
+   "what": "RBA September 2026 decision (29 September 2026).",
+   "urls": [
+    "rba.gov.au/media-releases/2026/mr-26-27"
+   ],
+   "topic": "cash rate|interest rates?|\\bRBA\\b|Reserve Bank",
+   "period": "29 September|September (?:decision|meeting|rate rise|hike)"
+  },
+  {
+   "id": "S3",
+   "in_last_week": false,
+   "what": "ABS building approvals for August 2026 (30 September 2026).",
+   "urls": [
+    "abs.gov.au/statistics/industry/building-and-construction/building-approvals-australia/aug-2026",
+    "hia.com.au/our-industry/newsroom/economic-research-and-forecasting/2026/09/building-approvals-still-carrying-the-momentum"
+   ],
+   "topic": "approv",
+   "period": "30 September|10\\.3 ?(?:%|per ?cent)|approvals (?:for|in) August|11,?040"
+  },
+  {
+   "id": "S4",
+   "in_last_week": false,
+   "what": "Cotality Home Value Index for September 2026, a sixth monthly fall (1 October 2026).",
+   "urls": [
+    "abc.net.au/news/2026-10-01/australian-house-prices-fall-for-sixth-straight-month",
+    "propertyinvestmentprofessionals.com.au/research-insights/cotality-home-value-index-september-2026"
+   ],
+   "topic": "home values?|house prices?|Cotality",
+   "period": "1 October|sixth (?:consecutive|straight) month"
+  },
+  {
+   "id": "S5",
+   "in_last_week": false,
+   "what": "Trust tax legislation introduced (14 October 2026).",
+   "urls": [
+    "masterbuilders.com.au/trust-legislation-more-lead-in-the-saddle",
+    "hia.com.au/our-industry/newsroom/industry-policy/2026/10/minimum-trust-tax-a-new-tax-on-tradies"
+   ],
+   "topic": "\\btrusts?\\b|minimum tax",
+   "period": "14 October|introduc"
+  },
+  {
+   "id": "S6",
+   "in_last_week": false,
+   "what": "Master Builders construction forecasts marked down (1 October 2026).",
+   "urls": [
+    "masterbuilders.com.au/construction-forecasts-slashed"
+   ],
+   "topic": "forecasts? (?:slashed|downgraded|cut|marked down)|marked down (?:its |the )?forecasts?",
+   "period": "1 October|March forecasts?"
+  },
+  {
+   "id": "S7",
+   "in_last_week": false,
+   "what": "Master Builders opposes the Secure Australian Jobs Framework and Supplier Code (22 October 2026).",
+   "urls": [
+    "masterbuilders.com.au/builders-oppose-proposed-jobs-framework"
+   ],
+   "topic": "Secure Australian Jobs|Supplier Code|jobs framework",
+   "period": "22 October|procurement|propos"
+  }
+ ],
+ "match_review": "W1: old 'cash rate|interest rates?|\\\\bRBA\\\\b|Reserve Bank|rate (?:rise|hike|increase)|4\\\\.85'; new '^(?!.*(?:approv|home values?|Home Value Index|\\\\btrusts?\\\\b)).*?(?:cash rate|\\\\bRBA\\\\b|Reserve Bank|Monetary Policy Board|(?:raised|raises|lifted|lifts|hiked|hikes|increased|increases) (?:the |its )?(?:official |cash |interest )?rates?|(?:interest )?rate (?:rise|hike|increase|decision)|4\\\\.85)'; why: bare 'interest rates' and 'rate rise' let an approvals or Cotality row that mentions rates map to W1 (checked first); guard on approvals, home values, trusts; rates need a raise verb\nW2: old 'approv'; new '(?:building|dwelling|house|unit|apartment) approvals?|approvals? (?:for|in) September|approvals? (?:\\\\w+ ){0,3}(?:rose|rise|fell|fall|up|down|jump\\\\w*|slip\\\\w*|drop\\\\w*|lift\\\\w*|declin\\\\w*)'; why: bare 'approv' matched planning-approval reform news (NSW, Victoria); now needs building/dwelling/house/unit approvals or approvals with a movement verb\nW3: old 'home values?|dwelling values?|Cotality|house prices?|home prices?'; new 'Home Value Index|Cotality|(?:house|home|dwelling|property) (?:prices?|values?) (?:\\\\w+ ){0,3}(?:fell|fall|falling|drop\\\\w*|declin\\\\w*|slip\\\\w*|down|eased|lower)|seventh (?:straight|consecutive) (?:monthly )?(?:fall|decline|month)'; why: bare 'house prices'/'home prices' matched any price mention; now needs the index name, values/prices falling, or the seventh straight fall; Cotality kept (already present, is the index name)\nW4: old '\\\\btrusts?\\\\b'; new 'trusts? (?:tax|bill|legislation|changes|reforms?)|trusts? (?:are |would be )?taxed|tax\\\\w* (?:on |of )?(?:family |discretionary )?trusts?|minimum (?:trust )?tax|trust tax|grandfather'; why: bare 'trust' matched land trusts, trust funds etc.; now needs the trusts tax bill or tax on trusts"
+}

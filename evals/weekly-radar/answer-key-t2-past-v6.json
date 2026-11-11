@@ -1,0 +1,88 @@
+{
+ "version": "t2-past v6, 8 November 2026, one documented scorer limit fixed: a citation chip whose shortened domain holds any run of dots and ellipsis characters, such as [abcb.prod....bcb.gov.au], is stripped (chip_dot_run); otherwise unchanged from t2-past v5",
+ "tier": 2,
+ "industry": "Australian residential construction (home building). Generic; not tied to any past client.",
+ "columns": [
+  "#",
+  "Date",
+  "Development",
+  "Why it matters to us",
+  "Source URL",
+  "Quote"
+ ],
+ "max_rows": 5,
+ "max_quote_words": 30,
+ "nothing_material": "Nothing material this week.",
+ "one_sentence": [
+  "Why it matters to us",
+  "Quote"
+ ],
+ "require_meta_date": true,
+ "weeks": {
+  "P1": {
+   "case": "case-t2/past-1.txt",
+   "run_day": "2026-11-08",
+   "scan_date": "2026-11-01",
+   "window": {
+    "from": "2026-10-26",
+    "to": "2026-11-01",
+    "note": "Past week: seven days to Sunday 1 November 2026, the scan date the case file gives as today. Run on 8 November 2026."
+   },
+   "addendum": "answer-key-t2-past-1.json",
+   "stale": [],
+   "stale_from_prior": "The addendum holds one stale item per row of the case's last week's list, plus older stories a scan may re-report, each with id, urls, topic and period."
+  },
+  "P2": {
+   "case": "case-t2/past-2.txt (made from past-week 1 run 1's table, as case-t2/week-b.md describes for week B)",
+   "run_day": "2026-11-08",
+   "scan_date": "2026-11-08",
+   "window": {
+    "from": "2026-11-02",
+    "to": "2026-11-08",
+    "note": "Past week: seven days to Sunday 8 November 2026, the scan date the case file gives as today. Run on 8 November 2026."
+   },
+   "addendum": "answer-key-t2-past-2.json",
+   "stale": [],
+   "stale_from_prior": "The addendum holds one stale item per row of the past-week 1 run 1 table, plus older stories, each with id, urls, topic and period."
+  }
+ },
+ "addendum_rule": "News is live, so a week's stories cannot be known on 7 November. Before the first run of a week, a key writer who does not tune the prompt scans the week, and writes and commits the addendum alone, with its time to the second in rounds-t2/PREREG.md. The addendum holds: stories (as tier 1: id, must, what, urls, match, evidence url, quote and date, each evidence checked by rnd/check_urls.py and its page text saved for offline re-scoring), echo clusters (one story id with every outlet URL found, at least the press release and its echoes), and for week B the stale items from the week A list (each with id, urls as a list, topic and period). For each must story, the key writer confirms when writing the addendum that the evidence page carries a metadata date (published-time meta, JSON-LD datePublished or <time datetime>) or, failing that, a stated release date in its text as the T1 pass describes, and records page_date_source: \"page metadata\" or \"page text\" in that story's evidence. A must story's what and evidence quote must not match a stale item by topic and period. score_industry.py refuses to score a week whose addendum is missing, not tracked by git, has a malformed stale item, or breaks either must-story rule, and records the addendum's commit time in the score. The 'nothing material' line can only be tested if the key writer finds a quiet week; if the addendum lists no story, a correct run writes that line.",
+ "traps": [
+  {
+   "id": "T1",
+   "critical": true,
+   "what": "A stale story re-reported as new: the row's date or its page's own date is outside the window, or the row matches a stale item.",
+   "pass": "Every row's Date is in the window; its page's own date comes from page metadata (published-time meta, JSON-LD datePublished or <time datetime>), or, only when the page has no metadata date, from the page's own first stated date in its text (a labelled date such as 'Released 30/10/2026' or 'Published 29 October 2026', never 'Next Release'; else the first standalone yyyy-mm-dd date), and is in the window, within one day of the row's Date; and no row matches a stale item by URL prefix, or by its topic AND its period pattern. A row that matches a stale topic but no period is listed for review, not failed. The row's own date text is never searched for on the page."
+  },
+  {
+   "id": "T2",
+   "critical": true,
+   "what": "A press release echoed by several outlets is counted once.",
+   "pass": "No two rows map to the same addendum story or echo cluster (URL first, then match pattern)."
+  },
+  {
+   "id": "T3",
+   "critical": true,
+   "what": "Padding toward five.",
+   "pass": "At most max_rows rows, and every row passes R1 and T1."
+  }
+ ],
+ "rules": {
+  "R1": "Every row's Source URL passes rnd/check_urls.py (HTTP 200, no soft 404, page holds the quote) and the quote is max_quote_words words or fewer. Critical.",
+  "S1": "Why it matters to us and Quote are each one sentence (the prompt's own rule; a tier-1 gap).",
+  "K1": "Every must story in the week's addendum is reported (none when the addendum marks none as must).",
+  "F1": "The table has exactly the key's columns; every row has a parseable date; either the table has at least one row, or the output holds the nothing_material line."
+ },
+ "closed_gaps": "From industry/rounds/README.md 'Known latent scorer gaps': (i) stale items need topic AND period, no single-token anchor; (ii) a page's date must come from its metadata, never from the row's own date text found on the page; (iii) each window is exactly seven days including the run day; (iv) one-sentence Why and Quote are scored (S1); (v) committed output redacts a real name in display text only, never inside a URL, so it stays re-scorable; the unredacted copy goes to the gitignored artefacts folder; (vi) no real company or person is a match pattern.",
+ "pass": "Three fresh-chat runs per week, each scored with score_industry.py --key answer-key-t2-past-v4.json --week P1 (or P2). Malformed output fails. Otherwise pass needs T1, T2, T3, R1, S1, K1 and F1. One critical failure fails the round. Both weeks, all three runs each, must pass.",
+ "counter_metric": "Items reported (rows). Must not rise more than 10% against the previous passing version; the first passing version sets the baseline. Tier-1 reference 4, not comparable.",
+ "ruler_change": "Approved by the owner on 8 November 2026: two past weeks replace the live weeks of 16 and 23 November 2026, so the kit can be built on 8 November. Each case file states its scan date as today; prompt v1 is unchanged. Not comparable with the live-week plan in answer-key-t2.json.",
+ "page_text_date": true,
+ "comparable": false,
+ "key_change": "t2-past v6, 8 November 2026 (one documented scorer limit, round 'v4 on t2-past v5', rounds-t2/PREREG.md). Run t2-v4-p1-1 row 4 ended its quote with the citation chip [abcb.prod....bcb.gov.au]: a shortened domain whose ellipsis sits next to a dot. The v1.2 chip pattern joins label parts only by one dot, one '...' or one '…', so the chip stayed in the quote. v6 (chip_dot_run): any run of dots and ellipsis characters may join two label parts; a chip still holds only letters, digits, hyphens, dots and ellipses inside square brackets, so a tool marker such as web_open:<url> is never stripped. Everything else unchanged. Not comparable with t2-past v1 to v5 rounds. Previous: t2-past v5, 8 November 2026 (two documented scorer limits, Codex review after round 'v3 on t2-past v4', rounds-t2/PREREG.md). (a) score_industry.py knew a PDF only by its %PDF- prefix; v5 fetches with check_urls.fetch_raw and tests check_urls.is_pdf, the same Content-Type or prefix test check_urls.fetch() uses for quotes. (b) An XMP CreateDate that sits only in a compressed metadata stream was not read; v5 reads it from poppler's pdfinfo -meta, after the raw-bytes XMP search and only when no other date is found. Text rules, order of fallbacks and closed gap (ii) unchanged. Not comparable with t2-past v1 to v4 rounds. Previous: t2-past v4, 8 November 2026 (documented key gap, decided by the orchestrator after the network re-score under rounds-t2/PREREG.md 'Re-score result'). Run t2-v3k3-p1-1 row 5 cited a Victorian Government Gazette PDF that holds the quote and states 'Friday 30 October 2026' on its cover and '30 October 2026' on its own line, but t2-past v3 read the PDF's raw bytes and took the first yyyy-mm-dd, an embedded XMP date of 6 January 2011 from an old template. v4: a PDF's page date comes from its pdftotext text by the v2 and v3 text rules (labelled date, standalone yyyy-mm-dd, a line that holds only a day-month-year date). Only when the text gives no date: the document-info CreationDate, then the first embedded XMP CreateDate. Closed gap (ii) still holds. HTML pages are dated as in v3. Not comparable with t2-past v1, v2 or v3 rounds.",
+ "page_date_line": true,
+ "pdf_text_date": true,
+ "pdf_content_type": true,
+ "pdf_xmp_decoded": true,
+ "chip_dot_run": true
+}

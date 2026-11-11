@@ -1,0 +1,675 @@
+{
+ "case": "Harbourview Freight Group, Alex Marlowe (test user). Practice week for industry radar v13 (ticket 92).",
+ "run_date": "2026-11-11",
+ "week": [
+  "2026-11-16",
+  "2026-11-20"
+ ],
+ "time_zone": "Australia/Brisbane (AEST, UTC+10); times are wall-clock in the mailbox's own zone",
+ "rule": "Created as the test user with NO attendees. Attendee names and the organiser are in the body only.",
+ "events": [
+  {
+   "id": "E01",
+   "title": "Weekly operations stand-up",
+   "date": "2026-11-16",
+   "start": "08:30",
+   "end": "09:00",
+   "body": "Organiser: Alex Marlowe. Attendees: Sam Okafor (Operations Manager), Drew Pennington (Head of Safety and Compliance), Robin Kariuki (Head of Customer Operations), Chris Lindqvist (Head of Fleet and Transport). Standing agenda: last week's on-time delivery, safety incidents, staffing gaps.",
+   "day": "monday",
+   "time": "08:30"
+  },
+  {
+   "id": "E02",
+   "title": "One-on-one: Sam Okafor",
+   "date": "2026-11-16",
+   "start": "13:00",
+   "end": "13:30",
+   "body": "Organiser: Alex Marlowe. Attendee: Sam Okafor (Operations Manager). Topics: Northgate night shift start date, casual pickers for the December peak.",
+   "day": "monday",
+   "time": "13:00"
+  },
+  {
+   "id": "E03",
+   "title": "Bayside Larder tender: rate hold decision",
+   "date": "2026-11-16",
+   "start": "15:00",
+   "end": "16:00",
+   "body": "Organiser: Alex Marlowe. Attendees: Kim Haddad (Finance Business Partner), Robin Kariuki (Head of Customer Operations). Decide whether we hold our rates for the full two years of the 2027 freight contract. Quinn Abernethy at Bayside Larder Retail needs our executive answer by 5 pm Thursday 19 November.",
+   "day": "monday",
+   "time": "15:00"
+  },
+  {
+   "id": "E04",
+   "title": "Northgate racking and fit-out steering group",
+   "date": "2026-11-17",
+   "start": "14:00",
+   "end": "15:00",
+   "body": "Organiser: Lee Brennan (Head of Projects and Property). Attendees: Alex Marlowe, Sam Okafor, Robin Kariuki, Kim Haddad. Pre-read: the Northgate fit-out progress report v4 (racking 80 per cent installed, mezzanine handrail height open). Decision needed: approve the $500,000 variation for the extra racking, which takes the Q3 capex reforecast from $2.4 million to $2.9 million.",
+   "day": "tuesday",
+   "time": "14:00"
+  },
+  {
+   "id": "E05",
+   "title": "One-on-one: Drew Pennington",
+   "date": "2026-11-17",
+   "start": "09:00",
+   "end": "09:30",
+   "body": "Organiser: Alex Marlowe. Attendee: Drew Pennington (Head of Safety and Compliance). Topics: Northgate dock 4 near miss investigation, quarterly due diligence attestation.",
+   "day": "tuesday",
+   "time": "09:00"
+  },
+  {
+   "id": "E06",
+   "title": "Fire warden roster review, Northgate",
+   "date": "2026-11-18",
+   "start": "10:00",
+   "end": "11:00",
+   "body": "Organiser: Northgate Site Office. Attendees: Alex Marlowe, site supervisors. Fill the two empty fire warden roles (Level 1 and mezzanine), book warden training and update the roster. Operational roster detail only; no executive decision on the agenda.",
+   "day": "wednesday",
+   "time": "10:00"
+  },
+  {
+   "id": "E07",
+   "title": "Eastgate safety walk",
+   "date": "2026-11-18",
+   "start": "07:00",
+   "end": "08:00",
+   "body": "Organiser: Alex Marlowe. Attendees: Eastgate site supervisor, Drew Pennington. Walk the loading docks before the December peak.",
+   "day": "wednesday",
+   "time": "07:00"
+  },
+  {
+   "id": "E08",
+   "title": "Supply Chain Leaders lunch",
+   "date": "2026-11-18",
+   "start": "12:30",
+   "end": "14:00",
+   "body": "Organiser: Industry Association. Venue: Harbour Room, Level 3. Networking lunch for operations executives.",
+   "day": "wednesday",
+   "time": "12:30"
+  },
+  {
+   "id": "E09",
+   "title": "Board update: operations numbers with Priya",
+   "date": "2026-11-19",
+   "start": "09:00",
+   "end": "09:30",
+   "body": "Organiser: Priya Raman (Chief Executive's office). Attendee: Alex Marlowe. Bring the three numbers for Thursday's board update: on-time dispatch for October, overtime cost against budget, lost-time injuries this quarter. October overtime was $48,000 over budget.",
+   "day": "thursday",
+   "time": "09:00"
+  },
+  {
+   "id": "E10",
+   "title": "Executive Leadership Team meeting",
+   "date": "2026-11-19",
+   "start": "13:30",
+   "end": "15:30",
+   "body": "Organiser: Chief Executive's office. Attendees: the Executive Leadership Team. Agenda: December peak readiness, 2027 tenders, FY27 budget timeline.",
+   "day": "thursday",
+   "time": "13:30"
+  },
+  {
+   "id": "E11",
+   "title": "Call with Coastline Pantry Foods (Jordan Whitcombe)",
+   "date": "2026-11-19",
+   "start": "14:00",
+   "end": "14:30",
+   "body": "Organiser: Alex Marlowe. Attendee: Jordan Whitcombe (Supply Manager, Coastline Pantry Foods). Three late deliveries to their stores this month; they will review the contract at the end of the month if we cannot speak by Friday 20 November.",
+   "day": "thursday",
+   "time": "14:00"
+  },
+  {
+   "id": "E12",
+   "title": "Cleaning roster meeting with Cleanmere Services",
+   "date": "2026-11-20",
+   "start": "10:00",
+   "end": "10:45",
+   "body": "Organiser: Jo Takahashi (Account Manager, Cleanmere Services). Attendee: Alex Marlowe. Agree the new Northgate cleaning roster from 1 December (weekday evenings only). Supplier roster detail.",
+   "day": "friday",
+   "time": "10:00"
+  },
+  {
+   "id": "E13",
+   "title": "Sign the quarterly due diligence attestation",
+   "date": "2026-11-20",
+   "start": "08:30",
+   "end": "09:00",
+   "body": "Organiser: Alex Marlowe. Focus time. The attestation is in the compliance system and is due today; each officer signs it personally.",
+   "day": "friday",
+   "time": "08:30"
+  },
+  {
+   "id": "E14",
+   "title": "Weekly operations review",
+   "date": "2026-11-20",
+   "start": "15:00",
+   "end": "16:00",
+   "body": "Organiser: Alex Marlowe. Attendees: the leadership team. On-time delivery, overtime, safety, Northgate fit-out progress.",
+   "day": "friday",
+   "time": "15:00"
+  }
+ ],
+ "tasks": [
+  {
+   "id": "T03",
+   "title": "Approve six casual pickers for Northgate",
+   "list": "Tasks",
+   "due": "2026-11-17",
+   "day": "tuesday"
+  },
+  {
+   "id": "T04",
+   "title": "Decide the Northgate night shift start date",
+   "list": "Tasks",
+   "due": "2026-11-17",
+   "day": "tuesday"
+  },
+  {
+   "id": "T05",
+   "title": "Read the Northgate fit-out progress report v4",
+   "list": "Tasks",
+   "due": "2026-11-17",
+   "day": "tuesday"
+  },
+  {
+   "id": "T06",
+   "title": "Reply to Bayside Larder on the rate hold",
+   "list": "Tasks",
+   "due": "2026-11-19",
+   "day": "thursday"
+  },
+  {
+   "id": "T07",
+   "title": "Sign off the Q3 capex reforecast",
+   "list": "Tasks",
+   "due": "2026-11-19",
+   "day": "thursday"
+  },
+  {
+   "id": "T08",
+   "title": "Sign the quarterly due diligence attestation",
+   "list": "Tasks",
+   "due": "2026-11-20",
+   "day": "friday"
+  },
+  {
+   "id": "T09",
+   "title": "Book December leave roster chat with Sam",
+   "list": "Tasks",
+   "due": null
+  }
+ ],
+ "note_overdue_tasks": "To Do on the web refuses a past due date ('Invalid date'), so T01 and T02 are flagged emails (kind mail, in the mail list) with a past flag due date; they show in To Do's Flagged email list. Mail is the 42 inbox emails in manifest.jsonl; day and time are when each was received, in AEST.",
+ "mail": [
+  {
+   "id": "T01",
+   "kind": "mail",
+   "subject": "Q4 safety training calendar",
+   "sender": "Drew Pennington",
+   "address": "drew.pennington@example.com",
+   "received": "2026-10-28T14:05",
+   "day": "wednesday",
+   "time": "14:05",
+   "flagged": true,
+   "flag_due": "2026-11-06",
+   "todo_list": "Flagged email"
+  },
+  {
+   "id": "M01",
+   "kind": "mail",
+   "subject": "Operational risk register update for Q4",
+   "sender": "Elliot Strand",
+   "address": "elliot.strand@example.com",
+   "received": "2026-11-02T09:40",
+   "day": "monday",
+   "time": "09:40",
+   "flagged": true,
+   "flag_due": "2026-11-06"
+  },
+  {
+   "id": "T02",
+   "kind": "mail",
+   "subject": "Draft 2027 fleet plan",
+   "sender": "Chris Lindqvist",
+   "address": "chris.lindqvist@example.com",
+   "received": "2026-11-02T16:30",
+   "day": "monday",
+   "time": "16:30",
+   "flagged": true,
+   "flag_due": "2026-11-09",
+   "todo_list": "Flagged email"
+  },
+  {
+   "id": "M02",
+   "kind": "mail",
+   "subject": "Automatic reply: Eastgate dock schedule",
+   "sender": "Pat Nguyen",
+   "address": "pat.nguyen@example.com",
+   "received": "2026-11-03T08:01",
+   "day": "tuesday",
+   "time": "08:01",
+   "flagged": false
+  },
+  {
+   "id": "M03",
+   "kind": "mail",
+   "subject": "Call for speakers, 2027 Supply Chain Summit",
+   "sender": "Industry Association",
+   "address": "speakers@association.example",
+   "received": "2026-11-03T10:00",
+   "day": "tuesday",
+   "time": "10:00",
+   "flagged": false
+  },
+  {
+   "id": "M04",
+   "kind": "mail",
+   "subject": "Sponsorship packages for 2027",
+   "sender": "Brightwren Sponsorships",
+   "address": "partners@sponsor.example",
+   "received": "2026-11-04T07:30",
+   "day": "wednesday",
+   "time": "07:30",
+   "flagged": false
+  },
+  {
+   "id": "M05",
+   "kind": "mail",
+   "subject": "Site access for the quarterly pest treatment",
+   "sender": "Hollowgum Pest Control",
+   "address": "bookings@pest.example",
+   "received": "2026-11-04T08:20",
+   "day": "wednesday",
+   "time": "08:20",
+   "flagged": false
+  },
+  {
+   "id": "M06",
+   "kind": "mail",
+   "subject": "Free webinar: smarter warehouses in 2027",
+   "sender": "Sunwattle Events",
+   "address": "events@conference.example",
+   "received": "2026-11-04T09:00",
+   "day": "wednesday",
+   "time": "09:00",
+   "flagged": false
+  },
+  {
+   "id": "M07",
+   "kind": "mail",
+   "subject": "Forklift lease renewal paperwork",
+   "sender": "Eastgate Site Office",
+   "address": "eastgate@example.com",
+   "received": "2026-11-04T15:30",
+   "day": "wednesday",
+   "time": "15:30",
+   "flagged": false
+  },
+  {
+   "id": "M08",
+   "kind": "mail",
+   "subject": "Proposed change to alarm response times",
+   "sender": "Wardhollow Security",
+   "address": "service@security.example",
+   "received": "2026-11-05T09:10",
+   "day": "thursday",
+   "time": "09:10",
+   "flagged": false
+  },
+  {
+   "id": "M09",
+   "kind": "mail",
+   "subject": "Three quotes for the loading dock lighting",
+   "sender": "Facilities Desk",
+   "address": "facilities@example.com",
+   "received": "2026-11-05T11:00",
+   "day": "thursday",
+   "time": "11:00",
+   "flagged": false
+  },
+  {
+   "id": "M10",
+   "kind": "mail",
+   "subject": "Your laptop refresh is booked for February",
+   "sender": "IT Service Desk",
+   "address": "itservice@example.com",
+   "received": "2026-11-05T11:30",
+   "day": "thursday",
+   "time": "11:30",
+   "flagged": false
+  },
+  {
+   "id": "M11",
+   "kind": "mail",
+   "subject": "Exciting COO opportunities",
+   "sender": "Taylor Fenwick",
+   "address": "taylor.fenwick@recruit.example",
+   "received": "2026-11-05T13:00",
+   "day": "thursday",
+   "time": "13:00",
+   "flagged": false
+  },
+  {
+   "id": "M12",
+   "kind": "mail",
+   "subject": "First aid certificates expiring",
+   "sender": "People and Culture",
+   "address": "people@example.com",
+   "received": "2026-11-05T14:30",
+   "day": "thursday",
+   "time": "14:30",
+   "flagged": false
+  },
+  {
+   "id": "M13",
+   "kind": "mail",
+   "subject": "Re: Thanks for the safety week",
+   "sender": "Robin Kariuki",
+   "address": "robin.kariuki@example.com",
+   "received": "2026-11-05T16:45",
+   "day": "thursday",
+   "time": "16:45",
+   "flagged": false
+  },
+  {
+   "id": "M14",
+   "kind": "mail",
+   "subject": "Notes from the safety committee",
+   "sender": "Drew Pennington",
+   "address": "drew.pennington@example.com",
+   "received": "2026-11-06T09:15",
+   "day": "friday",
+   "time": "09:15",
+   "flagged": false
+  },
+  {
+   "id": "M15",
+   "kind": "mail",
+   "subject": "URGENT: Q1 planning session inputs",
+   "sender": "Pat Nguyen",
+   "address": "pat.nguyen@example.com",
+   "received": "2026-11-06T10:05",
+   "day": "friday",
+   "time": "10:05",
+   "flagged": false
+  },
+  {
+   "id": "M16",
+   "kind": "mail",
+   "subject": "Christmas party RSVPs open 1 December",
+   "sender": "Office Manager",
+   "address": "office@example.com",
+   "received": "2026-11-06T14:00",
+   "day": "friday",
+   "time": "14:00",
+   "flagged": false
+  },
+  {
+   "id": "M17",
+   "kind": "mail",
+   "subject": "Cleaning roster at Northgate from December",
+   "sender": "Jo Takahashi",
+   "address": "jo.takahashi@supplier.example",
+   "received": "2026-11-06T14:15",
+   "day": "friday",
+   "time": "14:15",
+   "flagged": false
+  },
+  {
+   "id": "M18",
+   "kind": "mail",
+   "subject": "Contractor induction records for the audit",
+   "sender": "Internal Audit",
+   "address": "audit@example.com",
+   "received": "2026-11-06T15:40",
+   "day": "friday",
+   "time": "15:40",
+   "flagged": false
+  },
+  {
+   "id": "M19",
+   "kind": "mail",
+   "subject": "Save the date: strategy offsite, 10 and 11 March",
+   "sender": "Priya Raman",
+   "address": "priya.raman@example.com",
+   "received": "2026-11-06T17:00",
+   "day": "friday",
+   "time": "17:00",
+   "flagged": false
+  },
+  {
+   "id": "M20",
+   "kind": "mail",
+   "subject": "Audit and Risk Committee, 3 December",
+   "sender": "Dr Morgan Ashdown",
+   "address": "morgan.ashdown@example.org",
+   "received": "2026-11-07T10:30",
+   "day": "saturday",
+   "time": "10:30",
+   "flagged": false
+  },
+  {
+   "id": "M21",
+   "kind": "mail",
+   "subject": "Friday lunch orders have closed",
+   "sender": "Office Manager",
+   "address": "office@example.com",
+   "received": "2026-11-07T11:00",
+   "day": "saturday",
+   "time": "11:00",
+   "flagged": false
+  },
+  {
+   "id": "M22",
+   "kind": "mail",
+   "subject": "FY27 budget templates",
+   "sender": "Kim Haddad",
+   "address": "kim.haddad@example.com",
+   "received": "2026-11-07T12:10",
+   "day": "saturday",
+   "time": "12:10",
+   "flagged": false
+  },
+  {
+   "id": "M23",
+   "kind": "mail",
+   "subject": "Fire warden gaps at Northgate",
+   "sender": "Northgate Site Office",
+   "address": "northgate@example.com",
+   "received": "2026-11-07T13:30",
+   "day": "saturday",
+   "time": "13:30",
+   "flagged": false
+  },
+  {
+   "id": "M24",
+   "kind": "mail",
+   "subject": "Coffee in the new year",
+   "sender": "Riley Sandoval",
+   "address": "riley.sandoval@example.com",
+   "received": "2026-11-07T15:00",
+   "day": "saturday",
+   "time": "15:00",
+   "flagged": false
+  },
+  {
+   "id": "M25",
+   "kind": "mail",
+   "subject": "Quarterly due diligence attestation",
+   "sender": "Drew Pennington",
+   "address": "drew.pennington@example.com",
+   "received": "2026-11-07T16:10",
+   "day": "saturday",
+   "time": "16:10",
+   "flagged": false
+  },
+  {
+   "id": "M26",
+   "kind": "mail",
+   "subject": "Re: Re: Northgate racking and fit-out weekly",
+   "sender": "Lee Brennan",
+   "address": "lee.brennan@example.com",
+   "received": "2026-11-07T16:52",
+   "day": "saturday",
+   "time": "16:52",
+   "flagged": false
+  },
+  {
+   "id": "M27",
+   "kind": "mail",
+   "subject": "Leave roster for next year",
+   "sender": "Sam Okafor",
+   "address": "sam.okafor@example.com",
+   "received": "2026-11-07T17:30",
+   "day": "saturday",
+   "time": "17:30",
+   "flagged": false
+  },
+  {
+   "id": "M28",
+   "kind": "mail",
+   "subject": "Three late deliveries this month",
+   "sender": "Jordan Whitcombe",
+   "address": "jordan.whitcombe@client.example",
+   "received": "2026-11-07T18:20",
+   "day": "saturday",
+   "time": "18:20",
+   "flagged": true,
+   "flag_due": "2026-11-20"
+  },
+  {
+   "id": "M29",
+   "kind": "mail",
+   "subject": "Sunday and that deed",
+   "sender": "Jamie Castellano",
+   "address": "jamie.castellano@example.net",
+   "received": "2026-11-09T19:12",
+   "day": "monday",
+   "time": "19:12",
+   "flagged": false
+  },
+  {
+   "id": "M30",
+   "kind": "mail",
+   "subject": "Logistics Weekly, issue 213",
+   "sender": "Logistics Weekly",
+   "address": "editor@news.example",
+   "received": "2026-11-10T05:00",
+   "day": "tuesday",
+   "time": "05:00",
+   "flagged": false
+  },
+  {
+   "id": "M31",
+   "kind": "mail",
+   "subject": "Your weekly dashboard usage report",
+   "sender": "Tallowbark Analytics",
+   "address": "noreply@analytics.example",
+   "received": "2026-11-10T06:00",
+   "day": "tuesday",
+   "time": "06:00",
+   "flagged": false
+  },
+  {
+   "id": "M32",
+   "kind": "mail",
+   "subject": "Northgate night shift start date",
+   "sender": "Sam Okafor",
+   "address": "sam.okafor@example.com",
+   "received": "2026-11-10T06:50",
+   "day": "tuesday",
+   "time": "06:50",
+   "flagged": false
+  },
+  {
+   "id": "M33",
+   "kind": "mail",
+   "subject": "Three numbers for the board update",
+   "sender": "Priya Raman",
+   "address": "priya.raman@example.com",
+   "received": "2026-11-10T07:05",
+   "day": "tuesday",
+   "time": "07:05",
+   "flagged": false
+  },
+  {
+   "id": "M34",
+   "kind": "mail",
+   "subject": "Q3 capex reforecast needs your sign-off",
+   "sender": "Kim Haddad",
+   "address": "kim.haddad@example.com",
+   "received": "2026-11-10T07:20",
+   "day": "tuesday",
+   "time": "07:20",
+   "flagged": true,
+   "flag_due": "2026-11-19"
+  },
+  {
+   "id": "M35",
+   "kind": "mail",
+   "subject": "Near miss at Northgate dock 4",
+   "sender": "Northgate Site Office",
+   "address": "northgate@example.com",
+   "received": "2026-11-10T07:30",
+   "day": "tuesday",
+   "time": "07:30",
+   "flagged": false
+  },
+  {
+   "id": "M36",
+   "kind": "mail",
+   "subject": "Six casual pickers for the December peak",
+   "sender": "Ash Delacroix",
+   "address": "ash.delacroix@example.com",
+   "received": "2026-11-10T08:15",
+   "day": "tuesday",
+   "time": "08:15",
+   "flagged": false
+  },
+  {
+   "id": "M37",
+   "kind": "mail",
+   "subject": "Level 2 kitchen closed today",
+   "sender": "Office Manager",
+   "address": "office@example.com",
+   "received": "2026-11-10T08:30",
+   "day": "tuesday",
+   "time": "08:30",
+   "flagged": false
+  },
+  {
+   "id": "M38",
+   "kind": "mail",
+   "subject": "Performance review cycle opens 1 December",
+   "sender": "People and Culture",
+   "address": "people@example.com",
+   "received": "2026-11-10T09:00",
+   "day": "tuesday",
+   "time": "09:00",
+   "flagged": false
+  },
+  {
+   "id": "M39",
+   "kind": "mail",
+   "subject": "Tender clarification for the 2027 freight contract",
+   "sender": "Quinn Abernethy",
+   "address": "quinn.abernethy@customer.example",
+   "received": "2026-11-10T09:40",
+   "day": "tuesday",
+   "time": "09:40",
+   "flagged": true,
+   "flag_due": "2026-11-19"
+  },
+  {
+   "id": "M40",
+   "kind": "mail",
+   "subject": "Moving the budget review meeting",
+   "sender": "Kim Haddad",
+   "address": "kim.haddad@example.com",
+   "received": "2026-11-10T10:15",
+   "day": "tuesday",
+   "time": "10:15",
+   "flagged": false
+  }
+ ]
+}

@@ -1,0 +1,25 @@
+SAMPLE CASE. The organisation, the people and the paper are invented. All addresses use the reserved .example domain.
+
+IRONBARK SECURE LOGISTICS (sample)
+Operations Steering Committee paper, item 4
+
+Title: Lie detector screening for all cash crew and vault staff
+Paper owner: Head of Security and Loss Prevention, loss-prevention@ironbark-secure.example
+Decision sought: approve a three-year contract with TruthLine Assessment Services (sample) to start on 1 April
+
+1. Problem
+Internal theft is our largest controllable loss. Cash missing from consignments, ATM cassettes and the processing floor cost us $1.9 million last financial year, and most of it is traced to our own people, not to outside attacks. Our current checks (police checks at hire, cameras, dual custody of keys) catch theft after it happens.
+
+2. Proposal
+From 1 April every new hire for a cash crew, vault or processing role takes a polygraph test before their first shift. Every existing crew member and vault processor (about 1,150 people) takes one polygraph test each year. TruthLine examiners run the tests at our depots. A result of "deception indicated" leads to a second interview and, for a new hire, no offer.
+
+3. Evidence
+A 2024 study by the Australasian Cash Security Council of 4,100 cash handlers found that annual polygraph screening cut internal theft losses by 62% within two years (summary at https://truthline-assessment.example/evidence). TruthLine's brochure states that its examiners are 98% accurate, and a peer firm in another market has used the same screening for five years.
+
+Our own trial at the Northern processing centre (40 vault staff, February and March) supports this. Three staff resigned before their test date, one admitted during the pre-test interview to taking cash from a damaged bag, and recorded variances at the centre fell in the two months of the trial.
+
+4. Cost
+About $420,000 a year: $290 a test for about 1,150 annual tests and 300 new hires, plus examiner travel.
+
+5. Recommendation
+Approve the contract so the first tests can run in the week of 1 April.

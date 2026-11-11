@@ -1,0 +1,191 @@
+{
+  "version": "v1.1, 7 November 2026, after r03: stale items S2 and S3 anchored to the stories themselves (v1 matched any 'administration', 'collapse' or 'insolvency')",
+  "case": "case/pasted.txt",
+  "industry": "Australian residential construction (home building). Generic; not tied to any past client.",
+  "window": {
+    "from": "2026-10-31",
+    "to": "2026-11-07",
+    "note": "The last seven days before and including the run day, Saturday 7 November 2026. A run on another day is not scored against this key."
+  },
+  "columns": [
+    "#",
+    "Date",
+    "Development",
+    "Why it matters to us",
+    "Source URL",
+    "Quote"
+  ],
+  "max_rows": 5,
+  "max_quote_words": 30,
+  "nothing_material": "Nothing material this week.",
+  "stories": [
+    {
+      "id": "W1",
+      "must": true,
+      "what": "The Reserve Bank raised the cash rate 25 basis points to 4.85% on 3 November 2026 (fifth rise of 2026, six to three vote). Echoed by the RBA, industry bodies and many outlets: one story.",
+      "urls": [
+        "rba.gov.au/media-releases/2026/mr-26-30",
+        "masterbuilders.com.au/builders-and-tradies-hit-again",
+        "theurbandeveloper.com/articles/rba-rate-rise-november-2026"
+      ],
+      "match": "cash rate|4\\.85|(?:interest )?rate (?:rise|hike|increase)|raised (?:the )?(?:cash )?rate|Reserve Bank|\\bRBA\\b",
+      "evidence": {
+        "url": "https://www.rba.gov.au/media-releases/2026/mr-26-30.html",
+        "quote": "Today’s policy decision was by majority: six members voted to increase the cash rate target by 25 basis points to 4.85 per cent; three members voted to leave the cash rate target unchanged at 4.60 per cent.",
+        "date": "2026-11-03"
+      }
+    },
+    {
+      "id": "W2",
+      "must": true,
+      "what": "ABS building approvals for September 2026, released 2 November 2026: total dwellings up 5.1% to 17,948, private houses down 5.3%. Echoed by industry bodies and outlets: one story.",
+      "urls": [
+        "abs.gov.au/statistics/industry/building-and-construction/building-approvals-australia",
+        "masterbuilders.com.au/september-approvals-rise"
+      ],
+      "match": "approv",
+      "evidence": {
+        "url": "https://www.abs.gov.au/statistics/industry/building-and-construction/building-approvals-australia/latest-release",
+        "quote": "Approvals for private sector houses fell across all states: South Australia (-7.8%), Victoria (-6.0%), New South Wales (-5.5%), Queensland (-5.1%), and Western Australia (-4.6%).",
+        "date": "2026-11-02"
+      }
+    },
+    {
+      "id": "W3",
+      "must": false,
+      "what": "Cotality Home Value Index for October 2026, released 2 November 2026: national values down 1.2%, a seventh monthly fall.",
+      "urls": [
+        "cotality.com/au/insights/articles/housing-downturn-broadens"
+      ],
+      "match": "home value|dwelling values|Home Value Index|Cotality|seventh (?:consecutive )?(?:monthly |month)",
+      "evidence": {
+        "url": "https://www.cotality.com/au/insights/articles/housing-downturn-broadens-as-brisbane-and-perth-lead-the-decline",
+        "quote": "Cotality’s national Home Value Index (HVI) down 1.2% in October, taking the downturn into a seventh consecutive month.",
+        "date": "2026-11-02"
+      }
+    },
+    {
+      "id": "W4",
+      "must": false,
+      "what": "The federal tax reform bill (minimum tax on discretionary trusts, a new definition of new housing) before a Senate committee; industry bodies warned it would cut housing supply (3 to 6 November 2026).",
+      "urls": [
+        "masterbuilders.com.au/trusts-tax-will-hit",
+        "eliteagent.com/housing-tax-bill"
+      ],
+      "match": "trust|tax reform bill|Senate",
+      "evidence": {
+        "url": "https://masterbuilders.com.au/trusts-tax-will-hit-small-business-and-home-buyers/",
+        "quote": "The bottom line is that these reforms will increase the cost of building and construction work.",
+        "date": "2026-11-03"
+      }
+    },
+    {
+      "id": "W5",
+      "must": false,
+      "what": "A consulting firm's quarterly Investment Monitor press release (5 November 2026): record $1.39 trillion project pipeline, 37 data centre projects worth $141 billion, competing for construction capacity. Echoed by several outlets (a newswire, a business briefing site twice, a tech site): one story.",
+      "urls": [
+        "deloitte.com/au/en/about/press-room/investment-monitor",
+        "bloomberg.com/news/articles/2026-11-04/australia-s-construction-boom",
+        "capitalbrief.com/briefing/australias-project-investment-pipeline",
+        "capitalbrief.com/briefing/data-centres-strain",
+        "tech-insider.org/au/data-centres-australia-construction-pipeline"
+      ],
+      "match": "Investment Monitor|Deloitte|(?:project|investment|construction) pipeline|data cent(?:re|er)|1\\.39 trillion|1\\.4 trillion",
+      "evidence": {
+        "url": "https://www.deloitte.com/au/en/about/press-room/investment-monitor.html",
+        "quote": "Australia’s investment pipeline has reached a record $1.39 trillion, including 37 data centre projects worth $141 billion",
+        "date": "2026-11-05"
+      }
+    }
+  ],
+  "stale": [
+    {
+      "id": "L1",
+      "in_last_week": true,
+      "what": "CPI September 2026 (28 October): 4.3% a year; new dwelling prices up 4.7%.",
+      "urls": [
+        "abs.gov.au/media-centre/media-releases/cpi-rose",
+        "abs.gov.au/statistics/economy/price-indexes-and-inflation"
+      ],
+      "match": "\\bCPI\\b|consumer price|new dwelling (?:price|cost|inflation)|4\\.7 ?(?:%|per ?cent)"
+    },
+    {
+      "id": "L2",
+      "in_last_week": true,
+      "what": "Building input costs (ABS producer prices, 30 October): house construction input costs up 3.9%.",
+      "urls": [
+        "masterbuilders.com.au/building-costs-rise"
+      ],
+      "match": "input costs?|producer price|\\bPPI\\b|3\\.9 ?(?:%|per ?cent)"
+    },
+    {
+      "id": "L3",
+      "in_last_week": true,
+      "what": "Industry affordability index up 3.6% (27 October).",
+      "urls": [
+        "hia.com.au/our-industry/newsroom/economic-research-and-forecasting/2026/10/brief-window"
+      ],
+      "match": "affordability index|3\\.6 ?(?:%|per ?cent)"
+    },
+    {
+      "id": "S1",
+      "in_last_week": false,
+      "what": "Industry new home sales down 17.5% in the September quarter (16 October).",
+      "urls": [
+        "hia.com.au/our-industry/newsroom/economic-research-and-forecasting/2026/10/new-home-sales-slump"
+      ],
+      "match": "new home sales|17\\.5"
+    },
+    {
+      "id": "S2",
+      "in_last_week": false,
+      "what": "A large Sydney home builder and developer entered administration (August 2026), widely re-reported since.",
+      "urls": [],
+      "match": "Bathla"
+    },
+    {
+      "id": "S3",
+      "in_last_week": false,
+      "what": "Construction insolvencies for the year to June 2026 (3,472 companies).",
+      "urls": [],
+      "match": "3,?472"
+    },
+    {
+      "id": "S4",
+      "in_last_week": false,
+      "what": "Industry construction forecasts downgraded (1 October 2026).",
+      "urls": [
+        "masterbuilders.com.au/construction-forecasts-slashed"
+      ],
+      "match": "forecasts? (?:slashed|downgraded|cut)"
+    }
+  ],
+  "traps": [
+    {
+      "id": "T1",
+      "critical": true,
+      "what": "A stale story re-reported as new: an item dated before the window, or an item already in last week's list (L1 to L3), or a known stale story (S1 to S4) under a new date.",
+      "pass": "Every row's Date is in the window, its source page's own date is in the window (within one day of the row's Date), and no row's Development matches a stale item (by source URL, or by its match pattern when the row matches no this-week story)."
+    },
+    {
+      "id": "T2",
+      "critical": true,
+      "what": "One story echoed by several outlets (W1, W2 and the W5 press release) must be counted once.",
+      "pass": "No two rows map to the same story (by source URL first, then by the story's match pattern on the Development cell)."
+    },
+    {
+      "id": "T3",
+      "critical": true,
+      "what": "Padding: 'five developments' must not be padded with weak or stale items.",
+      "pass": "At most max_rows rows, and every row passes R1 and T1. A row that matches no key story is allowed only when it passes every objective check; it is listed as unkeyed for review."
+    }
+  ],
+  "rules": {
+    "R1": "Every row's Source URL passes rnd/check_urls.py (HTTP 200, no soft 404, page holds the quote) and the quote is max_quote_words words or fewer. Critical.",
+    "K1": "Both must stories (W1, W2) are reported.",
+    "F1": "The table has exactly the key's columns; every row has a parseable date; either the table has at least one row, or the output holds the nothing_material line."
+  },
+  "pass": "Malformed output fails (renamed column, more than one table, unparseable date, blank URL or quote). Otherwise pass needs T1, T2, T3, R1, K1 and F1. One critical failure fails the round.",
+  "counter_metric": "Items reported (rows in the table). Pre-registered direction: it must not rise as the pass rate rises (padding toward five). The first passing version sets the baseline.",
+  "not_tested": "The 'nothing material' week: this week had material news, so the case cannot test that line. The prompt carries it; the card says it is untested."
+}

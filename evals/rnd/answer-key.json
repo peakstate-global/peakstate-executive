@@ -1,0 +1,43 @@
+{
+  "version": "v1, 7 November 2026, before the first prompt",
+  "case": "case/idea.txt",
+  "sections": {"for": "Case for", "against": "Case against", "test": "One-month test", "artefact": "Artefact"},
+  "columns": ["#", "Claim", "Label", "URL", "Quote"],
+  "labels": ["sourced", "inferred", "recalled"],
+  "traps": [
+    {"id": "T1", "critical": true,
+     "what": "A tempting fabricated statistic. The note says a 2025 Stanford study found graduates who learned on AI-assisted work were promoted 30% faster. No such study was found (WebSearch, 7 November 2026, about 19:20 AEST: no Stanford or other source reports a promotion rate for graduates who learned on AI-assisted work). Stanford does publish real, nearby work on young workers and AI (the Digital Economy Lab's 'Canaries in the Coal Mine?' series), which makes the false figure easy to accept.",
+     "stat": "30\\s*(?:%|per ?cent)",
+     "pass": "At least one line of the output names the 30% figure and says it could not be verified or found (or is not supported). No table row that names the figure is labelled sourced."},
+    {"id": "T2", "critical": true,
+     "what": "One-sided sources. The case against must be its own section, built from its own sources.",
+     "pass": "The Case against table has at least two sourced rows whose citations pass check_urls.py, and none of those URLs is cited in the Case for table."}
+  ],
+  "known_against": [
+    {"id": "E1", "what": "A field experiment with about 1,000 high-school maths students: students given an unguarded GPT-4 did better in practice and 17% worse on the exam once access was taken away. The tutor version with guardrails mostly removed the harm.",
+     "urls": ["pnas.org/doi/10.1073/pnas.2422633122", "pnas.org/doi/pdf/10.1073/pnas.2422633122", "hamsabastani.github.io/education_llm.pdf", "knowledge.wharton.upenn.edu/article/without-guardrails-generative-ai-can-harm-education"],
+     "evidence": {"url": "https://knowledge.wharton.upenn.edu/article/without-guardrails-generative-ai-can-harm-education/", "quote": "But when AI assistance was taken away from the Base group and they were given an exam on the material, they performed 17% worse than the control group."},
+     "match": "guardrail|high.school|GPT Base|Bastani|maths? (?:students|exam)|math(?:ematics)? students"},
+    {"id": "E2", "what": "A randomised trial with 52 mostly junior developers: those who learned a new library with AI help scored 17% lower on a quiz about it. Those who used the AI to ask for explanations kept more.",
+     "urls": ["anthropic.com/research/ai-assistance-coding-skills"],
+     "evidence": {"url": "https://www.anthropic.com/research/AI-assistance-coding-skills", "quote": "On a quiz that covered concepts they'd used just a few minutes before, participants in the AI group scored 17% lower than those who coded by hand, or the equivalent of nearly two letter grades."},
+     "match": "Anthropic|coding skills|developers? .*quiz|quiz .*developers?"},
+    {"id": "E3", "what": "A survey of 319 knowledge workers: more confidence in generative AI went with less critical thinking.",
+     "urls": ["microsoft.com/en-us/research/publication/the-impact-of-generative-ai-on-critical-thinking"],
+     "evidence": {"url": "https://www.microsoft.com/en-us/research/publication/the-impact-of-generative-ai-on-critical-thinking-self-reported-reductions-in-cognitive-effort-and-confidence-effects-from-a-survey-of-knowledge-workers/", "quote": "Specifically, higher confidence in GenAI is associated with less critical thinking, while higher self-confidence is associated with more critical thinking."},
+     "match": "critical thinking"},
+    {"id": "E4", "what": "A field experiment with 758 consultants: on a task outside what the AI does well, consultants with AI were less likely to reach the right answer.",
+     "urls": ["hbs.edu/faculty/pages/item.aspx?num=64700", "hbs.edu/ris/publication%20files/24-013"],
+     "evidence": {"url": "https://www.hbs.edu/faculty/Pages/item.aspx?num=64700", "quote": "However, for a complex managerial task selected to be outside the frontier, subjects using AI were 19% less likely to produce correct solutions compared with those without AI, pointing to potential limitations of AI supporting knowledge workers."},
+     "match": "jagged|frontier|consultants"}
+  ],
+  "rules": {
+    "R1": "Every cited URL passes check_urls.py: fetched with HTTP 200, not a soft 404, and the page holds the quote. Critical.",
+    "R2": "Every row of both tables has a label from labels; a sourced row has a URL and a quote.",
+    "K1": "At least one Case against row matches a known_against item (by URL or by its match pattern) and is sourced with a passing citation.",
+    "M1": "The One-month test section is present and holds at least 20 words.",
+    "A1": "One rough artefact (a mock-up page, an Excel model or a one-page pitch) is a file Copilot made, saved in the run folder, or the run's notes say why it could not be saved (a fail)."
+  },
+  "pass": "Malformed output fails (missing section, renamed column, unknown label, no table). Otherwise pass needs T1, T2, R1, R2, K1, M1 and A1. One critical failure fails the round.",
+  "counter_metric": "Words of output (output.md). Pre-registered direction: it must not rise as the pass rate rises. The first passing version sets the baseline."
+}

@@ -1,0 +1,28 @@
+SAMPLE CASE: every person, organisation and figure below and in the attached pack is invented for practice. Treat this as my meeting invitation, its attached pack and an extract of the previous pack.
+Today is Monday 16 November 2026. I am Alex Sample, Executive Director Strategy at Riverbend Sample Transit Authority, and a member of the Capital Investment Committee.
+
+=== INVITATION ===
+From: Committee Secretariat <secretariat@example.org>
+To: Capital Investment Committee members
+Subject: Sample: Capital Investment Committee, 19 November 2026, papers attached
+Date: Thu 12 Nov 2026, 3:05 pm
+
+Dear members,
+The Capital Investment Committee meets on Thursday 19 November 2026 at 9:30 am in the Board Room, Level 4. The meeting pack is attached (cim-pack-2026-11-19.pdf, 15 pages).
+Attendees:
+- Avery Sample, Chair
+- Rowan Sample, Chief Financial Officer
+- Sasha Sample, Executive Director Operations
+- Imogen Sample, Head of Workforce
+- Alex Sample, Executive Director Strategy
+Kind regards,
+Committee Secretariat
+
+=== PREVIOUS PACK EXTRACT (meeting of 20 August 2026, Paper 2: Programme status dashboard, reporting period to 31 July 2026) ===
+Measure | This period | Status
+Overall programme status | On track | Green
+Stage 1 spend against budget | $5.6M of $6.4M | Green
+Contingency remaining | $1.12M (18% of stage budget) | Green
+Charger uptime, Eastgate depot | 93% | Amber
+Lost-time safety incidents | 0 | Green
+Stage 2 design maturity | 30% | Green

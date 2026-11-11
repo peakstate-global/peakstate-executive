@@ -1,0 +1,29 @@
+SAMPLE CASE: every person, organisation and figure below and in the attached pack is invented for practice. Treat this as my meeting invitation, its attached pack and an extract of the previous pack.
+Today is Monday 7 December 2026. I am Lane Example, Executive Director Community Health at Saltbush Sample Health Service, and a member of the Finance and Performance Committee.
+
+=== INVITATION ===
+From: Board Secretary <board.secretary@example.org>
+To: Finance and Performance Committee members
+Subject: Sample: Finance and Performance Committee, 11 December 2026, papers attached
+Date: Thu 3 Dec 2026, 4:10 pm
+
+Dear members,
+The Finance and Performance Committee meets on Friday 11 December 2026 at 10 am in the Board Room, Level 3, Administration Wing. The papers are attached (fpc-papers-11-dec-2026.pdf, 30 pages).
+Attendees:
+- Dr Quinn Example, Chair
+- Tal Example, Chief Financial Officer
+- Remy Example, Chief Operating Officer
+- Kit Example, Staff Representative
+- Lane Example, Executive Director Community Health
+Kind regards,
+Office of the Board Secretary
+
+=== PREVIOUS PACK EXTRACT (meeting of 14 October 2026, Paper 2: Performance dashboard, April to June 2026) ===
+Measure | This period | Status
+Emergency patients seen on time | 74% | Amber
+Elective patients overdue for surgery | 6.1% | Amber
+Infections per 10,000 bed days | 1.9 | Green
+Budget variance | -0.4% | Green
+Staff turnover | 11.8% | Amber
+Patients rating care good or very good | 87% | Green
+Status bands for elective patients overdue for surgery: Green below 5%, Amber 5% to 8%, Red above 8%.
