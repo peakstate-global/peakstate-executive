@@ -50,7 +50,7 @@ Self-checks: `python3 evals/weekly-radar/score_week.py --self-check` (19 probes)
 
 - `case/`, `case-t2/`: practice cases. `case-t2/` holds the profile and past weeks P1 and P2. `case-demo/` is week P1 with invented names, as the guide shows.
 - `case-week/`: the practice week for Section 1. `fixtures-week/`: small hand-written answers for the self-check.
-- The older `answer-key-t2-past*.json` files are earlier ruler versions, kept so earlier scores can be reproduced.
+- The current keys are `case-week/week-key.json` for Section 1 and `answer-key-t2-past-v11.7.json` for the industry radar. The older `answer-key-t2-past*.json` files are earlier ruler versions, kept so earlier scores can be reproduced.
 
 No radar holdout is published. None has been spent, so all stay sealed.
 
@@ -60,4 +60,4 @@ No radar holdout is published. None has been spent, so all stay sealed.
 - The latest restart (v10 on ruler v11.6) passed its first two practice runs. The third stalled because a cited government PDF refused our network, which is "awaiting route", not a fail.
 - **Week ahead, prompt v13:** one run on the practice week found 8 of 11 planted items by hand check, and the scorer said 7 of 11. It missed both overdue tasks. Its two industry cards passed the hand check.
 
-So the radar is a pilot. Most failures so far came from our own ruler, and the ruler is still moving.
+No prompt and ruler pair for Weekly radar is locked yet. Most failures so far came from our own ruler, and the ruler is still moving.

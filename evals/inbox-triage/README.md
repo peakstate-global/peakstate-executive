@@ -42,4 +42,4 @@ Self-checks: `python3 evals/lib/score.py --self-check`, `python3 evals/inbox-tri
 - **v9:** a layout-only fix that never got a clean run. Copilot's safety filter stopped both attempts, traced to the case's hidden-instruction email.
 - The inbox holdout is not published: it is not marked spent.
 
-So v6 is proven on pasted mail only, not on a live mailbox. The skill stays in beta.
+So v6 is tested on pasted mail only, not on a live mailbox.

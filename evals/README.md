@@ -41,9 +41,9 @@ A self-check proves the scorer passes a good answer and fails each broken one. I
 
 ## Results in short
 
-- Practice cases: each skill has at least one prompt version that passed its practice case, except Weekly radar, which is still a pilot.
+- Practice cases: each skill has at least one prompt version that passed its practice case. Weekly radar has run once so far.
 - Sealed holdouts: Forum prep passed one (3 of 3) and R&D passed parts of several. Most sealed-test failures came from faults in our own keys and rulers (a key that missed a valid page address, a key that asked for something the prompt forbids, a ruler that misread a date), or from a site that blocked our fetch, rather than from what Copilot wrote. We fixed each fault in a new ruler version and did not re-score the spent holdout.
-- Inbox triage is proven on pasted mail only, not on a live mailbox, so it stays in beta.
+- Inbox triage is tested on pasted mail only, not on a live mailbox.
 
 Every person and organisation in the practice cases is invented. The R&D and Weekly radar keys cite real public research, government and news pages as sources.
 

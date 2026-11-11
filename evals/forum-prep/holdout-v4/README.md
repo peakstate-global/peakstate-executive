@@ -1,9 +1,7 @@
-Prompt-tuning tickets must not open this folder.
-
 # Forum holdout case, v4
 
-**Version:** holdout v4, 8 November 2026 (ticket 22), reworked after review and before any run (see Rework below). Written by a separate holdout writer that did not open
-`forum/prompts/`, any `forum/rounds*/` folder, or any earlier holdout's runs.
+**Version:** holdout v4, 8 November 2026, reworked after review and before any run (see Rework below). Written by a separate holdout writer that did not open
+the prompt, any round output, or any earlier holdout's runs.
 **Purpose:** a fresh sealed case for the forum document (ruler v3), so a forum v12 or later can claim a holdout pass on
 a case its author never saw. New organisation and sector (a community housing provider awarding a modular build
 contract), new attendees, figures and executive. Every person, organisation and figure is invented and labelled
@@ -39,7 +37,7 @@ for noting. Welcome, conflicts, other business and the date of the next meeting 
 
 ## Rework
 
-A review of the first commit (`62e60181`) found two defects, fixed in `da1bfb21` (2026-11-08 21:35:00 AEST) before any run touched the case. First, every
+A review of the first version found two defects, fixed before any run touched the case. First, every
 trap sat in the same paper slot and shape as the tier-2 case. The papers are now in a new order, C2, C3 and C4 sit in
 other papers, Q1's required step is in the committee terms of reference (not in minutes), U1 is an overdue compliance
 duty (not a condition-rated asset missing from a renewals list), and A2 and A4 take new positions. Second, the A3 and

@@ -1,11 +1,9 @@
-Prompt-tuning tickets must not open this folder.
-
 # Forum holdout case, v6
 
-**Version:** holdout v6 key v2, 9 November 2026 (ticket 51, the owner's Q11 answer a; key v2 holds review fixes made before
+**Version:** holdout v6 key v2, 9 November 2026 (key v2 holds review fixes made before
 any run, and the key's `key_change` lists them). Written by a separate holdout writer
-that did not open `forum/prompts/`, `forum/baselines/`, any `forum/rounds*/` folder, any results or score file, any run
-output or notes, any other ticket's handoff, or any runner round prompt.
+that did not open the prompt, any baseline, any round output, any results or score file, any run
+output or notes, or any other handoff or round prompt.
 **Purpose:** a fresh sealed case for the forum document on ruler v3.1 plus the heading checks, with a ranking table, so a
 frozen forum version (v18 under Q11 a) can claim a holdout pass on a case its author never saw. New organisation and
 sector (a public vocational training institute selling a campus workshop), new attendees, figures and executive (four
@@ -84,8 +82,5 @@ result. Report words per pack page (34 pages) against the 111.3 flag.
 - **Inherited limits, left as they are.** Q1 can pass by restating the funding clause without saying the decision
   lacks the plan, because its pattern matches the clause words. Traps are scored by sub-heading, so a fact under the
   right paper but the wrong sub-heading among the allowed ones is not told apart. Both come from ruler v3.1.
-- **Small exposure in the v1 commit body.** The body of commit `704179cf` (and the ticket text) describes one trap
-  closely enough to hint at its class and shape. History is not rewritten. The pack, the pages and the key's figures
-  are not in that body, so the case stays usable; read a pass on that trap with this in mind.
 - **Rankings are scored by this folder only.** No ruler version adopts the rankings yet, so the scorer is a copy of
   case-t3's method (with the two choices above) kept here so it cannot move with the practice case.

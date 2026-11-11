@@ -1,4 +1,4 @@
-# Inbox triage (beta)
+# Inbox triage
 
 What it is for: a short list each morning of the emails that need you, each with a draft reply, the ones that can wait with a come-back date, and one line for everything safe to archive. Copilot never sends, moves or deletes.
 How to use it: copy everything below the line into a new Microsoft 365 Copilot chat, and see the guide at https://peakstate-global.github.io/peakstate-executive/ for the practice case and what you need.

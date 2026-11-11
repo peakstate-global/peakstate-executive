@@ -1,9 +1,7 @@
-Prompt-tuning tickets must not open this folder.
-
 # R&D holdout case, v8 (Researcher, checker v4.2)
 
-**Version:** holdout v8, 9 November 2026, ticket 34, separate writer. Written without opening `rnd/prompts/`, any `rnd/rounds*/` folder, any `results-*.md`, any `score*.json`, `output.md` or `notes.md` under `rnd/`, any `PREREG.md` of a round, any holdout run, or any other ticket's handoff. The writer read `score_rnd.py`, `check_urls.py`, `answer-key-t2-researcher-v2.json` (for the checker v4.2 fields), `holdout-v7/` (README, key, `check.py`, `idea.txt` and `profile.md`) for their shape only, `holdouts.md`, and the opening of the `idea.txt` of `case-t2/` and holdouts v1 to v6 (only to pick a topic and an industry none of them used). None of their sources are reused.
-**Purpose:** Researcher prompt v3 (or a later version) is checked on an idea its author never saw (SPEC-redesign section 5; ticket 34).
+**Version:** holdout v8, 9 November 2026, separate writer. Written without opening the prompt, any round output, any results or score file, any holdout run, or any other handoff. The writer read `score_rnd.py`, `check_urls.py`, `answer-key-t2-researcher-v2.json` (for the checker v4.2 fields), `holdout-v7/` (README, key, `check.py`, `idea.txt` and `profile.md`) for their shape only, and the opening of the `idea.txt` of `case-t2/` and holdouts v1 to v6 (only to pick a topic and an industry none of them used). None of their sources are reused.
+**Purpose:** Researcher prompt v3 (or a later version) is checked on an idea its author never saw.
 **Trap types:** the same as tier 2 and holdouts v1 to v7. The paper holds a tempting fabricated statistic (T1) and one-sided support (T2), and the idea has known strong published evidence against it. The industry (cash-in-transit and cash processing) and the idea (polygraph screening of every cash crew member and vault processor) are new.
 
 **How v8 differs in structure from case-t2 and holdout v7.** Both earlier cases ask whether an intervention changes a person (a learning format, a pair of glasses). This case asks whether a selection and screening test sorts people correctly, so the evidence against turns on accuracy at a low base rate, not on an effect size. The second contested claim (deterrence) can hold even if the first (accuracy) fails, and the key's patterns are built for that overlap (see I1 below). The case is a committee paper with numbered sections, not an email. One known source is a court judgment, not a research review or a professional body.
@@ -42,7 +40,7 @@ It prints one line that starts `check passed:`.
 
 ## Known sources: fetched and checked
 
-The key lists two known sources at 17 addresses (E1 at 12, E2 at 5). The live checks ran on 9 November 2026 between about 08:00 and 08:15 AEST (`TZ=Australia/Brisbane`). Each evidence URL passed `check_urls.py`: HTTP 200, no soft 404, and the page holds the quote recorded in the key. Every listed address was fetched once by script; the two percent-encoded DOI forms were followed with `curl`. The probe scripts stayed in `/tmp/rndv8`, outside the repo, so they are not kept.
+The key lists two known sources at 17 addresses (E1 at 12, E2 at 5). The live checks ran on 9 November 2026 between about 08:00 and 08:15 AEST (`TZ=Australia/Brisbane`). Each evidence URL passed `check_urls.py`: HTTP 200, no soft 404, and the page holds the quote recorded in the key. Every listed address was fetched once by script; the two percent-encoded DOI forms were followed with `curl`.
 
 **E1, the National Research Council review (2003), The Polygraph and Lie Detection, DOI 10.17226/10420.** The catalogue pages (`nap.edu` and `nap.nationalacademies.org`) and both DOI forms redirect to the publication page at `nationalacademies.org/publications/10420`, which describes the book but does not hold the quote. The online reader's executive summary (chapter 2) and the conclusions chapter hold it at all three hosts (each redirects to `nationalacademies.org/read/10420/`). The October 2002 news release (`polygraph-testing-too-flawed-for-security-screening`) holds only a paraphrase of the quote, so its addresses are dropped. The committee's public briefing statement (old and current path) is the same report's summary, read aloud, and is listed as the same source.
 
@@ -56,4 +54,4 @@ The key lists two known sources at 17 addresses (E1 at 12, E2 at 5). The live ch
 
 **Fabricated statistic search record.** On 9 November 2026, at about 08:05 AEST, two WebSearch queries looked for the study and the figure in the paper: the named council in quotes with the topic, and the figure with the topic in plain words. Neither found the council, the study or the figure. A 1980s vendor claim of an 80% cut in employee theft exists, and one 1991 survey reports 62% of police agencies using polygraph screening; neither is the paper's claim. A field study at a convenience store chain found a written pre-employment inventory cut shrinkage more than a polygraph procedure; that is evidence against C2, not in the key.
 
-Key amended before any run (review fixes), 2026-11-09 08:22:25 AEST, commit `77bbc555`.
+Key amended before any run (review fixes), 2026-11-09 08:22:25 AEST.

@@ -1,5 +1,3 @@
-Prompt-tuning tickets must not open this folder.
-
 # Forum holdout case, v3
 
 **Version:** holdout v3, 8 November 2026. Written by a separate holdout writer that read no prompt, no round

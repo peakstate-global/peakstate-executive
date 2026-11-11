@@ -1,5 +1,3 @@
-Prompt-tuning tickets must not open this folder.
-
 # R&D holdout case, v3
 
 **Version:** holdout v3, 8 November 2026, separate writer. Written without reading any prompt, round output, earlier holdout case or earlier key values.
@@ -29,7 +27,7 @@ It prints one line that starts `check passed:`.
 
 ## Known sources: fetched and checked
 
-The key lists five known sources at 152 addresses in total. All live checks ran on 8 November 2026 between 11:25 and 11:35 AEST. Each evidence URL passed `check_urls.py`: HTTP 200, no soft 404, and the page holds the quote recorded in the key. `check.py` ran green at 11:34 AEST, and the `score_rnd.py` and `check_urls.py` self-checks passed at the same time. The evidence page text is saved, named by the sha1 of the URL, in `/tmp/rndv3`, outside the repo, so it is not kept.
+The key lists five known sources at 152 addresses in total. All live checks ran on 8 November 2026 between 11:25 and 11:35 AEST. Each evidence URL passed `check_urls.py`: HTTP 200, no soft 404, and the page holds the quote recorded in the key. `check.py` ran green at 11:34 AEST, and the `score_rnd.py` and `check_urls.py` self-checks passed at the same time.
 
 **Pages that refuse a script.** The main publisher page of all five sources refuses a script (HTTP 403, or 412 for some Cochrane Library paths). That covers JAMA Network (three sources, every path form), Wiley Online Library and the Cochrane Library full text, Europe PMC article pages, and cdc.gov and CDC Stacks. Each evidence URL is therefore an open copy that a script can fetch: PMC, two university research portals and the CDC archive. A run that cites a page that refuses a script needs the page text captured in Chrome and passed with `--text-dir`. A sample of the refusing pages was opened in Chrome or by a web fetch tool, to confirm that each is the right article. PubMed returns HTTP 203 to a script, so a PubMed citation fails R1 unless its text is captured.
 

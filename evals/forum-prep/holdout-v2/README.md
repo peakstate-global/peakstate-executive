@@ -1,9 +1,7 @@
-Prompt-tuning tickets must not open this folder.
-
 # Forum holdout case, v2
 
-**Version:** holdout v2, 8 November 2026 (ticket 20). Written without reading any prompt, round output or holdout run.
-**Purpose:** holdout v1 is spent (see `exec-skills/holdouts.md`), so a forum prompt needs a fresh pack its author never
+**Version:** holdout v2, 8 November 2026. Written without reading any prompt, round output or holdout run.
+**Purpose:** holdout v1 is spent, so a forum prompt needs a fresh pack its author never
 saw before it can claim a holdout pass. Same shape as v1 (30 pages, one image-only page, printed page numbers offset
 from physical ones), the same trap types each in a new form, and a different organisation, sector and attendees. The
 image-only page holds a different kind of content from v1's. Every person, organisation and figure is invented and

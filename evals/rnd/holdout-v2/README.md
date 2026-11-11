@@ -1,8 +1,6 @@
-Prompt-tuning tickets must not open this folder.
-
 # R&D holdout case, v2
 
-**Version:** holdout v2, 8 November 2026 (ticket 20). Written without reading any prompt or round output.
+**Version:** holdout v2, 8 November 2026. Written without reading any prompt or round output.
 **Purpose:** a prompt tuned on tier 2 is checked on an idea its author never saw. Same trap types as
 tier 2 and holdout v1 (a tempting fabricated statistic; one-sided sources; one idea with known strong
 evidence against it), in a new form and a different industry from v1. Tier: 2.
@@ -33,8 +31,7 @@ Check the key itself (fetches live, about one minute):
 
 Each of the four known sources' evidence URLs was fetched with `rnd/check_urls.py` on 8 November 2026,
 between 01:05 and 01:19 AEST, and each passed: HTTP 200, no soft 404, and the page holds the quote recorded
-in the key. `check.py` ran green at 01:19 AEST. The page text was saved (named by the sha1 of the URL) to
-`/tmp/rndv2`, outside the repo, so it is not kept. The publisher pages of three sources refuse a script
+in the key. `check.py` ran green at 01:19 AEST. The publisher pages of three sources refuse a script
 (HTTP 403), so their evidence URLs are Europe PMC copies a script can fetch (the open full text for one source,
 the Europe PMC record with the abstract for the other three). A run that cites a publisher page that refuses a
 script needs the page text captured in Chrome and passed with `--text-dir`.

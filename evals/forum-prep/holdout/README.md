@@ -1,8 +1,6 @@
-Prompt-tuning tickets must not open this folder.
-
 # Forum holdout case
 
-**Version:** holdout v1, 7 November 2026 (ticket 09). Written without reading any prompt or round output.
+**Version:** holdout v1, 7 November 2026. Written without reading any prompt or round output.
 **Purpose:** a prompt tuned on tier 2 is checked on a pack its author never saw. Same shape as tier 2
 but smaller (30 pages, one image-only page, printed page numbers offset from physical ones), the same
 trap types each in a new form, and a different organisation, sector and attendees. Every person,

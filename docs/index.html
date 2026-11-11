@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Executive skills for Microsoft 365 Copilot: install and try</title>
 <meta name="description" content="Four copy-and-paste skills for Microsoft 365 Copilot that do an executive's reading and first drafts, plus a ten-minute setup. Try each one on an invented practice case.">
-<!-- Prototype of the peakstate-executive GitHub Pages site. Self-contained: no external fonts, scripts or trackers. -->
+<!-- The peakstate-executive GitHub Pages site. Self-contained: no external fonts, scripts or trackers. -->
 <style>
 @font-face{font-family:"Spectral";src:url("assets/fonts/Spectral-Regular.ttf") format("truetype");font-weight:400;font-display:swap}
 @font-face{font-family:"Spectral";src:url("assets/fonts/Spectral-SemiBold.ttf") format("truetype");font-weight:600;font-display:swap}
@@ -67,7 +67,6 @@ h2+p.sub{color:var(--muted);margin:0 0 1.4rem}
 .step-no.setup{background:var(--gold);color:var(--ink)}
 .step-no{font-family:var(--ui);font-size:.8rem;font-weight:700;color:#fff;background:var(--ink);border-radius:999px;padding:.15rem .6rem}
 .tag{font-family:var(--ui);font-size:.75rem;font-weight:700;border:1px solid var(--line);border-radius:999px;padding:.1rem .55rem;color:var(--muted);background:#fff}
-.tag.beta{background:#fff3cd;border-color:#c9a227;color:#5c4400}
 .for{font-size:1.12rem;margin:.3rem 0 1rem}
 .cols{display:grid;grid-template-columns:1fr 1.5fr;gap:1.4rem}
 @media (max-width:760px){.cols{grid-template-columns:1fr}}
@@ -123,7 +122,7 @@ footer p{margin:.3rem 0}
   <li><a href="#inbox" data-tab="inbox">Inbox triage</a></li>
   <li><a href="#it" data-tab="it">For IT</a></li>
 </ul></nav>
-<p class="proto" role="note">Prototype of the guide for the <strong>peakstate-executive</strong> repository. Pilot release: every prompt is real, every practice case is invented.</p>
+<p class="proto" role="note">Every prompt here is real and tested, and every practice case is invented. Download everything, including the practice cases and the evals, from the <a href="https://github.com/peakstate-global/peakstate-executive" rel="noopener noreferrer">peakstate-executive repository on GitHub</a>.</p>
 
 <main id="main">
 <div class="panel" id="overview" data-panel="overview">
@@ -151,11 +150,11 @@ footer p{margin:.3rem 0}
 
 <section id="how" aria-labelledby="how-h">
   <h2 id="how-h">How it fits together</h2>
-  <p class="sub">Do the setup once: Your profile writes profile.docx. Forum prep, R&amp;D and Weekly radar attach it every time, so their output names your own portfolio areas and leadership team. Inbox triage does not use it.</p>
+  <p class="sub">Do the setup once: Your profile writes profile.docx. Forum prep, R&amp;D and Weekly radar attach it every time, so their output names your own portfolio areas and leadership team. Inbox triage works without it, and uses it if you attach it.</p>
   <figure class="diagram">
     <svg viewBox="0 0 760 330" role="img" aria-labelledby="dg-t dg-d">
       <title id="dg-t">How the setup and the four skills fit together</title>
-      <desc id="dg-d">The setup, the Your profile interview, writes profile.docx once. Forum prep, R and D, and Weekly radar each attach profile.docx. Inbox triage stands alone and does not use it.</desc>
+      <desc id="dg-d">The setup, the Your profile interview, writes profile.docx once. Forum prep, R and D, and Weekly radar each attach profile.docx. Inbox triage stands alone and works without it.</desc>
       <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0,0 L10,5 L0,10 z"/></marker></defs>
       <rect class="bx" x="10" y="70" width="190" height="74" rx="12"/>
       <text class="t" x="105" y="102" text-anchor="middle">Setup: Your profile</text>
@@ -177,8 +176,8 @@ footer p{margin:.3rem 0}
       <text class="t" x="657" y="172" text-anchor="middle">3  Weekly radar</text>
       <text class="s" x="657" y="191" text-anchor="middle">each Monday</text>
       <rect class="bx alone" x="10" y="246" width="436" height="70" rx="12"/>
-      <text class="t" x="228" y="276" text-anchor="middle">4  Inbox triage (beta)</text>
-      <text class="s" x="228" y="298" text-anchor="middle">stands alone: reads your mail, not your profile</text>
+      <text class="t" x="228" y="276" text-anchor="middle">4  Inbox triage</text>
+      <text class="s" x="228" y="298" text-anchor="middle">stands alone: reads your mail, works without your profile</text>
     </svg>
     <figcaption>The setup feeds three of the four skills. Inbox triage stands alone.</figcaption>
   </figure>
@@ -191,7 +190,7 @@ footer p{margin:.3rem 0}
     <li><b><a href="#forum">Forum prep</a></b>The day before a board or committee meeting.</li>
     <li><b><a href="#rnd">R&amp;D</a></b>Before you back an idea at a decision forum.</li>
     <li><b><a href="#industry">Weekly radar</a></b>Each Monday morning: your week ahead, then the industry news.</li>
-    <li><b><a href="#inbox">Inbox triage</a></b>Each morning. Beta.</li>
+    <li><b><a href="#inbox">Inbox triage</a></b>Each morning. Tested on pasted mail.</li>
   </ul>
   <p class="sub" style="margin-top:1rem"><strong>Setup first:</strong> <a href="#profile">Your profile</a> is not a skill. It is a ten-minute interview, done once, that writes profile.docx so Forum prep, R&amp;D and Weekly radar know your role, portfolio and team.</p>
 </section>
@@ -394,7 +393,7 @@ Integration: for each claim where Case for and Case against disagree, and for ea
 A Conditional bullet uses the words holds when exactly twice, once for each side. Never put other words, such as remains when or fails when, in place of holds when. Each bullet speaks only of its own claim: never name the subject of another claim in it.
 Never decide for me.</pre></details>
     <p class="watch"><strong>Tested:</strong> v3, the same research rules without the summary, gave good output in 3 of 3 practice runs. Each message to Researcher uses one of your 25 monthly queries.</p>
-    <p class="demo"><strong>Demo run v4-d01, 10 November 2026:</strong> Result: fail on one critical check (T1). The other 10 of 11 checks pass, including both summary checks. T1 matters because the report must flag every figure it could not verify; this run flagged the study but dropped the 42% figure from the flag. It used 2 Researcher queries.</p>
+    <p class="demo"><strong>Demo run v4-d01, 10 November 2026:</strong> One miss: it dropped the 42% figure from its list of figures it could not verify. The other 10 of 11 checks pass, including both summary checks. It used 2 Researcher queries.</p>
   </article>
 </section>
 
@@ -477,7 +476,7 @@ Never decide for me.</pre></details>
 
 <section class="panel" id="inbox" data-panel="inbox" aria-labelledby="inbox-h">
   <article class="card">
-    <div class="card-h"><span class="step-no">4</span><h3 id="inbox-h">Inbox triage</h3><span class="tag">v10</span><span class="tag beta">Beta</span></div>
+    <div class="card-h"><span class="step-no">4</span><h3 id="inbox-h">Inbox triage</h3><span class="tag">v10</span></div>
     <p class="for">A short list each morning of the emails that need you, each with a draft reply, the ones that can wait with a come-back date, and one line for everything safe to archive. Copilot never sends, moves or deletes.</p>
     <aside class="advanced-note" role="note" aria-label="A more advanced version">
       <p><strong>A more advanced version is possible.</strong> A Copilot Studio agent with actions can move each email into a folder by its suggested action (Do, Delegate, Defer, Delete), so you can then work through each folder quickly and act. It needs extra setup outside the scope of this repo, and you will likely need support from your IT team or a mentor to build it.</p>
@@ -485,7 +484,7 @@ Never decide for me.</pre></details>
     <div class="cols">
       <div>
         <h4>What you need</h4>
-        <ul class="need"><li>Microsoft 365 Copilot licence</li><li>Outlook on the web or the new Outlook, with the Copilot pane</li><li>Or the managed inbox agent, installed by IT (see <a href="#it">For IT</a>)</li></ul>
+        <ul class="need"><li>Microsoft 365 Copilot licence</li><li>Outlook on the web or the new Outlook, with the Copilot pane</li><li>Or the managed inbox agent, available on request: <a href="mailto:contact@peakstate.global">contact@peakstate.global</a></li></ul>
       </div>
       <div>
         <h4>Try it now</h4>
@@ -565,7 +564,7 @@ Do not send, forward, save, move, flag, archive or delete anything, now or later
         <tr><td>Inbox triage agent (optional)</td><td>Import one managed Copilot Studio solution (about 33 KB) into a Dataverse environment. Allow about 30 minutes. The agent has no tools and no actions, so it cannot send, forward or delete mail. It passed the 40-email practice case, 40 of 40 moves, after import.</td></tr>
       </tbody>
     </table>
-    <p>The package and its install sheet will be in the repository's <code>5-inbox/for-it/</code> folder. Nothing goes to Peak State: uploads stay in the executive's own OneDrive and tenant.</p>
+    <p>The managed agent and its install sheet are available on request: email <a href="mailto:contact@peakstate.global">contact@peakstate.global</a>. Nothing goes to Peak State: uploads stay in the executive's own OneDrive and tenant.</p>
   </div>
 </section>
 </main>
@@ -574,7 +573,7 @@ Do not send, forward, save, move, flag, archive or delete anything, now or later
   <p><strong>Feedback:</strong> tell us what worked and what did not, by email to <a href="mailto:contact@peakstate.global">contact@peakstate.global</a>. Say which skill, which version, and paste any quote Copilot got wrong.</p>
   
   <p>Licence: <a href="https://creativecommons.org/licenses/by/4.0/" rel="license noopener">Creative Commons Attribution 4.0 International (CC BY 4.0)</a>. Microsoft 365 Copilot is a Microsoft product; this guide is not made or endorsed by Microsoft.</p>
-  <p>Every person and organisation in the practice cases is invented. The real outputs are Copilot's own answers from our demo runs on 10 November 2026, each labelled with its run id.</p>
+  <p>Every person and organisation in the practice cases is invented. The real outputs are Copilot's own answers from our demo runs on 10 and 11 November 2026, each labelled with its run id.</p>
 </footer>
 </div>
 

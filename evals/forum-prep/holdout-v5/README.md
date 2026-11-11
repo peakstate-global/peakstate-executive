@@ -1,10 +1,8 @@
-Prompt-tuning tickets must not open this folder.
-
 # Forum holdout case, v5
 
-**Version:** holdout v5 key v2, 9 November 2026 (ticket 46 review fixes, before any run; key v1 was commit `2352e451`, never run). Key v2 tightens U1, X1 and C1 and adds the answer heading check; the key's `key_change` says what changed. Ticket 46, the owner's Q9 answer a. Written by a separate holdout writer that
-did not open `forum/prompts/`, `forum/baselines/`, any `forum/rounds*/` folder, any results or score file, any run
-output or notes, any other ticket's handoff, or any runner round prompt.
+**Version:** holdout v5 key v2, 9 November 2026, review fixes before any run (key v1 was never run). Key v2 tightens U1, X1 and C1 and adds the answer heading check; the key's `key_change` says what changed. Written by a separate holdout writer that
+did not open the prompt, any baseline, any round output, any results or score file, any run
+output or notes, or any other handoff or round prompt.
 **Purpose:** a fresh sealed case for the forum document on ruler v3.1, so a frozen forum version (v17 under Q9) can
 claim a holdout pass on a case its author never saw. New organisation and sector (a regional port authority awarding
 a wharf extension contract), new attendees, figures and executive (four portfolio areas). Every person, organisation
@@ -64,7 +62,7 @@ Upload `pack.pdf` under the file name the invitation gives (`coc-pack-2027-01-21
     python3 evals/forum-prep/score_forum.py doc <run dir | raw.html> --key evals/forum-prep/holdout-v5/answer-key-holdout-v5.json
     python3 evals/forum-prep/holdout-v5/heading_check.py <the same run dir | raw.html>
 
-The runner (ticket 47) must run `heading_check.py` on every answer, beside ruler v3.1. **A run fails if the heading
+Each run must also run `heading_check.py` on every answer, beside ruler v3.1. **A run fails if the heading
 check fails (exit 1), even when ruler v3.1 passes it.** Ruler v3.1 (`score_forum.py`) is unchanged and reads only the
 number in a `Paper <n>` heading, so the title check lives in this folder.
 
@@ -73,9 +71,6 @@ heading check. Never re-score after a result.
 
 ## Known limits
 
-- **Commit subject leak.** The v1 commit subject (`2352e451`) and the first registry row named where three traps sit
-  (the decision's paper, the back-half fact's appendix and the image page's paper). Git history keeps that subject. The
-  registry row is rewritten to trap classes only; the commit subject cannot be changed without rewriting history.
 - **Inherited limits, left as they are.** Q1 can pass by restating the policy clause without saying the decision lacks
   the assessment, because its pattern matches the policy words. Traps are scored by sub-heading, so a fact under the
   right paper but the wrong sub-heading among the allowed ones is not told apart. Both come from ruler v3.1 and earlier

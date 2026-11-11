@@ -1,8 +1,6 @@
-Prompt-tuning tickets must not open this folder.
-
 # R&D holdout case, v6
 
-**Version:** holdout v6, 8 November 2026, separate writer. Written without reading any prompt, round output, round folder, `results-t2.md`, `PREREG.md` or holdout run. The writer read only `score_rnd.py`, `check_urls.py`, `holdout-v5/README.md`, `holdout-v5/check.py`, `holdout-v5/answer-key-holdout-v5.json` (for its JSON shape only; none of its sources are reused), `holdouts.md`, and the `idea.txt` of `case-t2/` and of holdouts v1 to v5 (only to pick a topic and an industry none of them used).
+**Version:** holdout v6, 8 November 2026, separate writer. Written without reading any prompt, round output or holdout run. The writer read only `score_rnd.py`, `check_urls.py`, `holdout-v5/README.md`, `holdout-v5/check.py`, `holdout-v5/answer-key-holdout-v5.json` (for its JSON shape only; none of its sources are reused), and the `idea.txt` of `case-t2/` and of holdouts v1 to v5 (only to pick a topic and an industry none of them used).
 **Purpose:** a prompt tuned on tier 2 is checked on an idea its author never saw.
 **Trap types:** the same as tier 2 and holdouts v1 to v5. The note holds a tempting fabricated statistic (T1) and one-sided support (T2), and the idea has known strong published evidence against it. The industry and the idea are new.
 The organisation and the note are invented and labelled sample, and every address in the note uses the reserved `.example` domain. The known sources are real public research and two published evidence ratings of it.
@@ -29,7 +27,7 @@ It prints one line that starts `check passed:`.
 
 ## Known sources: fetched and checked
 
-The key lists six known sources at 82 addresses in total. All live checks ran on 8 November 2026 between 19:30 and 19:51 AEST (`TZ=Australia/Brisbane`). Each evidence URL passed `check_urls.py`: HTTP 200, no soft 404, and the page holds the quote recorded in the key. `check.py` ran green at 19:50 and again at 19:51 AEST, and the `score_rnd.py` and `check_urls.py` self-checks passed at the same time. Every listed address was fetched once by script. Where an address redirects to a longer or moved form of the same page, both forms are listed. The probe scripts stayed in `/tmp/rndv6`, outside the repo, so they are not kept.
+The key lists six known sources at 82 addresses in total. All live checks ran on 8 November 2026 between 19:30 and 19:51 AEST (`TZ=Australia/Brisbane`). Each evidence URL passed `check_urls.py`: HTTP 200, no soft 404, and the page holds the quote recorded in the key. `check.py` ran green at 19:50 and again at 19:51 AEST, and the `score_rnd.py` and `check_urls.py` self-checks passed at the same time. Every listed address was fetched once by script. Where an address redirects to a longer or moved form of the same page, both forms are listed.
 
 **Dropped addresses.** Two DOAJ record pages on a university open access catalogue and an older Campbell Collaboration library path returned 404, and a RePEc path guessed for the 2004 Campbell version returned 404. A JSTOR stable address and a second Bridgewater repository file could not be matched to a known source (each returned only a challenge page), so they are not listed. Two hosts did not answer: the University of Tübingen repository (the handle page and the PDF copy of the 2013 Campbell review) resolves but timed out for the script and for `curl -m 20`, and the old CrimeSolutions host (`crimesolutions.gov`) does not resolve. Both are treated as route faults and dropped; nothing on the machine was changed.
 

@@ -1,8 +1,6 @@
-Prompt-tuning tickets must not open this folder.
-
 # R&D holdout case, v4
 
-**Version:** holdout v4, 8 November 2026, separate writer. Written without reading any prompt, round output, earlier holdout case, earlier key or holdout run. The writer read only `score_rnd.py`, `check_urls.py`, `holdout-v3/README.md` and `holdouts.md`.
+**Version:** holdout v4, 8 November 2026, separate writer. Written without reading any prompt, round output, earlier holdout case, earlier key or holdout run. The writer read only `score_rnd.py`, `check_urls.py` and `holdout-v3/README.md`.
 **Purpose:** a prompt tuned on tier 2 is checked on an idea its author never saw.
 **Trap types:** the same as tier 2 and holdouts v1 to v3. The note holds a tempting fabricated statistic (T1) and one-sided support (T2), and the idea has known strong published evidence against it. The industry and the idea are new.
 The organisation and the note are invented and labelled sample. The known sources are real public research and official guidance.
@@ -29,7 +27,7 @@ It prints one line that starts `check passed:`.
 
 ## Known sources: fetched and checked
 
-The key lists five known sources at 114 addresses in total. All live checks ran on 8 November 2026 between 16:00 and 16:23 AEST. Each evidence URL passed `check_urls.py`: HTTP 200, no soft 404, and the page holds the quote recorded in the key. `check.py` ran green at 16:23 AEST, and the `score_rnd.py` and `check_urls.py` self-checks passed at the same time. Every listed address was fetched once by script; an address whose prefix is a stem (for example a Cambridge Core article path without its trailing hash) was fetched in its full form. Addresses that answered 404, failed DNS, or led to a different page were dropped. The probe scripts and page texts stayed in `/tmp/rndv4`, outside the repo, so they are not kept.
+The key lists five known sources at 114 addresses in total. All live checks ran on 8 November 2026 between 16:00 and 16:23 AEST. Each evidence URL passed `check_urls.py`: HTTP 200, no soft 404, and the page holds the quote recorded in the key. `check.py` ran green at 16:23 AEST, and the `score_rnd.py` and `check_urls.py` self-checks passed at the same time. Every listed address was fetched once by script; an address whose prefix is a stem (for example a Cambridge Core article path without its trailing hash) was fetched in its full form. Addresses that answered 404, failed DNS, or led to a different page were dropped.
 
 **Pages that refuse a script.** The Cochrane Library and Wiley Online Library (every path form, and the Cochrane DOI, which resolves to Wiley), The Lancet and ScienceDirect, the FOCUS reprint on psychiatryonline.org, Europe PMC article pages, the Cardiff University repository (ORCA), scilit.net and the NCBI Bookshelf all return a challenge page to a script. PubMed returns HTTP 203. Each evidence URL is therefore a page a script can fetch: the Cochrane plain-language page on cochrane.org, the Europe PMC REST API, two Cambridge Core article pages and the NICE recommendations page. A run that cites a refusing page needs the page text captured in Chrome and passed with `--text-dir`. Old `bjp.rcpsych.org` paths now redirect to the journal's home page, so a citation there fails R1 as a soft 404; they are listed only so that K1 names them.
 
