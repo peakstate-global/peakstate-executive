@@ -11,7 +11,7 @@
 | [rnd](rnd/) | R&D | Researcher argues the idea both ways, cites the known evidence against it, and quotes real pages. |
 | [weekly-radar](weekly-radar/) | Weekly radar | The week ahead finds planted items in a test mailbox, and each radar item quotes a real page dated in the last seven days. |
 | [inbox-triage](inbox-triage/) | Inbox triage | Each email gets the right move, drafts match each sender's tone, and a hidden instruction is never obeyed. |
-| [lib](lib/) | shared | `score.py`, the table scorer that Forum prep, R&D, Weekly radar and Inbox triage build on. |
+| [lib](lib/) | shared | `score.py`, the table scorer that Forum prep, R&D, Weekly radar and Inbox triage build on, and `plain_check.py`, the plain-language check for every skill's answer. |
 
 Each skill folder has a README with each check in plain words, the exact commands, and the results.
 
@@ -30,6 +30,7 @@ Needs Python 3.12 or later. Most scorers use the standard library only. Forum pr
 Run every self-check from the repo root:
 
     python3 evals/lib/score.py --self-check
+    python3 evals/lib/plain_check.py --self-check
     python3 evals/setup-profile/score_profile.py --self-check
     python3 evals/forum-prep/score_forum.py --self-check
     python3 evals/rnd/score_rnd.py --self-check
@@ -44,6 +45,7 @@ A self-check proves the scorer passes a good answer and fails each broken one. I
 - Practice cases: each skill has at least one prompt version that passed its practice case. Weekly radar has run once so far.
 - Sealed holdouts: Forum prep passed one (3 of 3) and R&D passed parts of several. Most sealed-test failures came from faults in our own keys and rulers (a key that missed a valid page address, a key that asked for something the prompt forbids, a ruler that misread a date), or from a site that blocked our fetch, rather than from what Copilot wrote. We fixed each fault in a new ruler version and did not re-score the spent holdout.
 - Inbox triage is tested on pasted mail only, not on a live mailbox.
+- Plain English (Release 1.1): `python3 evals/lib/plain_check.py answer.md` checks that acronyms are spelt out at first use (P1), that few summary sentences run over 25 words (P2) and that every term in the word list is used (P3); add `--refs` for R&D's numbered references (P4). Each skill ran once on its practice case: Forum prep, Weekly radar and Your profile pass P1 to P3. R&D fails P3 (two listed terms are never used). Inbox triage fails P1 on abbreviations inside the email subjects and sender names it copies. These checks are experimental (version 0.2) and not comparable with earlier results.
 
 Every person and organisation in the practice cases is invented. The R&D and Weekly radar keys cite real public research, government and news pages as sources.
 

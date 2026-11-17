@@ -8,11 +8,11 @@ The transcript holds the interview so far (Copilot's messages and the player's r
 a separate Claude with no tools, no project settings and an empty working folder, so the player
 sees the persona and the transcript only, never the scorer or its rules.
 
-v2 (ticket 36): the player never sees Copilot's suggested-reply buttons. The operator records them in
+v2: the player never sees Copilot's suggested-reply buttons. The operator records them in
 the transcript as a line "(Suggested replies shown: ...)"; strip() drops each such line before the
 transcript reaches the player, so every reply is the persona's own.
 
-v3 (ticket 48): a style question (brief length, tone, anything to avoid) gets the persona's own words
+v3: a style question (brief length, tone, anything to avoid) gets the persona's own words
 from its "Style answers" section, with no model call, so the player cannot add a preference. style()
 reads only the question line of Copilot's last message; any other question goes to the model.
 """

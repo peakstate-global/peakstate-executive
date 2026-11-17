@@ -1,6 +1,6 @@
 {
  "case": "evals/forum-prep/case-t3/pack.pdf + case-t3/invitation.txt + case-t3/profile.docx (from case-t3/profile.md)",
- "version": "t3 v2, 9 November 2026 (ticket 52), PRACTICE case: v1 plus two changes, committed before any v18 run. i) R1 persist_match has word boundaries, so 'again' inside 'against' no longer counts as persistence. ii) R2's opportunity is its own pattern (found.opportunity): a cited unit under Paper 4 Background or Risks that names Virtual care only and calls it an opportunity; the rank pattern no longer needs the opportunity word on the same line. v1 at c2dbc8c7 stays as recorded (h01, h02 scored on v1).",
+ "version": "t3 v2, 9 November 2026, PRACTICE case: v1 plus two changes, committed before any v18 run. i) R1 persist_match has word boundaries, so 'again' inside 'against' no longer counts as persistence. ii) R2's opportunity is its own pattern (found.opportunity): a cited unit under Paper 4 Background or Risks that names Virtual care only and calls it an opportunity; the rank pattern no longer needs the opportunity word on the same line. v1 at c2dbc8c7 stays as recorded (h01, h02 scored on v1).",
  "tier": 2,
  "ruler": "v3.1",
  "ruler_t3_fields": "rankings and opportunities are scored by case-t3/check.py only, until a ruler version adopts them",

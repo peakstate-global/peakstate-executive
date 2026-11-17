@@ -1,5 +1,5 @@
 {
- "version": "holdout-v7 (2026-11-08, separate writer, ticket 27): checker v4 shape (Integration, contested claims C1 and C2, Pitch, stop rule, R1 critical). Committed before any run on it.",
+ "version": "holdout-v7 (2026-11-08, separate writer): checker v4 shape (Integration, contested claims C1 and C2, Pitch, stop rule, R1 critical). Committed before any run on it.",
  "tier": 2,
  "case": "holdout-v7/idea.txt",
  "profile": "holdout-v7/profile.docx (attached; shapes the pitch, not scored)",
@@ -132,7 +132,7 @@
  "pass": "Three fresh Researcher runs, each scored with score_rnd.py --key evals/rnd/holdout-v7/answer-key-holdout-v7.json. Malformed output fails (missing section, renamed column, unknown label, no table). Otherwise pass needs R1, R2, T1, T2, K1, L1, M1, A1 and I1. R1, T1 and T2 are critical. All three runs must pass.",
  "counter_metric": "Words of output (output.md). A run that games K1 by stacking citations, or I1 by stacking bullets, grows the answer; the word count must not rise more than 10% against the version's tier-2 baseline on Researcher.",
  "checker": "v4",
- "errata": "Erratum, 9 November 2026 (checker v4.2, ticket 33, after holdout v7 was spent): C1's effect phrases (eye strain, visual fatigue, tired eyes, eyes feel tired, digital eye) were written with a literal space, so the hyphenated forms (eye-strain, digital-eye) did not match. They now accept a hyphen or a space. Recorded so a reader of this key sees the defect; holdout v7 is spent, and v3-h2 is not re-scored and stays a fail. The checker field keeps v4, the shape this key was written for.",
+ "errata": "Erratum, 9 November 2026 (checker v4.2, after holdout v7 was spent): C1's effect phrases (eye strain, visual fatigue, tired eyes, eyes feel tired, digital eye) were written with a literal space, so the hyphenated forms (eye-strain, digital-eye) did not match. They now accept a hyphen or a space. Recorded so a reader of this key sees the defect; holdout v7 is spent, and v3-h2 is not re-scored and stays a fail. The checker field keeps v4, the shape this key was written for.",
  "contested": [
   {
    "id": "C1",

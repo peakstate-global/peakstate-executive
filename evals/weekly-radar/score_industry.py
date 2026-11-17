@@ -38,31 +38,31 @@
     Ruler t2-past v11 (--key answer-key-t2-past-v11.json): as v10.1, plus week P2's addendum t2-past-2 v11 (a must AI
     story) and page_date_line_mdy: a page line that holds only a month-first date ("November 3, 2026") dates the page,
     as a day-first line has since v3. Holdout: holdout-past-3 v1. Not comparable.
-    Ruler t2-past v11.2 (--key answer-key-t2-past-v11.2.json, ticket 41): as v11.1, plus the blocked-host second route
+    Ruler t2-past v11.2 (--key answer-key-t2-past-v11.2.json): as v11.1, plus the blocked-host second route
     (blocked_host_route, checker v4.3 in rnd/check_urls.py). A row whose host refused or stalled this Mac, and that Chrome
     text did not resolve, is awaiting route: verdict "awaiting route", pass false, route.final false, until
     rnd/blocked-host-route-wizard.sh has fetched only those rows with the VPN off and the run is re-scored with
     --route-dir <dir>. The replayed response serves both the quote check and the page date. A row still refused with the
     VPN off fails. Not comparable with v11.1 for a run with a refused row.
-    Ruler t2-past v11.3 (--key answer-key-t2-past-v11.3.json, ticket 56): as v11.2, plus week P1's addendum
+    Ruler t2-past v11.3 (--key answer-key-t2-past-v11.3.json): as v11.2, plus week P1's addendum
     t2-past-1 v11.3: W2's costs-plus-rise-verb branch and its input-costs branch refuse would, could, will, may, might,
     should, can, or expected, set, likely, going or forecast followed by to, before the verb, so a cost forecast (run t2-v7r-p1-2 row 4, "construction costs would increase") no longer maps to W2.
     Probes in v113_check. Runs after this commit score on v11.3. Not comparable with v11.2 on P1 T2 and K1 for a run
     with a cost-forecast row; nothing re-scored.
-    Ruler t2-past v11.4 (--key answer-key-t2-past-v11.4.json, ticket 62): as v11.3, plus section_date: the dated section
+    Ruler t2-past v11.4 (--key answer-key-t2-past-v11.4.json): as v11.3, plus section_date: the dated section
     (a heading that holds only a date, to the next such heading) that holds the row's quote dates the page, before
     metadata; a calculated or rolling footer date (updated, modified, reviewed, edited, revised) never dates a page; a
     section whose stated coverage ends before the window is stale. Review fixes before any run: section dating needs two
     or more date-only headings (or no metadata date), a quote in two sections takes the oldest, and the footer skip is
     only for <footer> or a label-and-date line. Probes in v114_check. Runs after this commit score
     on v11.4. Not comparable with v11.3 on T1 and T3 for a row on a dated-section or footer-dated page; nothing re-scored.
-    Ruler t2-past v11.5 (--key answer-key-t2-past-v11.5.json, ticket 73): as v11.4, plus joined_header: a line that holds
+    Ruler t2-past v11.5 (--key answer-key-t2-past-v11.5.json): as v11.4, plus joined_header: a line that holds
     a sentence and then the key's exact header is split before the header and the table is read; the split table must
     have a separator of the header's width and a row, else malformed; a sentence with pipes that is not the header is
     untouched; an ordinary table reads exactly as on v11.4 (v11.4 keys keep the old parse). Probes in v115_check; the
     v11.4 vs v11.5 parse of every saved capture in v115_recheck.py. Not comparable with v11.4 on format for a run with a
     joined header line; nothing re-scored.
-    Ruler t2-past v11.6 (--key answer-key-t2-past-v11.6.json, ticket 76): as v11.5, plus two rules. spaced_slash_date:
+    Ruler t2-past v11.6 (--key answer-key-t2-past-v11.6.json): as v11.5, plus two rules. spaced_slash_date:
     a labelled date (released, published, posted, issued, release date) written with spaces around the slashes
     ("Released 05 / 11 / 2026") reads as the same date with no spaces; an unlabelled spaced date and a spaced date in a
     row's Date cell are not read. trailing_chips: a table line that ends with its closing pipe and then only a run of
@@ -982,7 +982,7 @@ def v115_check():
             else:
                 assert a == b, (run, a, b)
             n["captures"] += 1
-        assert not saved_captures() or n["captures"] >= 25, n  # 25 at ticket 73; ticket 74 added four captures (none joined)
+        assert not saved_captures() or n["captures"] >= 25, n  # 25 at ruler v11.5; four captures were added later (none joined)
     finally:
         KEY = saved
     return n
@@ -1071,7 +1071,7 @@ def v116_check():
                 assert isinstance(a, str) and "row does not start and end with a pipe" in a, (run, a)
                 assert isinstance(b, list) and b, (run, b)
                 text = open(os.path.join(HERE, "rounds-t2", run, "output.md"), encoding="utf-8").read()
-                cut = re.sub(r"(?m)^(\|.*\|)(?:\s*\[[^\]\n]+\])+\s*$", r"\1", text)  # ticket 73's in-memory probe cut
+                cut = re.sub(r"(?m)^(\|.*\|)(?:\s*\[[^\]\n]+\])+\s*$", r"\1", text)  # the ruler v11.5 in-memory probe cut
                 load(os.path.join(HERE, "answer-key-t2-past-v11.5.json"), "P1")
                 assert [{k: v for k, v in r.items() if k != "date"} for r in parse(cut, "| Type |" not in text)] == b, run
             else:

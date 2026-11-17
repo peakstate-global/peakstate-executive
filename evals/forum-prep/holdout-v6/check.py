@@ -214,7 +214,7 @@ def self_check():
     r = sf.score_doc(good.replace("- Paper 4 is in the pack.", "The compliance numbers look fine. Paper 4 is in the pack."))
     assert not r["pass"] and r["uncited_background_risks"] == 1, r
 
-    # ticket 51 probes
+    # review probes
     # numbers written as words pass: C1 (nine to sixteen) and R1 (sixth of six)
     assert sf.score_doc(good.replace(TEXT["C1"], "Apprentice withdrawals rose from nine to sixteen and are still Green."))["pass"]
     words = good.replace(R1_FOUND, "Northgate campus is sixth of six on course completion, as in the previous pack.")

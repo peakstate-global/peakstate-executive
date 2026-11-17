@@ -1,5 +1,5 @@
 {
- "version": "holdout v2, 8 November 2026, ticket 20, written before any prompt round reads it",
+ "version": "holdout v2, 8 November 2026, written before any prompt round reads it",
  "tier": "holdout",
  "case": "holdout-v2/idea.txt",
  "sections": {

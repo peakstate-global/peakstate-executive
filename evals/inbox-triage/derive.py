@@ -3,6 +3,7 @@
 
     python3 evals/inbox-triage/derive.py rounds/rNN/raw.html > rounds/rNN/output.md
     python3 evals/inbox-triage/derive.py rounds/rNN/raw.html --after "<last line of the pasted case>" [--until "Sources"]
+    python3 evals/inbox-triage/derive.py rounds/rNN/raw.html --keep-structure > rounds/rNN/output.md
     python3 evals/inbox-triage/derive.py --self-check
 
 --after keeps only the text after the last match of the marker; an optional --until "<marker>"
@@ -15,6 +16,12 @@ the table's header line break and flattens any part Copilot's renderer read as m
 flavour keeps both, so output.md comes from it, by this script only, never by hand.
 Tables become pipe rows (a pipe inside a cell is escaped), <br> and block ends become line breaks,
 and every other tag is dropped. Text inside a renderer error span is kept verbatim.
+
+--keep-structure (17 November 2026, for the R&D checker v5): an ordered-list item becomes "1. ",
+"2. " and so on (from the list's start attribute), and <b> or <strong> outside a table cell and a heading becomes
+** marks, so the numbered References and the bold summary labels reach the scorer. Without the flag the output is
+unchanged, so every earlier output.md still derives byte for byte. Later fix: a list item whose content is a
+<p> (Copilot writes "<li>\n<p>entry</p>") keeps its marker on the line of the first paragraph, not on a line of its own.
 """
 import sys
 from html.parser import HTMLParser
@@ -23,11 +30,26 @@ BLOCK = {"p", "h1", "h2", "h3", "h4", "li", "div", "tr", "table", "ul", "ol", "p
 
 
 class Md(HTMLParser):
-    def __init__(self):
+    def __init__(self, keep_structure=False):
         super().__init__(convert_charrefs=True)
         self.out, self.row, self.cell, self.head_done, self.skip = [], None, None, False, 0
+        self.keep, self.lists, self.heading = keep_structure, [], 0  # --keep-structure: list counters, heading depth
+        self.marker = False  # --keep-structure: a list marker was just written, its item's text not yet reached
+
+    def _keep_bold(self, tag):
+        """--keep-structure: <b> and <strong> outside a table cell and a heading become ** marks."""
+        if self.keep and tag in ("b", "strong") and self.cell is None and self.row is None and not self.skip and not self.heading:
+            self.out.append("**")
+            return True
 
     def handle_starttag(self, tag, attrs):
+        if self._keep_bold(tag):
+            return
+        if self.keep and tag in ("ol", "ul"):
+            start = dict(attrs).get("start") or "1"
+            self.lists.append(int(start) if tag == "ol" and start.isdigit() else None)
+        if self.keep and tag in ("h1", "h2", "h3", "h4"):
+            self.heading += 1
         if tag in ("style", "head"):
             self.skip += 1
         elif tag == "tr":
@@ -39,9 +61,20 @@ class Md(HTMLParser):
         elif tag in ("h1", "h2", "h3", "h4"):
             self.out.append("\n" + "#" * int(tag[1]) + " ")
         elif tag == "li":
-            self.out.append("\n- ")
+            if self.keep and self.lists and self.lists[-1] is not None:
+                self.out.append(f"\n{self.lists[-1]}. ")
+                self.lists[-1] += 1
+            else:
+                self.out.append("\n- ")
+            self.marker = self.keep
 
     def handle_endtag(self, tag):
+        if self._keep_bold(tag):
+            return
+        if self.keep and tag in ("ol", "ul") and self.lists:
+            self.lists.pop()
+        if self.keep and tag in ("h1", "h2", "h3", "h4") and self.heading:
+            self.heading -= 1
         if tag in ("style", "head"):
             self.skip -= 1
         elif tag in ("td", "th"):
@@ -65,6 +98,11 @@ class Md(HTMLParser):
         if self.cell is not None:
             self.cell.append(data)
         elif self.row is None:
+            if self.marker:  # in "<li>\n<p>entry", the marker and the entry share one line
+                data = data.lstrip()
+                if not data:
+                    return
+                self.marker = False
             if self.out and self.out[-1] == "\n" and data.startswith("\n"):
                 data = data[1:]  # "<br>\n" is one line break, not two
             self.out.append(data)
@@ -78,8 +116,8 @@ class Md(HTMLParser):
         return "\n".join(res).strip() + "\n"
 
 
-def derive(html):
-    p = Md()
+def derive(html, keep_structure=False):
+    p = Md(keep_structure)
     p.feed(html)
     return p.text()
 
@@ -93,21 +131,39 @@ def self_check():
     want = ("Intro.\n\n## A. Triage\n\n| Subject | Move | Why |\n|---|---|---|\n| S: a\\|b | do | Due Fri |\n\n"
             "Draft: S: a\nTo: Pat\n\nHi Pat,\n\nx]\nThanks\nA\n")
     assert got == want, repr(got)
-    print("self-check passed")
+    assert derive(h, keep_structure=True) == want  # nothing to keep: no list, no bold outside the table
+    k = ('<h2><strong>References</strong></h2><p><strong>Point 1: Weak.</strong> Evidence. [1]</p>'
+         '<ol><li>First, A. (2020). <em>T</em>.</li><li>Second.</li></ol><ul><li>bullet <b>bold</b></li></ul>'
+         '<ol start="3"><li>Third.</li></ol><table><tr><th>A</th></tr><tr><td><b>c</b></td></tr></table>')
+    assert derive(k, keep_structure=True) == (
+        "## References\n\n**Point 1: Weak.** Evidence. [1]\n\n1. First, A. (2020). T.\n\n2. Second.\n\n"
+        "- bullet **bold**\n\n3. Third.\n\n| A |\n|---|\n| c |\n"), repr(derive(k, keep_structure=True))
+    assert derive(k) == ("## References\n\nPoint 1: Weak. Evidence. [1]\n\n- First, A. (2020). T.\n\n- Second.\n\n"
+                         "- bullet bold\n\n- Third.\n\n| A |\n|---|\n| c |\n"), repr(derive(k))
+    # Copilot wraps each list item in <p>; the number shares a line with the first paragraph
+    lp = '<ol>\n<li>\n<p>First, A. (2020). T.</p>\n<p>More.</p>\n</li>\n<li><p>Second.</p></li>\n</ol><ul>\n<li>\n<p>b</p></li></ul>'
+    assert derive(lp, keep_structure=True) == "1. First, A. (2020). T.\n\nMore.\n\n2. Second.\n\n- b\n", repr(derive(lp, True))
+    assert derive(lp) == "-\nFirst, A. (2020). T.\n\nMore.\n\n- Second.\n\n-\nb\n", repr(derive(lp))  # default unchanged
+    print("self-check passed (default, and --keep-structure: numbered ordered lists, bold outside tables and headings, "
+          "<li><p> items on one line)")
 
 
 if __name__ == "__main__":
-    if sys.argv[1:] == ["--self-check"]:
+    a = sys.argv[1:]
+    keep = "--keep-structure" in a
+    if keep:
+        a.remove("--keep-structure")
+    if a == ["--self-check"]:
         self_check()
-    elif len(sys.argv) in (2, 4, 6) and sys.argv[2:3] in ([], ["--after"]):
-        text = derive(open(sys.argv[1], encoding="utf-8").read())
-        if len(sys.argv) >= 4:
-            i = text.rfind(sys.argv[3])
+    elif len(a) in (1, 3, 5) and a[1:2] in ([], ["--after"]):
+        text = derive(open(a[0], encoding="utf-8").read(), keep)
+        if len(a) >= 3:
+            i = text.rfind(a[2])
             if i < 0:
-                sys.exit(f"marker not found: {sys.argv[3]!r}")
-            text = text[i + len(sys.argv[3]):].lstrip()
-        if len(sys.argv) == 6 and sys.argv[4] == "--until":
-            j = text.find(sys.argv[5])  # chat chrome after the answer (Sources, suggestion chips)
+                sys.exit(f"marker not found: {a[2]!r}")
+            text = text[i + len(a[2]):].lstrip()
+        if len(a) == 5 and a[3] == "--until":
+            j = text.find(a[4])  # chat chrome after the answer (Sources, suggestion chips)
             text = text[:j].rstrip() + "\n" if j >= 0 else text
         sys.stdout.write(text)
     else:

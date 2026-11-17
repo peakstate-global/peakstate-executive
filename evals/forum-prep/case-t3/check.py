@@ -24,7 +24,7 @@ import importlib.util, json, os, re, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 FORUM = os.path.dirname(HERE)
-KEY_PATH = os.path.join(HERE, "answer-key-t3-v3.json")  # key t3 v3 (ticket 53); v2 and v1 runs keep their recorded scores
+KEY_PATH = os.path.join(HERE, "answer-key-t3-v3.json")  # key t3 v3; v2 and v1 runs keep their recorded scores
 sys.path.insert(0, FORUM)
 import score_forum as sf  # noqa: E402
 

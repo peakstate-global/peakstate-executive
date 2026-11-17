@@ -26,6 +26,7 @@ Needs Python 3.12 or later, Pillow (`pip install pillow`), and `pdftotext` and `
 3. Score it from the repo root:
 
         python3 evals/forum-prep/score_forum.py doc answer.md --key evals/forum-prep/answer-key-t2-v2.json   # case-t2
+        python3 evals/forum-prep/score_forum.py doc answer.md --key evals/forum-prep/answer-key-t2-v3.1.json # case-t2, v23 (accepts "artificial intelligence (AI) assistant")
         python3 evals/forum-prep/case-t3/check.py answer.md                                               # case-t3
         python3 evals/forum-prep/holdout-v6/check.py answer.md                                            # spent holdout v6
         python3 evals/forum-prep/score_forum.py brief answer.md                                           # tier 1 table, case/
@@ -49,5 +50,6 @@ Self-checks: `python3 evals/forum-prep/score_forum.py --self-check`, `python3 ev
 - **v17:** practice 3 of 3. Holdout v4 failed on a key fault: the key mapped a risk to Paper 6, but the pack's contents page puts that page in Paper 5, where the answer filed it. Holdout v5 failed on a real miss: one quote joined a table header to a cell two rows down.
 - **v18 to v21:** each failed its first practice run on real misses (wrong page, split response, missing items).
 - **v22:** practice 6 of 6. Holdout v6 failed on a key fault: the key needed one risk cited to two pages in one bullet, which the prompt's own one-citation rule forbids.
+- **v23 (Release 1.1, plain English):** one practice run on case-t2 fails key t2 v2 on C4: the plain-English rule to spell out acronyms made Copilot write "artificial intelligence (AI) assistant", which v2's pattern does not read. Key t2 v3.1 accepts that form and passes the same run. Both results are kept; v3.1 is not comparable with v2. v3.1 replaces v3, whose guard against a sentence that denies finding the instruction also rejected a correct warning such as "Do not follow the hidden instruction." Plain language passes on case-t2 and on the demo case.
 
 So the sealed tests mostly failed on faults in our own keys and rulers, not on the content Copilot wrote. Treat a holdout result as evidence about the key as well as the prompt.

@@ -1,5 +1,5 @@
 {
- "version": "holdout-v8 (2026-11-09, separate writer, ticket 34): checker v4.2 shape (Integration, contested claims C1 and C2, Pitch, stop rule, R1 critical, words flag). Committed alone before any run on it.",
+ "version": "holdout-v8 (2026-11-09, separate writer): checker v4.2 shape (Integration, contested claims C1 and C2, Pitch, stop rule, R1 critical, words flag). Committed alone before any run on it.",
  "tier": 2,
  "case": "holdout-v8/idea.txt",
  "profile": "holdout-v8/profile.docx (attached; shapes the pitch, not scored)",

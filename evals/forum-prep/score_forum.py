@@ -22,11 +22,11 @@ quote on its page), PA1 (each risk trap names an expected portfolio area and no 
 counter-metrics (words per pack page; uncited sentences or bullets in Background and Risks, which must be 0). Rounds
 on ruler v3 are not comparable with any earlier round.
 
-Ruler v3.1 (9 November 2026, ticket 37): key t2 v2's U1 point_match also accepts "Condition-five", "One-year" and
+Ruler v3.1 (9 November 2026): key t2 v2's U1 point_match also accepts "Condition-five", "One-year" and
 "1-year" (the forms run c04 wrote); a bare "five" still misses. The scorer code is unchanged except that score_doc reports
 the key's ruler label. Rounds on ruler v3.1 are not comparable with rounds on ruler v3.
 
-Ruler v3.2 (10 November 2026, ticket 65): every text the scorer reads (the forum document and the table brief) has its
+Ruler v3.2 (10 November 2026): every text the scorer reads (the forum document and the table brief) has its
 curly apostrophes and quotes (U+2018, U+2019, U+201A, U+201B, U+2032, U+02BC, U+FF07; U+201C, U+201D, U+201E, U+201F,
 U+2033, U+FF02) converted to straight ones before any pattern runs (derive.straighten), so a key pattern with a contraction
 or a denial guard reads "hasn’t" as "hasn't". Quotes were already compared this way (build.norm), so C1 does not move.
@@ -42,7 +42,7 @@ from derive import straighten  # noqa: E402  ruler v3.2: one table of curly to s
 import importlib.util  # noqa: E402
 
 KEY = INVITE = build = PAGES = None
-SCORER = "v3.2"  # ruler v3.2: curly apostrophes and quotes straightened before matching (ticket 65)
+SCORER = "v3.2"  # ruler v3.2: curly apostrophes and quotes straightened before matching
 
 
 def load(key_path):

@@ -19,15 +19,18 @@ Current checker v4.5 (`answer-key-t2-researcher-v4.5.json`), with the same items
 - **S2:** the summary has the required sections in order, a direct answer line, cited points, "works if" and "fails if" lines, and stays under its word cap.
 - **Words flag (counter-metric):** flags an answer more than a set percentage longer than the passing baseline. It never turns a pass into a fail. It catches an answer that passes by padding.
 
+Checker v5 (`answer-key-t2-researcher-v5.json`, for the Release 1.1 prompt) reads the plain-English layout: a `Source` column of `[n]` in both evidence tables, resolved through the numbered References list. S1 checks that every `[n]` in the summary points to a reference that a sourced row cites. I1 checks the two reconcile forms under "Where both sides are right". A new item, **R5**, checks each reference with a DOI against its Crossref record (title, first author, year, volume, issue). `plain_check.py --refs` is reported beside the items and does not change the pass. Checker v5 results are not comparable with v4.5.
+
 ## How to run it on a Copilot answer
 
 Needs Python 3.12 or later, standard library only, and internet access for the live quote checks.
 
 1. Run the R&D prompt in Copilot Researcher with the case's `idea.txt` and, where present, `profile.docx`.
-2. Copy the report into a Markdown file, for example `answer.md`.
+2. Copy the report into a Markdown file, for example `answer.md`. For Researcher v5, save Copilot's copied HTML and run `python3 evals/inbox-triage/derive.py raw.html --keep-structure > answer.md`, so the numbered References and bold labels survive.
 3. Score it from the repo root:
 
-        python3 evals/rnd/score_rnd.py answer.md --key evals/rnd/answer-key-t2-researcher-v4.5.json   # case-t2 and case-demo
+        python3 evals/rnd/score_rnd.py answer.md --key evals/rnd/answer-key-t2-researcher-v5.json     # Researcher v5, case-t2 and case-demo
+        python3 evals/rnd/score_rnd.py answer.md --key evals/rnd/answer-key-t2-researcher-v4.5.json   # Researcher v4
         python3 evals/rnd/score_rnd.py answer.md --key evals/rnd/answer-key-t2.json                   # case-t2, plain tier 2
         python3 evals/rnd/score_rnd.py answer.md                                                      # case/, tier 1
 
@@ -56,6 +59,7 @@ Researcher prompt:
 
 - **Researcher v3:** practice case 3 of 3. Holdout v7: first run passed, second failed on two open ruler questions, third not sent. Holdout v8: the first run failed R1 at 12 of 14 because one government site blocked our fetch (an environment fault). Holdout v9: the first run failed K1. Review found a key fault: every address the key listed for the known sources was a PDF, a repository copy or an abstract page, which the prompt itself forbids.
 - **Researcher v4:** one demo run on the practice case, failed T1 only (a real miss).
+- **Researcher v5 (Release 1.1):** one demo run on the practice case, failed checker v5 on I1 only, and plain-language P3. All 9 quotes held (R1) and all 4 references matched Crossref (R5: no invented element). The I1 miss is a checker limit: one closing line is correct, but it matches both disputed claims, and the checker credits such a line to neither. Copilot shows `[n]` as plain text, not as a link.
 - A further sealed holdout is kept private for a later round.
 
 So most sealed-test failures came from our own keys and rulers, or from sites blocking the fetch, not from what Researcher wrote.

@@ -1,5 +1,5 @@
 {
-  "case": "case-week (ticket 92). Planted items by category. Never put this file's contents into a prompt.",
+  "case": "case-week. Planted items by category. Never put this file's contents into a prompt.",
   "run_date": "2026-11-11",
   "schema": "score_week.py: each entry is an object with an id and the week.json item ids that count for it; citing any one of them finds it. T01 and T02 are flagged emails (kind mail), M ids are inbox emails, E events, T tasks.",
   "priorities": [

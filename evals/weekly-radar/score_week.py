@@ -8,16 +8,21 @@ as list lines. A list line's citation is now its last OUTERMOST bracket, so a ti
 holds its own bracket (E11) is read whole (the w01 scorer miss). v13 list answers score
 as before, apart from that fix.
 
+Version 3 (17 November 2026, for prompt v15): scoring is unchanged, so a
+v3 score equals the v2 score. The self-check adds one probe: a term defined in brackets
+straight after the term (plain-English block rule i) sits before the citation, and the
+line still cites its last outermost bracket and matches its seeded item.
+
 Usage:
     score_week.py ANSWER.md WEEK.json WEEK-KEY.json [--json]
     score_week.py --self-check
 
 The answer is split at the "Industry radar" heading (any heading level, bold, or a
 prefix such as "Section 2:" or "2."); only Section 1 is scored here (Section 2
-gets a hand check this round, spec section 5). No split found means the score
+gets a hand check this round). No split found means the score
 is invalid and the exit code is 1.
 
-week.json (spec section 4): the seeded items. Either {"items": [...]} or
+week.json: the seeded items. Either {"items": [...]} or
 separate "events", "tasks" and "mail" lists (a bare list also works). Each
 item has an "id", a "kind" (event, task or mail; inferred from the list it
 sits in when missing) and a title in "title" or "subject". Optional fields
@@ -88,7 +93,7 @@ CLAIM = re.compile(
     re.I,
 )
 QUOTES = str.maketrans({"\u2018": "'", "\u2019": "'", "\u201c": '"', "\u201d": '"'})
-VERSION = 2
+VERSION = 3
 NUMBERED = re.compile(r"^\d+[.)]\s+")
 ROW_SEP = re.compile(r"^\|?[\s:|-]*-[\s:|-]*$")  # | --- | :--: |
 SPLIT = re.compile(
@@ -349,6 +354,7 @@ def self_check():
         assert t["parts_ok"] == 4 and t["claims"] == 0 and t["lines_unmatched"] == 0, (f, t)
         assert t["planted_found"] == t["planted_total"] == 11, (f, t)
     assert groups("x (Call with A (B), Thu 2 pm) y") == ["Call with A (B), Thu 2 pm"]
+    assert match(entries(["1. Approve the rosters for cross-docking (moving goods straight from one truck to another) this week. (Task: Approve December peak rosters, Tasks)"])[0][1], load_items(week))["id"] == "t1"  # v3: a definition before the citation never displaces it
     good = score((here / "answer-good.md").read_text(), week, key)["summary"]
     bad = score((here / "answer-bad.md").read_text(), week, key)["summary"]
     assert good["parts_ok"] == 4, good

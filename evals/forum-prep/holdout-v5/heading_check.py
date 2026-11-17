@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Holdout v5 heading-to-contents check on an answer document (ticket 46). Runs beside ruler v3.1; score_forum.py is
+"""Holdout v5 heading-to-contents check on an answer document. Runs beside ruler v3.1; score_forum.py is
 unchanged. Every `Paper <n>` heading (found the way ruler v3.1 finds headings) must name a paper on the pack's contents
 page (read from pack.pdf), and any text after the number must equal that paper's contents title after case,
 punctuation and whitespace are normalised. A heading with the number only passes. Exit 0 pass, 1 fail.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the forum demo case pack: a realistic 48-page executive leadership team pack (ticket 84).
+"""Build the forum demo case pack: a realistic 48-page executive leadership team pack.
 
     python3 evals/forum-prep/case-demo/build.py          # writes pack.pdf and profile.docx, then runs the check
     python3 evals/forum-prep/case-demo/build.py --check  # check only

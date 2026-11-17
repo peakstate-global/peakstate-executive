@@ -8,13 +8,13 @@ Method: inbox/derive.py (h1 to h4 become # marks, li becomes "- ", table rows ke
 <strong> outside a table become ** marks, so a whole line in bold reaches the scorer as a heading candidate
 (as rnd/score_rnd.py accepts). output.md is made by this script only and is never edited by hand.
 
-Ruler v3.2 (10 November 2026, ticket 65): output.md has its curly apostrophes and quotes converted to straight ones
+Ruler v3.2 (10 November 2026): output.md has its curly apostrophes and quotes converted to straight ones
 (straighten below; score_forum.py applies the same function to any text it scores). An output.md derived before ruler
 v3.2 keeps its curly characters; it is not re-derived or re-scored, and its scores are not comparable with ruler v3.2.
 """
 import importlib.util, os, sys
 
-# Load inbox/derive.py by path: a plain "from derive import" finds this file when exec-skills/forum is on sys.path.
+# Load inbox/derive.py by path: a plain "from derive import" finds this file when evals/forum-prep is on sys.path.
 _spec = importlib.util.spec_from_file_location("inbox_derive", os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "inbox-triage", "derive.py"))
 _inbox = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(_inbox)

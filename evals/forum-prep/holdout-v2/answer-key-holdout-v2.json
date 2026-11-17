@@ -1,6 +1,6 @@
 {
  "case": "evals/forum-prep/holdout-v2/pack.pdf + evals/forum-prep/holdout-v2/invitation.txt",
- "version": "holdout v2, 8 November 2026 (ticket 20), written before any prompt round reads it",
+ "version": "holdout v2, 8 November 2026, written before any prompt round reads it",
  "tier": "holdout",
  "build": "holdout-v2/build.py",
  "invitation": "holdout-v2/invitation.txt",

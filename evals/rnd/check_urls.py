@@ -15,10 +15,10 @@ page in any language, checker v2; such a page served with an HTTP error status s
 checker v3) can be checked from its text captured in Chrome: put the text in <text-dir>/<sha1 of url>.txt and
 pass --text-dir. The result then says "via": "chrome" and a status of 200 is assumed. If the Chrome text is also
 only a challenge page, the row fails.
-Checker v4.2 (9 November 2026, ticket 33): a page that answers the script with HTTP 200 and has a title but lacks the
+Checker v4.2 (9 November 2026): a page that answers the script with HTTP 200 and has a title but lacks the
 quote (an article rendered by script) goes to the same Chrome text route as a refusal; Chrome text that holds the quote
 passes the row. Without captured Chrome text the row fails as before. The industry scorer (ANY_LANGUAGE False) keeps v1.
-Checker v4.3 (9 November 2026, ticket 41): the blocked-host second route. This Mac's VPN exit is refused by some hosts.
+Checker v4.3 (9 November 2026): the blocked-host second route. This Mac's VPN exit is refused by some hosts.
 A row whose host refused or stalled the script (status None, 401, 403, 429 or a challenge) and that the Chrome text did not
 resolve carries "refused": true; while the VPN-off route has not tried it, route_summary() lists it as awaiting route and
 a v4.3 scorer gives the run no final score. The route wizard (blocked-host-route-wizard.sh) has the executive switch the
@@ -189,8 +189,13 @@ def check(cite, text_dir=None, fetcher=fetch):
     res.update(status=status, final=final)
     blocked = status in (None, 401, 403, 429, "challenge") or (status == 200 and is_challenge(title, text))
     blocked = blocked or (ROUTE_ON and not ANY_LANGUAGE and status == 503)  # v11.2 review: the body is dropped, so a 503 may be a challenge  # checker v4.2: None (DNS or network failure) routes to Chrome text like a refusal
-    if blocked and text_dir and os.path.exists(os.path.join(text_dir, key(url) + ".txt")):
-        text = open(os.path.join(text_dir, key(url) + ".txt"), encoding="utf-8").read()
+    # score_rnd checker v5: a doi.org address redirects to the publisher, so a Chrome capture named by the final address counts
+    tpath = next((p for p in (os.path.join(text_dir, key(u) + ".txt") for u in dict.fromkeys((url, final or url)))
+                  if os.path.exists(p)), None) if text_dir else None
+    if blocked and tpath:
+        text = open(tpath, encoding="utf-8").read()
+        if final and final != url:  # score_rnd v5 S1: the redirect target (a doi.org address's publisher), known even on a 403
+            res["reached"] = final  # its own field, so final stays the cited address for every scorer, as before checker v5
         status, title, final = 200, "", url
         res.update(via="chrome", status=200, final=url)
         if is_challenge("", text):
@@ -204,7 +209,7 @@ def check(cite, text_dir=None, fetcher=fetch):
     if soft:
         return {**res, "pass": False, "reason": "soft 404: " + soft}
     if not holds(quote, text):
-        cpath = os.path.join(text_dir, key(url) + ".txt") if text_dir else ""
+        cpath = tpath or ""
         if ANY_LANGUAGE and res["via"] == "script" and title.strip() and cpath and os.path.exists(cpath):  # checker v4.2
             ctext = open(cpath, encoding="utf-8").read()
             res.update(via="chrome")
