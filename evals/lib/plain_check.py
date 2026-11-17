@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-"""Plain-language ruler for any skill output (markdown). Experimental, v0.2, 17 November 2026.
+"""Plain-language ruler for any skill output (markdown). Experimental, v0.3, 17 November 2026.
 
     python3 evals/lib/plain_check.py <output.md> [--refs] [--summary-end "## Appendix"] [--transcript]
+                                           [--source <pasted.txt>]
     python3 evals/lib/plain_check.py --self-check
 
 P1  every acronym (2+ capitals) is spelt out at its first use: "VARK (a model ...)" or "... (VARK)".
@@ -51,10 +52,34 @@ v0.2 review fixes (17 November 2026, before any run): acronym stems with a plura
 outside the bold on a heading line (v), definitions with digits and note brackets (vi), inline
 speaker labels and an empty transcript (vii). No run used v0.2 before these fixes.
 
+Changes from v0.2 (17 November 2026, after the Release 1.1 runs). Experimental phase: the ruler
+moves on its own this round, so v0.3 results are not comparable with v0.2 results, and every run of record keeps its
+v0.2 result.
+  i)   --source <pasted.txt> (Inbox triage, the pasted route): the exact subject and sender-name text of each email
+       in the pasted case ("Subject:" lines, and the name before the address on "From:" lines) is masked the same
+       way quoted text is, wherever the output copies it. Any word Copilot adds around a copied subject or name is
+       still read. Without --source nothing is masked, as in v0.2.
+  ii)  A numbered bold line ("**1. Title**", or "1. **Title**") is text, not a heading, for P1 and P2. v0.2 read
+       "**1. Title**" as a heading and skipped it; the section boundaries P3 and P4 use are unchanged.
+  iii) P3 leaves the References section out when it looks for each listed term, so a term found only in a
+       reference title counts as not used.
+  iv)  Counter-metric, report only, never part of pass or fail: for each section P2 reads, the prose words (the
+       words of the lines P1 and P2 read, without code and web addresses), the words P2 read, and the quoted share
+       (quoted text, and with --source the copied subjects and names). A section is a heading's text ("start"
+       before the first heading), or the lines that open with the same short label ("Why:", "Move:", but not a
+       mail prefix such as "Re:"); the label word is not counted. A section is "empty" when P2 read fewer than half
+       its prose words. The command line prints it after the items, for example
+       "P2 counter-metric (report only): pass, empty in Why (1 of 484 words read)".
+       Review fixes, the same day, before any document recorded a v0.3 result: straight and curly
+       apostrophes in a copied name now both match, and a line's label is read after masking, so a
+       copied subject such as "Save the date: offsite" is no label.
+       Review fixes, 17 November 2026: a copied subject or sender value with no lower-case letter (an
+       acronym alone, such as "HR" or "AGM") is not masked, so Copilot's own uses of it still count for P1.
+
 Per skill (what each run is measured on):
   Skill               --summary-end                    Read                                  Drafts skipped
   Forum prep          default; no Appendix: all of it  output.md                             each "Draft email to your team" section
-  Inbox triage        default; no Appendix: all of it  output.md                             each "Draft to <name>:" draft
+  Inbox triage        default; no Appendix: all of it  output.md, --source case pasted.txt   each "Draft to <name>:" draft
   R&D                 "## Appendix" (default), --refs  output.md                             none
   Weekly radar        default; no Appendix: all of it  output.md, "Quote:" lines skipped     none
   Your profile setup  default; no Appendix: all of it  Copilot's turns in transcript.md       none
@@ -76,6 +101,10 @@ MARK = re.compile(r"^\s*(?:[-*+]|\d+[.)])\s+")
 CLAIM = re.compile(r"^\s*(?:[-*+]\s+)?\**Claim \d+\**:")
 QUOTED = re.compile(r"`[^`]*`|https?://\S+|\"[^\"\n]*\"|“[^”\n]*”")
 SPEAKER = re.compile(r"\*\*(\w[\w ]*):\*\*\s*(.*)")
+NUMBOLD = re.compile(r"^\*\*\d+[.)]\s+")  # v0.3 ii: "**1. Title**" is text, not a heading
+# v0.3 iv: a short label such as "Why:", "**Move:**" or "Why now:", but not a mail prefix ("Re: Re: Budget")
+LABEL = re.compile(r"^\**(?!(?:Re|Fw|Fwd)\W)([A-Z][a-z]*(?: [a-z]+){0,2})\**:\**\s*")
+NOT_PROSE = re.compile(r"`[^`]*`|https?://\S+")  # v0.3 iv: code and web addresses are not prose words
 # ponytail: a definition is a bracket straight after a word that opens lower-case, holds 2+ words and no colon, and
 # does not open with a note word (see, for example). Ceiling: other note brackets ("(due 1 December)", "(in
 # Brisbane)") read as definitions; no ruler can tell every definition from every bracket (ADR 0018 vi). Add an
@@ -119,20 +148,38 @@ def next_text(lines, i):
     return next((l.strip() for l in lines[i + 1:] if l.strip()), "")
 
 
-def read_lines(lines):
-    """The lines P1 and P2 read, with quotes, code and web addresses taken out (see the docstring)."""
+def copied(pasted):
+    """v0.3 i: the subjects and sender names in a pasted case, as one pattern (longest first), or None."""
+    found = set()
+    for line in pasted.splitlines():
+        m = re.match(r"\s*(Subject|From):\s*(.+)", line)
+        if m:
+            t = m.group(2).strip()
+            found.add(re.sub(r"\s*<[^>]*>$", "", t).strip().strip('"') if m.group(1) == "From" else t)
+    # review fix: a value with no lower-case letter ("HR", "AGM") is not masked, so Copilot's own uses still count
+    found = sorted((t for t in found if any(c.islower() for c in t)), key=len, reverse=True)
+    # ponytail: straight and curly apostrophes count as the same character; no other normalising
+    alts = [re.sub(r"['’]", "['’]", re.escape(t)) for t in found]
+    return re.compile(r"(?<!\w)(?:" + "|".join(alts) + r")(?!\w)") if alts else None
+
+
+def reads(lines, mask=None):
+    """(section, prose, read) for each line P1 and P2 read. prose is the line without code and web addresses; read
+    also has quotes and the --source text taken out (see the docstring). section is the last heading's text, or
+    "start" before the first heading."""
     table = {i: (head, cells) for i, head, cells in rows(lines)}
     skip = set()
     for name in ("words used", "references"):
         r = section(lines, name)
         if r:
             skip.update(range(*r))
-    out, draft = [], False
+    draft, sect = False, "start"
     for i, line in enumerate(lines):
         s = line.strip()
-        h = heading(s)
+        h = None if NUMBOLD.match(s) else heading(s)
         if h is not None:  # a "#" heading ends a draft; a bold line alone can start one, never end one
             draft = bool(DRAFT.match(h)) or (draft and not s.startswith("#"))
+            sect = h
             continue
         if draft and (TITLE.match(s) or WHY.match(next_text(lines, i))):
             draft = False
@@ -145,11 +192,15 @@ def read_lines(lines):
                 continue  # header or separator row
             head, cells = table[i]
             s = " ".join(c for c, h in zip(cells, head) if h != "quote")
-        s = MARK.sub("", s)
+        s = NUMBOLD.sub("", MARK.sub("", s))
         if s.lstrip("*").startswith("Quote:"):
             continue
-        out.append(QUOTED.sub("", s))
-    return out
+        yield sect, NOT_PROSE.sub("", s), QUOTED.sub("", mask.sub("", s) if mask else s)
+
+
+def read_lines(lines, mask=None):
+    """The lines P1 and P2 read, with quotes, code and web addresses taken out (see the docstring)."""
+    return [r for _, _, r in reads(lines, mask)]
 
 
 def summary(lines, end):
@@ -161,8 +212,8 @@ def summary(lines, end):
     return lines
 
 
-def p1(md):
-    text, bad, seen = "\n".join(read_lines(md.splitlines())), [], set()
+def p1(md, mask=None):
+    text, bad, seen = "\n".join(read_lines(md.splitlines(), mask)), [], set()
     for m in ACRO.finditer(text):
         a = m.group(1)
         if a in seen or a in CAPS_WORDS:
@@ -174,9 +225,9 @@ def p1(md):
     return not bad, f"not spelt out at first use: {', '.join(bad)}" if bad else "all spelt out"
 
 
-def p2(md, end):
+def p2(md, end, mask=None):
     sents, words = [], 0
-    for line in read_lines(summary(md.splitlines(), end)):
+    for line in read_lines(summary(md.splitlines(), end), mask):
         line = re.sub(r"\*\*|\[\d+\]", "", line)
         words += len(line.split())
         sents += [s for s in re.split(r"(?<=[.!?;])\s+", line) if len(s.split()) > 2]
@@ -185,18 +236,19 @@ def p2(md, end):
     return share <= SHARE, f"{len(long)} of {len(sents)} sentences over {LONG} words ({share:.0%}); summary {words} words"
 
 
-def p3(md, refs=False):
+def p3(md, refs=False, mask=None):
     lines = md.splitlines()
     r = section(lines, "words used")
     if r is None:
         if refs:
             return False, "no Words used section"
-        defs = DEFN.findall("\n".join(read_lines(lines)))
+        defs = DEFN.findall("\n".join(read_lines(lines, mask)))
         if defs:
             return False, f"no Words used section, but {len(defs)} defined in brackets, first: ({defs[0]})"
         return True, "no Words used section, and no term defined in brackets"
     terms = re.findall(r"^\s*[-*]\s+\*\*(.+?):?\*\*", "\n".join(lines[r[0] + 1:r[1]]), flags=re.M)
-    rest = "\n".join(lines[:r[0]] + lines[r[1]:]).lower()
+    out = set(range(*r)) | set(range(*(section(lines, "references") or (0, 0))))  # v0.3 iii: not the References
+    rest = "\n".join(l for i, l in enumerate(lines) if i not in out).lower()
     dead = [t for t in terms if t.lower() not in rest]
     if not terms:
         return False, "Words used section is empty"
@@ -250,13 +302,41 @@ def copilot_turns(md):
     return "\n".join(keep)
 
 
-def check(md, refs=False, end="## Appendix", transcript=False):
+def counter(md, end="## Appendix", mask=None):
+    """v0.3 iv, the counter-metric, report only: {section: [prose words, words P2 read]} over the text P2 reads. A
+    line that opens with a short label ("Why:") counts under the label, without the label word."""
+    out, words = {}, lambda t: len(re.sub(r"\*\*|\[\d+\]", "", t).split())
+    for sect, s, r in reads(summary(md.splitlines(), end), mask):
+        # the label is read from the masked line, so a copied subject such as "Save the date: offsite" (--source)
+        # is no label. ponytail: without --source that subject still reads as a label; a label list would fix it
+        m, n = LABEL.match(r), LABEL.match(s)
+        if m and n and m.group(1) == n.group(1):
+            sect, s, r = m.group(1), s[n.end():], r[m.end():]
+        g = out.setdefault(sect, [0, 0])
+        g[0], g[1] = g[0] + words(s), g[1] + words(r)
+    return out
+
+
+def counter_lines(md, ok, end="## Appendix", mask=None):
+    """The counter-metric as printed: one P2 line, then one line per section with prose words."""
+    cm = [(k, p, r) for k, (p, r) in counter(md, end, mask).items() if p]
+    empty = [f"{k} ({r} of {p} words read)" for k, p, r in cm if r < p / 2]
+    head = f"P2 counter-metric (report only): {'pass' if ok else 'FAIL'}, " + (
+        "empty in " + "; ".join(empty) if empty else "no section empty")
+    what = "quoted or copied" if mask else "quoted"
+    return [head] + [f"  {k}: {p} prose words, {r} read by P2, {(p - r) / p:.0%} {what}" + (", empty" if r < p / 2 else "")
+                     for k, p, r in cm]
+
+
+def check(md, refs=False, end="## Appendix", transcript=False, source=None):
+    """P1 to P3 (P1 to P4 with refs). source is the pasted case's text (v0.3 i, --source), or None."""
     if transcript:
         md = copilot_turns(md)
         if not md.strip():
             err = (False, "error: no Copilot turn read; is this a transcript with **Copilot:** labels?")
             return {k: err for k in ("P1", "P2", "P3", "P4")[:4 if refs else 3]}
-    items = {"P1": p1(md), "P2": p2(md, end), "P3": p3(md, refs)}
+    mask = copied(source) if source else None
+    items = {"P1": p1(md, mask), "P2": p2(md, end, mask), "P3": p3(md, refs, mask)}
     if refs:
         items["P4"] = p4(md, end)
     return items
@@ -341,6 +421,48 @@ def self_check():
     assert check(inline, transcript=True)["P1"] == (False, "not spelt out at first use: AI, COO"), check(inline, transcript=True)
     none = check("**Executive:** hello.\n", transcript=True)
     assert all(not ok and why.startswith("error:") for ok, why in none.values()), none
+
+    # v0.3 i) --source masks the exact subjects and sender names copied from the pasted case, wherever they appear,
+    # straight or curly apostrophe; a word added around them, or a part of a subject, is still read
+    pasted = ("--- Email 1 ---\nFrom: IT Service Desk <it@example.com>\nSubject: FY27 budget templates\n\n"
+              "--- Email 2 ---\nFrom: \"Kim O'Hara\" <kim@example.com>\nSubject: Re: RSVPs for the CFO dinner\n")
+    slot = ("- FY27 budget templates, from IT Service Desk, for the KPI review\n"
+            "- Re: RSVPs for the CFO dinner, from Kim O’Hara\n- Why: the FY27 plan is due.\n")
+    assert p1(slot) == (False, "not spelt out at first use: FY, IT, KPI, RSVP, CFO"), p1(slot)  # no --source: as v0.2
+    assert check(slot, source=pasted)["P1"] == (False, "not spelt out at first use: KPI, FY"), check(slot, source=pasted)
+    # review fix: the v0.3 review's seven --source probes; an acronym-only sender or subject is not masked (b, c)
+    for name, src, md, want in (
+            ("a", "Subject: FY27 budget templates\n", "- FY27 budget templates\n- Why: the FY27 plan is due.\n", False),
+            ("b", "From: HR <hr@x>\nSubject: Leave forms\n", "- Leave forms, from HR\n- Why: HR wants the forms back.\n", False),
+            ("c", "From: Kim Haddad <k@x>\nSubject: AGM\n", "- AGM, from Kim Haddad\n- Move: book the AGM venue.\n", False),
+            ("d", "From: Kim <k@x>\nSubject: Roster\n\nFrom: the CEO office, a note.\n", "- Why: the CEO office wants it.\n", False),
+            ("e", "Subject: Update\n", "- Update\n- Why: the ELT meets Friday. Update the ELT.\n", False),
+            ("f", "Subject: Budget templates\n", "- Budget KPI templates\n", False),
+            ("g", "From: IT Service Desk <it@x>\nSubject: FY27 budget templates\n",
+             "- FY27 budget templates, from IT Service Desk\n", True)):
+        assert check(md, source=src)["P1"][0] == want, (name, check(md, source=src)["P1"])
+
+    # v0.3 ii) a numbered bold line is text for P1 and P2, in either form (v0.2 skipped "**1. Title**" as a heading)
+    nb = "**1. The ELT met**\n\n1. **The CFO agreed**\n\n**2. " + "word " * 30 + "end**\n"
+    assert p1(nb) == (False, "not spelt out at first use: ELT, CFO"), p1(nb)  # v0.2: CFO only
+    assert p2(nb, "## Appendix")[1].startswith("1 of 3 sentences"), p2(nb, "## Appendix")  # v0.2: 0 of 1
+
+    # v0.3 iii) P3 leaves References out: a term found only in a reference title is not used (v0.2: all used)
+    t3 = (good.replace("- **VARK:** a model.", "- **VARK:** a model.\n- **Meta-analysis:** a study of studies.")
+          .replace("Title.", "A meta-analysis of styles."))
+    assert check(t3, refs=True)["P3"] == (False, "2 terms; not used in the note: Meta-analysis"), check(t3, refs=True)
+
+    # v0.3 iv) the counter-metric, report only: prose words and words P2 read per section (a heading, or a short
+    # label other than a mail prefix); "empty" under half read; never an item, so never part of pass or fail
+    why = ("## Needs you today\n\n- Re: Budget, from Kim\n- Why: “Please send the budget by Friday, or the board "
+           "meets without it.”\n- Move: Do, see https://example.org\n- Why: due Friday.\n")
+    assert counter(why) == {"Needs you today": [4, 4], "Why": [14, 2], "Move": [2, 2]}, counter(why)
+    dated = "## Can wait\n\nSave the date: offsite, from Kim O’Hara. Come back in May.\n"  # curly; the case has straight
+    assert list(counter(dated)) == ["Save the date"]  # without --source a copied subject reads as a label
+    assert counter(dated, mask=copied(pasted.replace("Re: RSVPs for the CFO dinner", "Save the date: offsite"))) == {
+        "Can wait": [11, 7]}, counter(dated, mask=copied(pasted.replace("Re: RSVPs for the CFO dinner", "Save the date: offsite")))
+    assert counter_lines(why, True)[0] == "P2 counter-metric (report only): pass, empty in Why (2 of 14 words read)"
+    assert set(check(why)) == {"P1", "P2", "P3"} and set(check(why, refs=True)) == {"P1", "P2", "P3", "P4"}
     print("self-check passed")
 
 
@@ -352,8 +474,11 @@ if __name__ == "__main__":
     if not args:
         sys.exit(__doc__.split("\n\n")[1])
     end = args[args.index("--summary-end") + 1] if "--summary-end" in args else "## Appendix"
-    items = check(open(args[0], encoding="utf-8").read(), refs="--refs" in args, end=end,
-                  transcript="--transcript" in args)
+    src = open(args[args.index("--source") + 1], encoding="utf-8").read() if "--source" in args else None
+    md = open(args[0], encoding="utf-8").read()
+    items = check(md, refs="--refs" in args, end=end, transcript="--transcript" in args, source=src)
     for k, (ok, why) in items.items():
         print(f"{k} {'pass' if ok else 'FAIL'}: {why}")
+    text = copilot_turns(md) if "--transcript" in args else md
+    print("\n".join(counter_lines(text, items["P2"][0], end, copied(src) if src else None)))
     sys.exit(0 if all(ok for ok, _ in items.values()) else 1)

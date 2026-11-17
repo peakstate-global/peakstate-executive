@@ -198,7 +198,7 @@ footer p{margin:.3rem 0}
 
 <section class="panel" id="profile" data-panel="profile" aria-labelledby="profile-h">
   <article class="card">
-    <div class="card-h"><span class="step-no setup">Setup</span><h3 id="profile-h">Your profile</h3><span class="tag">v3</span></div>
+    <div class="card-h"><span class="step-no setup">Setup</span><h3 id="profile-h">Your profile</h3><span class="tag">v4</span></div>
     <p class="for">A setup step, not a skill: about ten minutes, done once, and it makes the skills run better. Copilot interviews you and writes <strong>profile.docx</strong>: your role, portfolio, leadership team, priorities, forums, industry, AI tools and how you like to work.</p>
     <div class="cols">
       <div>
@@ -256,18 +256,18 @@ PLAIN ENGLISH
 i) Use everyday words. Use a technical term only when no everyday word does the job. At the term's first use, define it in brackets straight after the term, for example: a meta-analysis (a study that combines the results of many earlier studies). Never put a definition at the end of a line, where a citation goes.
 ii) Spell out every acronym at its first use, with the acronym in brackets after it, for example: artificial intelligence (AI). Do this for common acronyms too.
 iii) Keep sentences short: most under 25 words, with one idea in each. If this prompt asks for a citation on every sentence, give each short sentence its own citation.
-iv) Copy every quote with its source's exact words. Never reword a quote to make it plainer.
+iv) Quote only where this prompt asks for a quote. When you quote, copy the source's exact words, and never reword a quote to make it plainer.
 v) If this prompt asks for drafts that I send, start each draft with the marker this prompt names: the line "Draft to &lt;name&gt;:", or the heading "Draft email to your team" followed by the line "Draft, not sent." A draft runs from its marker to the next item or heading. In a draft, use plain words and short sentences, but write acronyms the way my team writes them, define no term in brackets, and add nothing from the draft to the word list. Everything outside the drafts keeps every rule.
 vi) End with the heading "## Words used in this note": one bullet for each term you defined, in the form "- **Term:** meaning." If you defined no term, leave this section out.
 These plain-English rules govern what you write in this chat only. The file profile.docx keeps its eight fixed headings word for word, one of them "AI tools in use", and gets no bracketed definitions and no word list.</pre></details>
-    <p class="watch"><strong>Tested:</strong> v2 passed 2 of 2 practice runs. v3 adds the plain-English rules and was run once (below). The test executive gave tidy answers, so an executive who rambles is not tested yet.</p>
-    <p class="demo"><strong>Demo run d02, 17 November 2026:</strong> all 18 facts the practice executive gave are in the file. Our scorer failed it on one item: the file names the executive under Role, because our scripted practice executive gave the name unasked. Every acronym was spelt out.</p>
+    <p class="watch"><strong>Tested:</strong> v2 passed 2 of 2 practice runs. v4 keeps the plain-English rules, now with quotes only where the prompt asks for one, and was run once (below). The test executive gave tidy answers, so an executive who rambles is not tested yet.</p>
+    <p class="demo"><strong>Demo run d03, 17 November 2026:</strong> all 18 facts the practice executive gave are in the file, nothing is invented, and our scorer passes it. One plain-English miss: question 7 writes "AI" without spelling it out.</p>
   </article>
 </section>
 
 <section class="panel" id="forum" data-panel="forum" aria-labelledby="forum-h">
   <article class="card">
-    <div class="card-h"><span class="step-no">1</span><h3 id="forum-h">Forum prep</h3><span class="tag">v23</span></div>
+    <div class="card-h"><span class="step-no">1</span><h3 id="forum-h">Forum prep</h3><span class="tag">v24</span></div>
     <p class="for">The day before a board or committee meeting: Copilot reads the whole pack and prepares you, with every point pinned to a page. It never recommends an option.</p>
     <div class="cols">
       <div>
@@ -336,17 +336,17 @@ PLAIN ENGLISH
 i) Use everyday words. Use a technical term only when no everyday word does the job. At the term's first use, define it in brackets straight after the term, for example: a meta-analysis (a study that combines the results of many earlier studies). Never put a definition at the end of a line, where a citation goes.
 ii) Spell out every acronym at its first use, with the acronym in brackets after it, for example: artificial intelligence (AI). Do this for common acronyms too.
 iii) Keep sentences short: most under 25 words, with one idea in each. If this prompt asks for a citation on every sentence, give each short sentence its own citation.
-iv) Copy every quote with its source's exact words. Never reword a quote to make it plainer.
+iv) Quote only where this prompt asks for a quote. When you quote, copy the source's exact words, and never reword a quote to make it plainer.
 v) If this prompt asks for drafts that I send, start each draft with the marker this prompt names: the line "Draft to &lt;name&gt;:", or the heading "Draft email to your team" followed by the line "Draft, not sent." A draft runs from its marker to the next item or heading. In a draft, use plain words and short sentences, but write acronyms the way my team writes them, define no term in brackets, and add nothing from the draft to the word list. Everything outside the drafts keeps every rule.
 vi) End with the heading "## Words used in this note": one bullet for each term you defined, in the form "- **Term:** meaning." If you defined no term, leave this section out.</pre></details>
-    <p class="watch"><strong>Tested:</strong> v22 gave good output in 6 of 6 practice runs. v23 adds the plain-English rules and was run twice, on this practice case and on a scored one. Expect about 100 to 110 words for each page of the pack. Packs over 60 pages are not tested.</p>
-    <p class="demo"><strong>Demo run d02, 17 November 2026:</strong> 5,340 words for a 48-page pack. 188 of 189 page citations were on the cited page, every acronym was spelt out, and a word list of 6 terms closes the answer. The fault is still length and repetition, so the sample shows the whole answer.</p>
+    <p class="watch"><strong>Tested:</strong> v22 gave good output in 6 of 6 practice runs. v24 keeps the plain-English rules and was run twice: on this practice case, and on a scored one, where it found 8 of 8 planted items. The two runs gave about 101 and 75 words for each page of the pack. Packs over 60 pages are not tested.</p>
+    <p class="demo"><strong>Demo run d03, 17 November 2026:</strong> 4,835 words for a 48-page pack. 167 of 171 page citations were on the cited page (the other 4 cite one table row whose cells Copilot joined), every acronym was spelt out, and a word list of 4 terms closes the answer.</p>
   </article>
 </section>
 
 <section class="panel" id="rnd" data-panel="rnd" aria-labelledby="rnd-h">
   <article class="card">
-    <div class="card-h"><span class="step-no">2</span><h3 id="rnd-h">R&amp;D</h3><span class="tag">Researcher v5</span></div>
+    <div class="card-h"><span class="step-no">2</span><h3 id="rnd-h">R&amp;D</h3><span class="tag">Researcher v6</span></div>
     <p class="for">Before you back an idea at a decision forum: Researcher argues it for and against from sources it opened, then proposes a one-month test and a pitch. A one-page summary comes first, and the evidence follows as an appendix, in plain English, with a word list and numbered references at the end.</p>
     <div class="cols">
       <div>
@@ -397,7 +397,7 @@ Write the report in two parts: a short executive summary first, then an appendix
 The executive summary is the first three sections. Write them in plain words for a busy executive, answer first. Write the summary from the evidence in the appendix. Caps, counting every word, definitions included: Executive summary at most 300 words, One-month test at most 180 words, Pitch at most 150 words, and the three together at most 600 words.
 In the summary, write each label in bold, followed by a colon.
 Executive summary: short paragraphs, each starting with a label, in this order:
-The answer: one sentence that answers whether the idea should go ahead as my note describes it, and states its price: what it costs or what we give up. The reader must not have to work out the trade from figures in other sections. The answer must still hold after everything this note discloses: the evidence against the idea, every claim you could not verify and every limit you name. If the evidence for and against is even, or a test or pass mark is met only at a tie, say it is a tie, and do not recommend the idea on it.
+The answer: one sentence that answers whether the idea should go ahead as my note describes it, and states the price of what you recommend: what it costs or what we give up. If you advise against the idea as described, give the price of what you recommend instead, not the price of the idea. The reader must not have to work out the trade from figures in other sections. The answer must still hold after everything this note discloses: the evidence against the idea, every claim you could not verify and every limit you name. If the evidence for and against is even, or a test or pass mark is met only at a tie, say it is a tie, and do not recommend the idea on it.
 Point 1:, Point 2: and Point 3: three points that support the answer, most important first. Each point opens with its finding in one sentence, in bold with its label. Then at most two more sentences, then Strongest evidence: and one fact, with its figure when the source gives one. End the point with the number of that evidence's reference in square brackets, such as [2]. Use only a reference number that a sourced row in Evidence for the idea or Evidence against the idea cites. Never cite a reference in the summary that no sourced row cites.
 This works if: the label on its own line, then a bullet list, in plain words, of the conditions under which the idea, or part of it, works, taken from the Where both sides are right section.
 It fails if: the label on its own line, then a bullet list, in plain words, of the conditions under which it fails, taken from the Where both sides are right section.
@@ -417,20 +417,20 @@ PLAIN ENGLISH
 i) Use everyday words. Use a technical term only when no everyday word does the job. At the term's first use, define it in brackets straight after the term, for example: a meta-analysis (a study that combines the results of many earlier studies). Never put a definition at the end of a line, where a citation goes.
 ii) Spell out every acronym at its first use, with the acronym in brackets after it, for example: artificial intelligence (AI). Do this for common acronyms too.
 iii) Keep sentences short: most under 25 words, with one idea in each. If this prompt asks for a citation on every sentence, give each short sentence its own citation.
-iv) Copy every quote with its source's exact words. Never reword a quote to make it plainer.
+iv) Quote only where this prompt asks for a quote. When you quote, copy the source's exact words, and never reword a quote to make it plainer.
 v) If this prompt asks for drafts that I send, start each draft with the marker this prompt names: the line "Draft to &lt;name&gt;:", or the heading "Draft email to your team" followed by the line "Draft, not sent." A draft runs from its marker to the next item or heading. In a draft, use plain words and short sentences, but write acronyms the way my team writes them, define no term in brackets, and add nothing from the draft to the word list. Everything outside the drafts keeps every rule.
 vi) End with the heading "## Words used in this note": one bullet for each term you defined, in the form "- **Term:** meaning." If you defined no term, leave this section out.
-In this note, always include "## Words used in this note", and put it just before "## References". The note ends with References.
+In this note, always include "## Words used in this note", and put it just before "## References". The note ends with References. List only the terms you defined in brackets in the note's own text, outside quotes and References, and check that each one is there before you answer.
 
 Never decide for me.</pre></details>
-    <p class="watch"><strong>Tested:</strong> v3, the same research rules without the summary, gave good output in 3 of 3 practice runs. v5 adds plain English and numbered references, and was run once (below). Each message to Researcher uses one of your 25 monthly queries.</p>
-    <p class="demo"><strong>Demo run v5-d01, 17 November 2026:</strong> all 9 quotes are on their pages, and all 4 references match the publisher's record. One miss: 2 of the 7 terms in the word list are never used in the note. Copilot shows each [n] as plain text, not a link: match it to the numbered References by eye. It used 2 Researcher queries.</p>
+    <p class="watch"><strong>Tested:</strong> v3, the same research rules without the summary, gave good output in 3 of 3 practice runs. v6 keeps plain English and numbered references, asks the answer to price what it recommends, and was run once (below). Each message to Researcher uses one of your 25 monthly queries.</p>
+    <p class="demo"><strong>Demo run v6-d01, 17 November 2026:</strong> all 9 quotes are on their pages, and all 5 references match the publisher's record. One miss: the answer names the price of the test it recommends, but its size is only in the one-month test. Copilot shows each [n] as plain text, not a link: match it to the numbered References by eye. It used 2 Researcher queries.</p>
   </article>
 </section>
 
 <section class="panel" id="industry" data-panel="industry" aria-labelledby="industry-h">
   <article class="card">
-    <div class="card-h"><span class="step-no">3</span><h3 id="industry-h">Weekly radar</h3><span class="tag">v15</span></div>
+    <div class="card-h"><span class="step-no">3</span><h3 id="industry-h">Weekly radar</h3><span class="tag">v16</span></div>
     <p class="for">It runs on a Monday. First your week ahead from your own calendar, email and tasks: three priorities, meetings to prepare for, meetings you could decline or delegate, and overdue items. Then the last seven days' industry and AI news you should raise this week: a short summary, then one card per item, dated, quoted and given an owner.</p>
     <div class="cols">
       <div>
@@ -488,7 +488,7 @@ Give Section 2 as a short list and cards, never as a table. For Section 2, after
 First a line with only the word Summary, then up to three lines that each start with "- " and give one development you report, in one short sentence, most important first.
 Then one card for each development you report, numbered from 1. A card is these nine lines, in this order:
 - line 1: the card number, a full stop and a short title of the development in bold, for example **1. Approvals for new houses fell 3%**. The title is a complete phrase of 5 to 10 words that says what changed, with no link, web address, domain name or bracket in it.
-- Type: industry or AI
+- Type: industry, or Type: artificial intelligence (AI), written exactly so
 - Date: the publication date, for example 3 November 2026
 - Source: the full web address written out as text
 - Why it matters to you: one sentence that names the one portfolio area from my profile that the development touches most, copied word for word from the profile.
@@ -497,7 +497,10 @@ Then one card for each development you report, numbered from 1. A card is these 
 - Owner: who does the action: a Leadership team role copied word for word from my profile, or You; if Action is None, write None.
 - Quote: one sentence copied exactly from that page, 30 words or fewer, that supports the development. Put nothing else on the Quote line: no tool name, command or web address.
 Write each label exactly as above, followed by a colon. Never put two labels on one line.
-After the cards, for each type with no card, write one line: Nothing material this week: industry (or Nothing material this week: AI). If neither type has a card, write no Summary and no cards, only those two lines.
+After the cards, for each type with no card, write its line below, each on its own line:
+Nothing material this week: industry
+Nothing material this week: artificial intelligence (AI)
+If neither type has a card, write no Summary and no cards, only those two lines.
 After that, list in one line each anything you left out because it was old, already in last week's list, or an echo.
 Never decide for me.
 
@@ -505,17 +508,17 @@ PLAIN ENGLISH
 i) Use everyday words. Use a technical term only when no everyday word does the job. At the term's first use, define it in brackets straight after the term, for example: a meta-analysis (a study that combines the results of many earlier studies). Never put a definition at the end of a line, where a citation goes.
 ii) Spell out every acronym at its first use, with the acronym in brackets after it, for example: artificial intelligence (AI). Do this for common acronyms too.
 iii) Keep sentences short: most under 25 words, with one idea in each. If this prompt asks for a citation on every sentence, give each short sentence its own citation.
-iv) Copy every quote with its source's exact words. Never reword a quote to make it plainer.
+iv) Quote only where this prompt asks for a quote. When you quote, copy the source's exact words, and never reword a quote to make it plainer.
 v) If this prompt asks for drafts that I send, start each draft with the marker this prompt names: the line "Draft to &lt;name&gt;:", or the heading "Draft email to your team" followed by the line "Draft, not sent." A draft runs from its marker to the next item or heading. In a draft, use plain words and short sentences, but write acronyms the way my team writes them, define no term in brackets, and add nothing from the draft to the word list. Everything outside the drafts keeps every rule.
 vi) End with the heading "## Words used in this note": one bullet for each term you defined, in the form "- **Term:** meaning." If you defined no term, leave this section out.</pre></details>
     <p class="watch"><strong>Before you paste:</strong> replace {TODAY} with today's date (for example Monday 16 November 2026), {WEEK} with this Monday to Friday in full (for example Monday 16 November 2026 to Friday 20 November 2026), and {WINDOW} with "the last seven days ending today." <strong>Limits:</strong> Copilot may not read your To Do or Planner tasks, so overdue tasks can be missed. For meetings you organise, "decline" means asking to be excused.</p>
-    <p class="demo"><strong>Demo run w03, 17 November 2026:</strong> the real result. 8 of 11 planted week items found, and the week ahead showed as three tables in Copilot's chat. Two flagged emails past their flag date were missed: Copilot said it could not read private tasks or tasks assigned to you. Every acronym was spelt out.</p>
+    <p class="demo"><strong>Demo run w04, 17 November 2026:</strong> the real result. 8 of 11 planted week items found, and the week ahead showed as three tables in Copilot's chat. Missed: one task, and two flagged emails past their flag date (Copilot said it could not read private tasks or tasks assigned to you). One plain-English miss: the closing line of the week ahead writes "AI" without spelling it out.</p>
   </article>
 </section>
 
 <section class="panel" id="inbox" data-panel="inbox" aria-labelledby="inbox-h">
   <article class="card">
-    <div class="card-h"><span class="step-no">4</span><h3 id="inbox-h">Inbox triage</h3><span class="tag">v11</span></div>
+    <div class="card-h"><span class="step-no">4</span><h3 id="inbox-h">Inbox triage</h3><span class="tag">v12</span></div>
     <p class="for">A short list each morning of the emails that need you, each with a draft reply, the ones that can wait with a come-back date, and one line for everything safe to archive. Copilot never sends, moves or deletes.</p>
     <aside class="advanced-note" role="note" aria-label="A more advanced version">
       <p><strong>A more advanced version is possible.</strong> A Copilot Studio agent with actions can move each email into a folder by its suggested action (Do, Delegate, Defer, Delete), so you can then work through each folder quickly and act. It needs extra setup outside the scope of this repo, and you will likely need support from your IT team or a mentor to build it.</p>
@@ -542,7 +545,7 @@ vi) End with the heading "## Words used in this note": one bullet for each term 
     <ul class="files" aria-label="Practice files for Inbox triage">
       <li><a href="samples/inbox/inbox-40-emails.txt" download>Download 40 practice emails (text)</a></li>
     </ul>
-    <p class="demo"><strong>Tested on pasted mail (run s03, 17 November 2026):</strong> 40 of 40 emails in the right part, 20 of 20 drafts with every decision left to you in square brackets, the AI-instruction email reported and used in no draft. Check the archive search before you use it: it also selects three emails that are not safe to archive. In the live mailbox test, Copilot's safety filter stopped the run, because our test mailbox holds a planted attack email. Links to each email are expected in the live mailbox (Copilot Chat offers "Open in Outlook" on cited emails), but were not shown in either of our runs.</p>
+    <p class="demo"><strong>Tested on pasted mail (run s04, 17 November 2026):</strong> 40 of 40 emails in the right part, 20 of 20 drafts with every decision left to you in square brackets, the AI-instruction email reported and used in no draft. Check the archive search before you use it: it selects all 40 emails, and you take out the 29 listed above by hand. In the live mailbox test, Copilot's safety filter stopped the run, because our test mailbox holds a planted attack email. Links to each email are expected in the live mailbox (Copilot Chat offers "Open in Outlook" on cited emails), but were not shown in either of our runs.</p>
     <details class="prompt"><summary>Show the prompt</summary><pre id="p-inbox">Make me a short list from my inbox. Use every email in my Inbox folder received on the day of my newest email or in the 7 days before it. Find them by the dates on the emails, not by today's date. If I paste emails below this prompt, use only those.
 
 My team: if I attach profile.docx, take my team from its "Leadership team" section (each person and what they run). If not, use the team list in my message. Delegate only to a person on that list.
@@ -591,7 +594,7 @@ PLAIN ENGLISH
 i) Use everyday words. Use a technical term only when no everyday word does the job. At the term's first use, define it in brackets straight after the term, for example: a meta-analysis (a study that combines the results of many earlier studies). Never put a definition at the end of a line, where a citation goes.
 ii) Spell out every acronym at its first use, with the acronym in brackets after it, for example: artificial intelligence (AI). Do this for common acronyms too.
 iii) Keep sentences short: most under 25 words, with one idea in each. If this prompt asks for a citation on every sentence, give each short sentence its own citation.
-iv) Copy every quote with its source's exact words. Never reword a quote to make it plainer.
+iv) Quote only where this prompt asks for a quote. When you quote, copy the source's exact words, and never reword a quote to make it plainer.
 v) If this prompt asks for drafts that I send, start each draft with the marker this prompt names: the line "Draft to &lt;name&gt;:", or the heading "Draft email to your team" followed by the line "Draft, not sent." A draft runs from its marker to the next item or heading. In a draft, use plain words and short sentences, but write acronyms the way my team writes them, define no term in brackets, and add nothing from the draft to the word list. Everything outside the drafts keeps every rule.
 vi) End with the heading "## Words used in this note": one bullet for each term you defined, in the form "- **Term:** meaning." If you defined no term, leave this section out.</pre></details>
   </article>

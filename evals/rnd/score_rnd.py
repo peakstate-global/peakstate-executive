@@ -46,6 +46,12 @@
     Checker v5 fix (17 November 2026, after v5-d01): a reference number alone on its line ("1.", then the
     entry on the next line, as derive.py --keep-structure wrote Copilot's <li><p> items before its own fix) is read as
     that numbered entry. Only a note that was malformed before can score differently.
+    Checker v5.1 (17 November 2026, after the Release 1.1 runs, --key evals/rnd/answer-key-t2-researcher-v5.1.json):
+    checker v5 with two I1 changes. The tie rule: a reconcile bullet whose text, with the rows it names, matches two
+    contested claims is credited to the one claim its named row ("Claim <n>", a row in Evidence for the idea) matches
+    on that row's own text; with no row named, or a row that matches both claims or neither, it still covers neither.
+    The key's C1 pattern accepts plurals ("styles", "modalities"). Every other item scores as on v5. Experimental
+    phase: not comparable with v5 for I1.
     Add --key evals/rnd/answer-key-t2.json for the tier-2 case (K1 by URL only, L1 quote limit).
 
 Sections are found by their heading (any level, or a line in bold) holding the key's section name.
@@ -72,11 +78,12 @@ def load(key_path):
 CHIP = re.compile(r"\s*\[[^\[\]]*\|[^\[\]]*\]|\s*\[\d+\]")  # citation chips such as [1] or [file | PDF]
 CHIP_V5 = re.compile(r"\s*\[[^\[\]]*\|[^\[\]]*\]")  # checker v5: [n] is the citation, so only [file | PDF] chips go
 CITE = re.compile(r"\[(\d+)\]")  # checker v5: a numbered citation
-ROUTE_CHECKERS = ("v4.3", "v4.4", "v4.5", "v5")  # keys with the blocked-host route and R1 as critical
+ROUTE_CHECKERS = ("v4.3", "v4.4", "v4.5", "v5", "v5.1")  # keys with the blocked-host route and R1 as critical
+V5 = ("v5", "v5.1")  # checker v5.1 scores as v5 except the I1 tie rule
 
 
 def chip():
-    return CHIP_V5 if KEY.get("checker") == "v5" else CHIP
+    return CHIP_V5 if KEY.get("checker") in V5 else CHIP
 
 
 NOT_VERIFIED = re.compile(r"(?:could not|couldn't|cannot|can't|unable to|did not|didn't) (?:verify|find|confirm|locate|trace)|"
@@ -96,7 +103,7 @@ def sections(text):
     for line in text.splitlines():
         h = heading(line)
         if h is not None:
-            bold, v5 = not line.lstrip().startswith("#"), KEY.get("checker") == "v5"
+            bold, v5 = not line.lstrip().startswith("#"), KEY.get("checker") in V5
             # checker v5 (review): the prompt allows its nine headings only, so a bold line is a heading only
             # when its text equals a section name, and any other bold line is content in every section. A bold finding
             # such as **Point 3: A one-month test is the cheap way to find out.** no longer opens One-month test.
@@ -417,13 +424,13 @@ def summary_items(sec, rows):
     """Checker v4.4. S1: the summary cites only addresses in the appendix tables (sourced rows), and at least one.
     S2: summary form (section order, The answer, three cited points, works if / fails if, word cap)."""
     sk = KEY["summary"]
-    v5 = KEY.get("checker") == "v5"
+    v5 = KEY.get("checker") in V5
     text = "\n".join(sec[k] for k in sk["sections"])
     sourced = [r for s in ("for", "against") for r in rows[s] if r["Label"] == "sourced" and r["URL"]]
     table = {check_urls.norm(r["URL"]) for r in sourced}
     urls = [u.rstrip(".,;:") for u in URL_RE.findall(chip().sub("", text))]
     stray = sorted({u for u in urls if check_urls.norm(u) not in table})
-    if KEY.get("checker") in ("v4.5", "v5"):  # a bare domain or domain-only chip must match a host in a sourced appendix row
+    if KEY.get("checker") in ("v4.5",) + V5:  # a bare domain or domain-only chip must match a host in a sourced appendix row
         chk = lambda r: r.get("check") or {}  # v5: and the final host reached, or the redirect target behind a Chrome capture
         hosts = {(urlparse(u).hostname or "").removeprefix("www.") for r in sourced
                  for u in ((r["URL"], chk(r).get("final"), chk(r).get("reached")) if v5 else (r["URL"],)) if u}
@@ -503,7 +510,12 @@ def integration(body, rows):
     joined Case against row n, so one reference could pull in two unrelated rows), against the claim's match pattern (SPEC-redesign section 5: one
     bullet per contested claim), combined from both its own text and any claim it references. A bullet
     whose combined text matches more than one contested claim's pattern covers neither, so one bullet
-    cannot double up to cover two claims. The key decides what is contested, so naming none fails."""
+    cannot double up to cover two claims. The key decides what is contested, so naming none fails.
+    Checker v5.1: a tie is settled by the named row's own claim, unless the bullet's own text (without
+    the row) matches a different single claim than the row, in which case the tie stands unsettled.
+    Known limit: this only catches a bullet whose own text names a claim outright; a bullet whose own
+    text is off-topic for both claims still settles by the named row alone (review,
+    17 November 2026)."""
     bullets = bullets_of(body)
     row_text = {}
     for r in rows["for"]:  # checker v4.1: Case for only
@@ -513,11 +525,18 @@ def integration(body, rows):
         cond, refr = (re.compile(KEY["reconcile"][f], re.I | re.S) for f in ("conditional", "reframe"))
         form = lambda b: bool(cond.search(b) or refr.search(b))
     patterns = {c["id"]: re.compile(c["match"], re.I) for c in KEY["contested"]}
-    bullet_matches = []  # (bullet text, set of contested claim ids its combined text matches)
+    bullet_matches, settled = [], []  # (bullet text, set of contested claim ids its combined text matches)
     for b in bullets:
         refs = re.findall(r"\bclaims?\s+(\d+)", b, re.I)
         combined = b + " " + " ".join(t for n in refs for t in row_text.get(n, []))
-        bullet_matches.append((b, {cid for cid, pat in patterns.items() if pat.search(combined)}))
+        matched = {cid for cid, pat in patterns.items() if pat.search(combined)}
+        if KEY.get("checker") == "v5.1" and len(matched) > 1:  # checker v5.1: the named row's own claim wins a tie
+            own = {cid for cid in matched if any(patterns[cid].search(t) for n in refs for t in row_text.get(n, []))}
+            bullet_own = {cid for cid in matched if patterns[cid].search(b)}  # the bullet's own text alone
+            if len(own) == 1 and not (bullet_own and bullet_own.isdisjoint(own)):
+                matched = own
+                settled.append(f"Claim {', '.join(refs)} to {next(iter(own))}")
+        bullet_matches.append((b, matched))
     covered, wrong_form = [], []
     for c in KEY["contested"]:
         hits = [b for b, matched in bullet_matches if matched == {c["id"]}]
@@ -526,8 +545,9 @@ def integration(body, rows):
         elif hits:
             wrong_form.append(c["id"])
     n = len(KEY["contested"])
+    tie = f" Ties settled by the named row: {settled}." if KEY.get("checker") == "v5.1" else ""
     return {"pass": len(covered) == n, "detail": f"{len(covered)} of {n} contested claims have a bullet in the asked form: {covered}; "
-            f"covered but wrong form: {wrong_form}; {len(bullets)} bullet(s). Form only, not quality."}
+            f"covered but wrong form: {wrong_form}; {len(bullets)} bullet(s). Form only, not quality.{tie}"}
 
 
 def self_check():
@@ -583,6 +603,9 @@ Attached: pilot-model.xlsx
     pair = v5_self_check()
     print("score_rnd self-check: ok (tier 1, tier 2, checker v4.1, v4.2, v4.3, v4.4, v4.5 and v5, "
           + ("with the known pair)" if pair else "known pair skipped)"))
+    pair = v51_self_check()
+    print("score_rnd self-check: ok (checker v5.1: the v5 fixture and probes, the tie rule, C1 plurals, "
+          + ("v5-d01 Claim 6, with the known pair)" if pair else "known pair or v5-d01 skipped)"))
 
 
 def t2_self_check():
@@ -1050,6 +1073,61 @@ def v5_self_check():
         review_probes(good, run, cr)
         ref_list_probes(good, run)
         return known_pair()
+    finally:
+        load(os.path.join(HERE, "answer-key.json"))
+
+
+def v51_self_check():
+    """Checker v5.1: the v5 fixture, its review probes and the known pair on the v5.1 key; then the tie rule and C1's
+    plurals, each probe also on the v5 key, where I1 must not move; then v5-d01's own Claim 6 on both keys."""
+    good = V5_GOOD.replace("{e1q}", json.load(open(os.path.join(HERE, "answer-key-t2-researcher-v5.json"),
+                                                   encoding="utf-8"))["known_against"][0]["evidence"]["quote"])
+    ok = lambda c, d=None: {"url": c["url"], "quote": c["quote"], "pass": True, "reason": "fake", "route": "this Mac",
+                            "final": "https://www.frontiersin.org/x" if "doi.org/10.3389" in c["url"] else c["url"]}
+    cr = lambda recs: (lambda doi: recs.get(doi))
+    run = lambda t, chk=ok, recs=V5_CROSSREF: score(t, "t", checker=chk, crossref=cr(recs))
+    tie = good.replace("assume leaders liking a format", "assume leaders liking a matched learning style")
+    probes = {  # name: (note, I1 on v5.1, I1 on v5)
+        "tie, row 2 names C2": (tie, "2 of 2", "1 of 2"),
+        "tie, no row named": (tie.replace("- Claim 2: Both", "- Both"), "1 of 2", "1 of 2"),
+        "tie, row 2 matches both": (tie.replace("| 2 | Leaders like the idea |", "| 2 | Leaders like matching to their learning style |"),
+                                    "1 of 2", "1 of 2"),
+        "tie, bullet argues only the other claim": (good.replace(
+            "- Claim 2: Both sides assume leaders liking a format predicts learning from it. If that is not true, measure learning, not liking.",
+            "- Claim 2: Both sides assume matching to a learner's style produces better recall. If that is not true, "
+            "the formats cost more than they return."), "1 of 2", "1 of 2"),
+        "plural styles": (good.replace("- Claim 1: Matching to style helps", "- Matching to styles helps"), "2 of 2", "1 of 2"),
+        "plural modalities": (good.replace("- Claim 1: Matching to style helps", "- Matching modalities helps"), "2 of 2", "1 of 2"),
+    }
+    d01 = os.path.join(HERE, "rounds-researcher", "v5-d01", "output.md")
+    try:
+        for name, col in (("answer-key-t2-researcher-v5.1.json", 1), ("answer-key-t2-researcher-v5.json", 2)):
+            load(os.path.join(HERE, name))
+            for probe, row in probes.items():
+                got = run(row[0])["items"]["I1"]["detail"]
+                assert got.startswith(row[col]), (name, probe, got)
+            if os.path.exists(d01):  # the real note: Claim 6 matches C1 and C2, and its row 6 matches C2 only
+                t = open(d01, encoding="utf-8").read()
+                sec = sections(t)
+                refs = references(sec["references"])
+                got = integration(sec["integration"], {k: rows_of(k, sec[k], refs) for k in ("for", "against")})["detail"]
+                assert got.startswith("2 of 2" if col == 1 else "1 of 2"), (name, got)
+                assert ("Claim 6 to C2" in got) == (col == 1), got
+        load(os.path.join(HERE, "answer-key-t2-researcher-v5.1.json"))
+        assert KEY["checker"] == "v5.1" and "Claim 2 to C2" in run(tie)["items"]["I1"]["detail"]
+        s = run(good)
+        assert s["pass"] and s["verdict"] == "pass" and s["checker"] == "v5.1", json.dumps(s["items"], indent=1)
+        # every v5 version check holds on v5.1: R1 critical, the route, the bold-line rule, the chip rule for S1
+        assert "R1" in run(good, lambda c, d=None: {**ok(c), "pass": "a.example" not in c["url"]})["critical_failures"]
+        assert run(good, lambda c, d=None: {**ok(c), **({"pass": False, "refused": True} if "a.example" in c["url"] else {})}
+                   )["verdict"] == "awaiting route"
+        assert "works if True" in s["items"]["S2"]["detail"] and "route" in s
+        assert "belief in styles is common [15]" in {c["quote"] for c in s["citations"]}  # a bare [n] is no chip
+        assert run(good.replace("found no gain. [1]", "found no gain. [1] [frontiersin.org]"))["items"]["S1"]["pass"]
+        assert not run(good.replace("found no gain. [1]", "found no gain. [1] [outside.example]"))["items"]["S1"]["pass"]
+        review_probes(good, run, cr)
+        ref_list_probes(good, run)
+        return known_pair() and os.path.exists(d01)
     finally:
         load(os.path.join(HERE, "answer-key.json"))
 

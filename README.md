@@ -30,7 +30,7 @@ The prompt text is also in the [prompts](prompts/) folder, one file for the setu
 
 ## Status
 
-Release 1.1 (November 2026), tested on invented practice cases. Release 1.1 adds the same plain-English rules to every prompt (everyday words, terms defined in brackets, acronyms spelt out, a word list at the end) and numbered APA 7 references to R&D. Every person and organisation in the practice cases is invented.
+Release 1.2 (November 2026), tested on invented practice cases. Release 1.1 added the same plain-English rules to every prompt (everyday words, terms defined in brackets, acronyms spelt out, a word list at the end) and numbered APA 7 references to R&D. Release 1.2 asks for quotes only where a prompt wants one, asks R&D to price what it recommends, and spells out artificial intelligence (AI) in the Weekly radar's fixed text. Every person and organisation in the practice cases is invented.
 
 ## Feedback
 

@@ -48,6 +48,6 @@ PLAIN ENGLISH
 i) Use everyday words. Use a technical term only when no everyday word does the job. At the term's first use, define it in brackets straight after the term, for example: a meta-analysis (a study that combines the results of many earlier studies). Never put a definition at the end of a line, where a citation goes.
 ii) Spell out every acronym at its first use, with the acronym in brackets after it, for example: artificial intelligence (AI). Do this for common acronyms too.
 iii) Keep sentences short: most under 25 words, with one idea in each. If this prompt asks for a citation on every sentence, give each short sentence its own citation.
-iv) Copy every quote with its source's exact words. Never reword a quote to make it plainer.
+iv) Quote only where this prompt asks for a quote. When you quote, copy the source's exact words, and never reword a quote to make it plainer.
 v) If this prompt asks for drafts that I send, start each draft with the marker this prompt names: the line "Draft to <name>:", or the heading "Draft email to your team" followed by the line "Draft, not sent." A draft runs from its marker to the next item or heading. In a draft, use plain words and short sentences, but write acronyms the way my team writes them, define no term in brackets, and add nothing from the draft to the word list. Everything outside the drafts keeps every rule.
 vi) End with the heading "## Words used in this note": one bullet for each term you defined, in the form "- **Term:** meaning." If you defined no term, leave this section out.

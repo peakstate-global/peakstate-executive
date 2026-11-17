@@ -22,7 +22,7 @@ Needs Python 3.12 or later and pandoc (`brew install pandoc` on macOS).
 
 The score JSON has `"pass"` and the detail per item. Exit 0 means it scored.
 
-`player.py` is optional. It plays the persona with a separate Claude (it needs the Claude Code CLI), so a practice interview can run without a person: `python3 evals/setup-profile/player.py evals/setup-profile/case/persona-1.md transcript.md` prints the persona's next reply.
+`player.py` (v4) is optional. It plays the persona with a separate Claude (it needs the Claude Code CLI), so a practice interview can run without a person. It never sends the persona's name to the model, and it rejects any reply that gives a word of the name: it asks again up to two times, then stops with an error, so a run never continues on a reply that broke the persona's rules: `python3 evals/setup-profile/player.py evals/setup-profile/case/persona-1.md transcript.md` prints the persona's next reply.
 
 Self-checks: `python3 evals/setup-profile/score_profile.py --self-check` and `python3 evals/setup-profile/player.py --self-check`.
 

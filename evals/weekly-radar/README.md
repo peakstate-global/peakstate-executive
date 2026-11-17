@@ -11,7 +11,7 @@ Section 1, the week ahead (`score_week.py`, case `case-week/`):
 - All four parts are there (priorities, prepare, decline or delegate, overdue), each with content or "Nothing this week."
 - Which of the 11 planted items were found, and where. A clash between two meetings counts only in the decline or delegate part.
 
-Section 2, the radar (`score_industry.py`, newest key `answer-key-t2-past-v11.7.json`, cards layout):
+Section 2, the radar (`score_industry.py`, newest key `answer-key-t2-past-v11.8.json`, cards layout; v11.8 also reads the Type "artificial intelligence (AI)" and the nothing line written that way, as prompt v16 asks):
 
 - **F1:** one card per item, with a title and its labelled lines, Type is industry or AI, and every item has a date. A type with no item has the line "Nothing material this week: <type>". A table, a missing or repeated label, or a card with no title is malformed.
 - **R1 (critical):** every source page opens (no soft 404) and holds the quote, and the quote is short.
@@ -38,19 +38,19 @@ It scores Section 1 only. The answer must have an "Industry radar" heading to sp
 
 **Radar on a past week.** Run the prompt with `case-t2/profile.docx` and the case file `case-t2/past-1.txt` (week P1) or `case-t2/past-2.txt` (week P2), then:
 
-    python3 evals/weekly-radar/score_industry.py answer.md --key evals/weekly-radar/answer-key-t2-past-v11.7.json --week P1
+    python3 evals/weekly-radar/score_industry.py answer.md --key evals/weekly-radar/answer-key-t2-past-v11.8.json --week P1
 
 Use `--week P2` for `past-2.txt`. `--text-dir <dir>` gives saved page text for pages that block a script. Exit 0 prints a score JSON with `"pass"`. Exit 2 means the answer is malformed.
 
 The scorer loads a week's addendum and the profile fixture only if git tracks them with no edit since their last commit. This stops a key being changed after a run. Run it inside a git clone of this repo, and do not edit those files.
 
-Self-checks: `python3 evals/weekly-radar/score_week.py --self-check` (19 probes) and `python3 evals/weekly-radar/score_industry.py --self-check` (rulers tier 1 to v11.7). In this public copy the saved past answers are not included, so the probes that replay them are skipped and only the built-in probes run.
+Self-checks: `python3 evals/weekly-radar/score_week.py --self-check` (19 probes) and `python3 evals/weekly-radar/score_industry.py --self-check` (rulers tier 1 to v11.8; the v11.8 probe reads the hand-made answers in `fixtures-week/radar-p1/`). In this public copy the saved past answers are not included, so the probes that replay them are skipped and only the built-in probes run.
 
 ## Folders
 
 - `case/`, `case-t2/`: practice cases. `case-t2/` holds the profile and past weeks P1 and P2. `case-demo/` is week P1 with invented names, as the guide shows.
 - `case-week/`: the practice week for Section 1. `fixtures-week/`: small hand-written answers for the self-check.
-- The current keys are `case-week/week-key.json` for Section 1 and `answer-key-t2-past-v11.7.json` for the industry radar. The older `answer-key-t2-past*.json` files are earlier ruler versions, kept so earlier scores can be reproduced.
+- The current keys are `case-week/week-key.json` for Section 1 and `answer-key-t2-past-v11.8.json` for the industry radar. The older `answer-key-t2-past*.json` files are earlier ruler versions, kept so earlier scores can be reproduced.
 
 No radar holdout is published. None has been spent, so all stay sealed.
 

@@ -70,6 +70,12 @@
     pipe still fails, and a cut row with the wrong number of cells fails as before. Probes in v116_check; the v11.5 vs
     v11.6 parse and date of every saved capture in v116_recheck.py. Not comparable with v11.5 on T1 and T3 for a row
     on a page with a spaced labelled date, and on format for a run with chips after a closing pipe; nothing re-scored.
+    Ruler t2-past v11.8 (--key answer-key-t2-past-v11.8.json): as v11.7, plus ai_spelt_out: a card's Type
+    line that reads "artificial intelligence (AI)" is read as AI, and "Nothing material this week: artificial
+    intelligence (AI)" is the AI nothing line (prompt v16 spells out AI in its fixed text). The v15 forms still read;
+    keys v10 to v11.7 read neither new form. Probes in v118_check; fixtures in fixtures-week/radar-p1; the v11.7
+    re-score before and after the change in v118_recheck.py. Not comparable with v11.7 on F1 and format for an
+    answer in a spelt-out form; nothing re-scored.
 
 The output holds one table with the key's columns, or the key's "nothing material" line. Every row's
 URL is checked by rnd/check_urls.py (HTTP 200, no soft 404, page holds the quote). Each source page's
@@ -503,8 +509,12 @@ def story_of(row, groups):
 
 
 def nothing_line(text, typ):
-    """Ruler t2-past v10: the line 'Nothing material this week: <type>', bold or italic marks allowed."""
-    return re.search(r"nothing material this week:[*_\s]*" + re.escape(typ) + r"\b", text, re.I) is not None
+    """Ruler t2-past v10: the line 'Nothing material this week: <type>', bold or italic marks allowed. Ruler t2-past
+    v11.8 (ai_spelt_out): the AI line may also read 'Nothing material this week: artificial intelligence (AI)'."""
+    form = re.escape(typ) + r"\b"
+    if typ == "AI" and KEY.get("ai_spelt_out"):
+        form = r"(?:artificial intelligence \(AI\)|AI\b)"
+    return re.search(r"nothing material this week:[*_\s]*" + form, text, re.I) is not None
 
 
 SEP_CELL = re.compile(r":?-{3,}:?")
@@ -638,7 +648,10 @@ def finish_row(r, legacy):
         # diagnostic only: a v9-column answer read as industry rows with no So what or Action
         r.update({"Type": "industry", "Why it matters to your portfolio": r.pop("Why it matters to us"), "So what": "", "Action": ""})
     elif KEY.get("v10"):
-        t = {"industry": "industry", "ai": "AI"}.get(r["Type"].strip("*_ ").casefold())
+        types = {"industry": "industry", "ai": "AI"}
+        if KEY.get("ai_spelt_out"):  # ruler t2-past v11.8: "Type: artificial intelligence (AI)" (prompt v16)
+            types["artificial intelligence (ai)"] = "AI"
+        t = types.get(r["Type"].strip("*_ ").casefold())
         if not t:
             raise Malformed(f"row {r['#']}: Type {r['Type']!r} is not industry or AI")
         r["Type"] = t
@@ -878,7 +891,8 @@ def self_check():
     v115_check()
     v116_check()
     v117_check()
-    print("score_industry self-check: ok (tier 1, tier 2, v10, v11, v11.2, v11.3, v11.4, v11.5, v11.6 and v11.7)")
+    v118_check()
+    print("score_industry self-check: ok (tier 1, tier 2, v10, v11, v11.2, v11.3, v11.4, v11.5, v11.6, v11.7 and v11.8)")
 
 
 def saved_captures():
@@ -1160,6 +1174,90 @@ def v117_check():
                 fails(text, f"saved table capture {run}")
                 n["captures"] += 1
         assert not saved_captures() or n["captures"] >= 29, n
+    finally:
+        KEY = saved
+    return n
+
+
+def v118_check():
+    """Ruler t2-past v11.8: a card's Type line and the AI nothing line may spell out "artificial intelligence (AI)"
+    (prompt v16); the v15 forms still read; every older ruler (v10 to v11.7) reads neither new form; the radar part of
+    each fixture in fixtures-week/radar-p1 reads on v11.8 as its v15 copy does."""
+    global KEY
+    saved = KEY
+    v117 = json.load(open(os.path.join(HERE, "answer-key-t2-past-v11.7.json"), encoding="utf-8"))
+    v118 = json.load(open(os.path.join(HERE, "answer-key-t2-past-v11.8.json"), encoding="utf-8"))
+    own = {"version", "previous_version", "ruler_change", "ai_spelt_out"}
+    assert v118["ai_spelt_out"] is True and "ai_spelt_out" not in v117
+    assert not [f for f in set(v117) | set(v118) if f not in own and v117.get(f) != v118.get(f)]  # only the flag moved
+    n = {"new": 0, "old_keys": 0, "fixtures": 0}
+    spelt, ai_line = "artificial intelligence (AI)", "Nothing material this week: artificial intelligence (AI)"
+    card = lambda typ, i=1: (f"**{i}. A rival changed its estimating**\nType: {typ}\nDate: 31 October 2026\n"
+                             f"Source: https://news.example/{i}\nWhy it matters to you: Estimating and contract pricing is exposed.\n"
+                             f"So what: Margins may tighten.\nAction: None\nOwner: None\nQuote: costs rose\n")
+    industry = card("industry", 2).replace("A rival changed its estimating", "Builders face higher costs")
+    ok = lambda c, d=None: {"pass": True, "reason": "fake"}
+    good_date = lambda u, d, t=None, quote=None: (d, "fake")
+
+    def fails(text, why):
+        try:
+            parse(text)
+        except Malformed:
+            return
+        raise AssertionError(f"v11.8: {why} parsed")
+    try:
+        load(os.path.join(HERE, "answer-key-t2-past-v11.8.json"), "P1")
+        # the new forms: a spelt-out Type reads as AI, and the spelt-out nothing line is the AI line
+        assert parse(card(spelt)) == parse(card("AI")) and parse(card(spelt))[0]["Type"] == "AI"
+        assert parse(card(f"**{spelt}**"))[0]["Type"] == "AI"
+        assert parse(f"Nothing material this week: industry\n{ai_line}\n") == []
+        assert nothing_line(ai_line, "AI") and nothing_line(f"**Nothing material this week:** {spelt}", "AI")
+        assert nothing_line("_Nothing material this week: Artificial Intelligence (AI)_", "AI")
+        s_new = score(f"{industry}\n{ai_line}\n", "p", checker=ok, dater=good_date)
+        s_old = score(f"{industry}\nNothing material this week: AI\n", "p", checker=ok, dater=good_date)
+        assert s_new["items"]["F1"]["pass"] and s_new["items"] == s_old["items"], s_new["items"]["F1"]
+        # the v15 forms still read; other spellings of the type still fail closed
+        assert parse(card("AI"))[0]["Type"] == "AI" and nothing_line("Nothing material this week: AI", "AI")
+        for bad in ("AI (artificial intelligence)", "artificial intelligence", "artificial intelligence (AI) tools"):
+            fails(card(bad), f"Type {bad!r}")
+        assert not nothing_line("Nothing material this week: artificial intelligence", "AI")
+        assert not nothing_line(ai_line, "industry")
+        # a joined nothing line is never the AI line
+        assert not nothing_line("Nothing material this week: industry and artificial intelligence (AI)", "AI")
+        n["new"] += 12
+        # v11.7 reads the new forms as before: a spelt-out Type fails, and the spelt-out line is no AI line (F1 fails)
+        load(os.path.join(HERE, "answer-key-t2-past-v11.7.json"), "P1")
+        fails(card(spelt), "v11.7 behaviour kept: a spelt-out Type")
+        fails(f"Nothing material this week: industry\n{ai_line}\n", "v11.7 behaviour kept: the spelt-out nothing line alone")
+        assert not score(f"{industry}\n{ai_line}\n", "p", checker=ok, dater=good_date)["items"]["F1"]["pass"]
+        assert score(f"{industry}\nNothing material this week: AI\n", "p", checker=ok, dater=good_date)["items"] == s_old["items"]
+        # every older ruler key with the v10 Type rule (tables or cards) reads neither new form
+        row = {"#": "1", "Date": "31 October 2026", "Source URL": "https://news.example/1", "Quote": "costs rose"}
+        for v in ("v10", "v11", "v11.2", "v11.3", "v11.4", "v11.5", "v11.6", "v11.7"):
+            KEY = json.load(open(os.path.join(HERE, f"answer-key-t2-past-{v}.json"), encoding="utf-8"))
+            assert KEY.get("v10") and not KEY.get("ai_spelt_out"), v
+            assert finish_row({**row, "Type": "AI"}, False)["Type"] == "AI"
+            try:
+                finish_row({**row, "Type": spelt}, False)
+                raise AssertionError(f"{v} read a spelt-out Type")
+            except Malformed:
+                pass
+            assert nothing_line("Nothing material this week: AI", "AI") and not nothing_line(ai_line, "AI"), v
+            n["old_keys"] += 1
+        # the fixtures: each v16 radar part reads on v11.8 as its v15 copy does; v11.7 refuses or misses the v16 form
+        fx = os.path.join(HERE, "fixtures-week", "radar-p1")
+        radar = lambda f: open(os.path.join(fx, f), encoding="utf-8").read().split("## Industry radar", 1)[1].split("## Words used")[0]
+        for name in ("no-ai-card", "ai-card-type"):
+            new, old = radar(f"v16-{name}.md"), radar(f"v15-{name}.md")
+            load(os.path.join(HERE, "answer-key-t2-past-v11.8.json"), "P1")
+            assert parse(new) == parse(old) and nothing_line(new, "AI") == nothing_line(old, "AI"), name
+            assert any(r["Type"] == "AI" for r in parse(new)) == (name == "ai-card-type"), name
+            load(os.path.join(HERE, "answer-key-t2-past-v11.7.json"), "P1")
+            if name == "no-ai-card":
+                assert not nothing_line(new, "AI") and nothing_line(old, "AI")
+            else:
+                fails(new, "v11.7 behaviour kept: the v16 AI card")
+            n["fixtures"] += 1
     finally:
         KEY = saved
     return n
